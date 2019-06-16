@@ -5,9 +5,9 @@
   <subtitle>I am is a boy</subtitle>
   <link href="/atom.xml" rel="self"/>
   
-  <link href="http://yoursite.com/"/>
+  <link href="http://wang-zhibiao.github.io/"/>
   <updated>2019-06-11T13:31:23.202Z</updated>
-  <id>http://yoursite.com/</id>
+  <id>http://wang-zhibiao.github.io/</id>
   
   <author>
     <name>wangzhibiao</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>Hello World</title>
-    <link href="http://yoursite.com/2019/06/11/hello-world/"/>
-    <id>http://yoursite.com/2019/06/11/hello-world/</id>
+    <link href="http://wang-zhibiao.github.io/2019/06/11/hello-world/"/>
+    <id>http://wang-zhibiao.github.io/2019/06/11/hello-world/</id>
     <published>2019-06-11T13:31:23.202Z</published>
     <updated>2019-06-11T13:31:23.202Z</updated>
     
