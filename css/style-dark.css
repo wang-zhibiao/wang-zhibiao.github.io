@@ -87,7 +87,7 @@ blockquote,
   box-sizing: border-box;
   margin: 1.5em 0 1.5em 1em;
   padding: 10px;
-  color: #555;
+  color: #aaa;
   border: 1px solid #e6e6e6;
   border-left: 5px solid #40759b;
 }
@@ -178,16 +178,34 @@ em {
 .fa-email:before {
   content: "\e015";
 }
+/* scrollbar */
+::-webkit-scrollbar {
+  width: 12px;
+}
+/* 滚动槽 */
+::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+  border-radius: 10px;
+}
+/* 滚动条滑块 */
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background: #021825;
+  box-shadow: inset 0 0 5px #4169b9;
+}
+::-webkit-scrollbar-thumb:window-inactive {
+  background: #021825;
+}
 /* layout */
 body {
   font-family: "Source Code Pro", Tahoma, "Helvetica Neue", Helvetica, "Hiragino Sans GB", "Microsoft YaHei Light", "Microsoft YaHei", "Source Han Sans CN", "WenQuanYi Micro Hei", Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-size: 14px;
-  color: #333;
+  color: #999;
   width: 100%;
   height: 100%;
-  background: #d8e2eb url("../img/bg.jpg") no-repeat top center;
+  background: #010302 url("../img/bg-dark.jpg") no-repeat top center;
 }
 .layout-g {
   letter-spacing: -0.31em;
@@ -289,13 +307,12 @@ body {
   margin-bottom: 20px;
   padding: 10px 20px 20px 20px;
   border-radius: 4px;
-  -webkit-box-shadow: 1px 2px 3px #adc2d7;
-  box-shadow: 1px 2px 3px #adc2d7;
+  -webkit-box-shadow: 0 0 20px #adc2d7 inset;
+  box-shadow: 0 0 20px #adc2d7 inset;
   border: 1px solid #adc2d7;
-  background: #fff;
 }
 #sidebar .widget a {
-  color: #333;
+  color: #999;
 }
 #sidebar .widget a:hover {
   color: #40759b;
@@ -351,7 +368,7 @@ body {
   bottom: -52px;
   right: 0;
   padding: 20px 0;
-  color: #333;
+  color: #fff;
   width: 25%;
 }
 #search-form label {
@@ -375,9 +392,10 @@ body {
   line-height: 16px;
   width: 100%;
   border-radius: 15px;
-  background: #fff;
-  -webkit-box-shadow: 1px 2px 3px #adc2d7;
-  box-shadow: 1px 2px 3px #adc2d7;
+  color: #fff;
+  background: rgba(0,0,0,0.8);
+  -webkit-box-shadow: 0 0 20px #adc2d7 inset;
+  box-shadow: 0 0 20px #adc2d7 inset;
   border: 1px solid #adc2d7;
 }
 #result-wrap {
@@ -387,11 +405,11 @@ body {
   left: -50px;
   box-sizing: content-box;
   padding: 20px;
-  background: #fff;
-  color: #333;
+  background: rgba(0,0,0,0.9);
+  color: #999;
   border-radius: 4px;
-  -webkit-box-shadow: 1px 2px 3px #adc2d7;
-  box-shadow: 1px 2px 3px #adc2d7;
+  -webkit-box-shadow: 0 0 20px #adc2d7 inset;
+  box-shadow: 0 0 20px #adc2d7 inset;
   border: 1px solid #adc2d7;
 }
 #result-wrap:before {
@@ -477,10 +495,9 @@ body {
 /* post */
 .post {
   padding: 25px;
-  background: #fff;
   border-radius: 4px;
-  -webkit-box-shadow: 1px 2px 3px #adc2d7;
-  box-shadow: 1px 2px 3px #adc2d7;
+  -webkit-box-shadow: 0 0 20px #adc2d7 inset;
+  box-shadow: 0 0 20px #adc2d7 inset;
   border: 1px solid #adc2d7;
   margin-bottom: 40px;
 }
@@ -503,7 +520,7 @@ body {
 .post .post-meta {
   padding: 0;
   margin: 10px 0 0;
-  color: #333;
+  color: #999;
   font-size: 14px;
   line-height: 24px;
   min-height: 24px;
@@ -575,7 +592,7 @@ body {
   clear: left;
   font-size: 15px;
   line-height: 1.77;
-  color: #333;
+  color: #aaa;
   padding-top: 15px;
   text-align: justify;
   text-justify: distribute;
@@ -603,8 +620,8 @@ body {
   margin: 0 5px;
   padding: 0 5px;
   font-family: Source Code Pro, Monaco, Menlo, Consolas, monospace;
-  color: #4d4d4c;
-  background: #eee;
+  color: #adc2d7;
+  background: #050f1b;
   font-size: 0.95em;
   word-break: break-all;
 }
@@ -651,8 +668,8 @@ body {
   margin: 0 5px;
   padding: 0 5px;
   font-family: Source Code Pro, Monaco, Menlo, Consolas, monospace;
-  color: #4d4d4c;
-  background: #eee;
+  color: #adc2d7;
+  background: #050f1b;
   font-size: 0.95em;
   word-break: break-all;
 }
@@ -753,7 +770,7 @@ body {
   position: relative;
 }
 .archive-wrap .listing li a {
-  color: #333;
+  color: #999;
 }
 .archive-wrap .listing li a:hover {
   color: #5483b1;
@@ -844,7 +861,7 @@ body {
 }
 #footer .footer-info {
   line-height: 2;
-  color: #333;
+  color: #999;
   text-align: center;
   font-size: 0.925em;
 }
@@ -861,7 +878,7 @@ body {
   padding: 0 2px;
 }
 #footer .footer-info .fa.fa-github {
-  color: #000;
+  color: #fff;
 }
 #footer .footer-info .fa.fa-github:hover {
   color: #4078c0;
@@ -876,7 +893,7 @@ body {
   color: #756e78;
 }
 #footer .footer-info .fa.fa-email:hover {
-  color: #000;
+  color: #fff;
 }
 #footer .footer-info p a {
   margin: 0;
@@ -893,10 +910,11 @@ body {
   padding: 5px 5px;
 }
 .page-navigator .current {
-  background: #fff;
+  background: #0c364e;
+  border-color: #5483b1;
 }
 .page-navigator .current:hover {
-  border-bottom-color: #adc2d7;
+  border-color: #5483b1;
 }
 .page-navigator .page-number,
 .page-navigator .extend {
@@ -910,13 +928,13 @@ body {
   line-height: 25px;
   padding: 5px 9px;
   text-align: center;
-  -webkit-box-shadow: 1px 2px 3px #adc2d7;
-  box-shadow: 1px 2px 3px #adc2d7;
+  -webkit-box-shadow: 0 0 10px #adc2d7 inset;
+  box-shadow: 0 0 10px #adc2d7 inset;
   border: 1px solid #adc2d7;
 }
 .page-navigator a:hover,
 .page-navigator span:hover {
-  border-bottom-color: #fff;
+  border-color: #5483b1;
 }
 .page-navigator a.prev:before,
 .page-navigator span.prev:before {
@@ -934,7 +952,7 @@ body {
 .label-title {
   margin-top: 1.1em;
   font-size: 22px;
-  color: #333;
+  color: #999;
   font-weight: bold;
 }
 .label-title .fa {
@@ -976,7 +994,7 @@ body {
   max-width: 49%;
   line-height: 25px;
   font-size: 15px;
-  color: #555;
+  color: #aaa;
   border-bottom: none;
   position: relative;
   white-space: normal;
