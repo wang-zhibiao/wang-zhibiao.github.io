@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://wang-zhibiao.github.io/"/>
-  <updated>2019-07-01T01:20:12.648Z</updated>
+  <updated>2019-07-07T03:15:46.742Z</updated>
   <id>http://wang-zhibiao.github.io/</id>
   
   <author>
@@ -15,6 +15,36 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>解构赋值</title>
+    <link href="http://wang-zhibiao.github.io/2019/07/01/Es6%E5%8F%98%E9%87%8F%E7%9A%84%E8%A7%A3%E6%9E%84%E8%B5%8B%E5%80%BC/"/>
+    <id>http://wang-zhibiao.github.io/2019/07/01/Es6变量的解构赋值/</id>
+    <published>2019-07-01T02:10:56.000Z</published>
+    <updated>2019-07-07T03:15:46.742Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="变量的解构赋值"><a href="#变量的解构赋值" class="headerlink" title="变量的解构赋值"></a>变量的解构赋值</h2><ol><li>数组的解构赋值</li><li>对象的解构赋值</li><li>字符串的解构赋值</li><li>数值和布尔值的解构赋值</li><li>函数参数的解构赋值</li></ol><h3 id="1数组的解构赋值"><a href="#1数组的解构赋值" class="headerlink" title="1数组的解构赋值"></a>1数组的解构赋值</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> [a,b,c] = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>] <span class="comment">// 为abc各自an规律赋值</span></span><br><span class="line"><span class="keyword">let</span> [a,[b,[c]]] = [<span class="number">1</span>,[<span class="number">2</span>,[<span class="number">3</span>]]]  <span class="comment">//如果为嵌套数组，可以用一样的嵌套数组赋值</span></span><br><span class="line"><span class="keyword">let</span> [x,y] = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>] <span class="comment">//如果赋值两边长度不一，，则部分赋值 部分未赋值为uddefined</span></span><br><span class="line"><span class="keyword">let</span> [...arr] = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>] <span class="comment">//扩展运算符可以直接把所有的数字赋值给arr arr=[1,2,3]</span></span><br><span class="line"><span class="keyword">let</span> [first,...arrAll]=[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>] <span class="comment">//当第一个first赋值以后，其他的数字都会给arr包含  first =1 arr=[2,3,4]</span></span><br></pre></td></tr></table></figure><h4 id="结构赋值为何左右两边为数组？"><a href="#结构赋值为何左右两边为数组？" class="headerlink" title="结构赋值为何左右两边为数组？"></a>结构赋值为何左右两边为数组？</h4><p>正常的赋值是一个一个赋值，解构赋值是吧需要赋值的解析重构，循环赋值 通过数组可遍历的特性就可以解构</p><h4 id="解构赋值的默认值"><a href="#解构赋值的默认值" class="headerlink" title="解构赋值的默认值"></a>解构赋值的默认值</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> [a=<span class="number">11</span>] = [] <span class="comment">//a输出为11 在赋值之前就已经赋值 解构只是再次赋值 不会冲突 注意点 [] 数组里面无任何值，但是有undefined 所以才会解构成功 ，否则部分赋值也不会实现，以下情况请注意 null与undefined有本质的区别，两者不等，所以赋值时可以成功为null，解构赋值也严格遵守严格运算符（===）</span></span><br><span class="line"><span class="keyword">let</span> [x = <span class="number">1</span>] = [<span class="literal">undefined</span>];<span class="comment">//x = 1</span></span><br><span class="line"><span class="keyword">let</span> [x = <span class="number">1</span>] = [<span class="literal">null</span>]; <span class="comment">//x = null</span></span><br></pre></td></tr></table></figure><h3 id="2对象的解构赋值"><a href="#2对象的解构赋值" class="headerlink" title="2对象的解构赋值"></a>2对象的解构赋值</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> &#123;a&#125;=&#123;<span class="attr">a</span>:<span class="string">'good'</span>,<span class="attr">b</span>:<span class="string">'nice'</span>&#125; <span class="comment">//a = good 对象里不同于数组，它是无序的集合 所以赋值要用见来赋值 两者的键要相同</span></span><br><span class="line"><span class="comment">//如果没有对应的键则会返回undefined</span></span><br><span class="line"><span class="comment">//对象的解构赋值可以对内置对象进行赋值</span></span><br><span class="line"><span class="keyword">let</span>&#123;log,sin,cos&#125; = <span class="built_in">Math</span></span><br><span class="line"><span class="keyword">let</span> &#123;log&#125; = <span class="built_in">console</span></span><br><span class="line"><span class="comment">//当取得所对应的对象的方法时，可以直接调用</span></span><br><span class="line">log(<span class="string">'hello word'</span>) <span class="comment">//控制台输出hello word</span></span><br><span class="line">sin(<span class="number">90</span>)  <span class="comment">//输出为 1</span></span><br><span class="line"><span class="keyword">let</span> &#123;a，&#123;b&#125;&#125; = &#123;<span class="attr">a</span>:<span class="number">11</span>,&#123;<span class="attr">b</span>:<span class="number">22</span>&#125;&#125; <span class="comment">//对象一样支持嵌套赋值</span></span><br><span class="line"><span class="keyword">var</span> &#123;x = <span class="number">3</span>&#125; = &#123;&#125;; <span class="comment">//也支持默认值</span></span><br></pre></td></tr></table></figure><p>对象的解构赋值的内部机制，是先找到同名属性，然后再赋给对应的变量。真正被赋值的是后者，而不是前者。</p><h3 id="注意点"><a href="#注意点" class="headerlink" title="注意点"></a>注意点</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> x;</span><br><span class="line">&#123;x&#125; = &#123;<span class="attr">x</span>: <span class="number">1</span>&#125;; <span class="comment">//已经声明的变量再解构赋值会报错 ，&#123;x&#125; 会被解析为代码块</span></span><br><span class="line"><span class="comment">//解决方法</span></span><br><span class="line">(&#123;x&#125;=&#123;<span class="attr">x</span>:<span class="number">1</span>&#125;); <span class="comment">//括号包裹</span></span><br><span class="line"><span class="comment">//解构赋值允许等号左边的模式之中，不放置任何变量名。因此，可以写出非常古怪的赋值表达式。</span></span><br><span class="line">(&#123;&#125;=&#123;<span class="attr">a</span>:dd&#125;) <span class="comment">//语法可行但毫无意义</span></span><br><span class="line"><span class="comment">//数组也是一种特殊的对象 他是用索引值当键</span></span><br><span class="line"><span class="keyword">let</span> &#123;<span class="number">0</span>:first&#125; = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]</span><br></pre></td></tr></table></figure><h3 id="3字符串的解构赋值"><a href="#3字符串的解构赋值" class="headerlink" title="3字符串的解构赋值"></a>3字符串的解构赋值</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> [a,b,c,d,e] = <span class="string">'hello'</span> <span class="comment">// a=h,b=e,c=l,d=l,e=o  //这是将字符串转化为数组遍历在赋值</span></span><br><span class="line"><span class="keyword">let</span> &#123;<span class="attr">length</span> : len&#125; = <span class="string">'hello'</span>; <span class="comment">//len = 5 // 数组都有length这个键 表示长度</span></span><br></pre></td></tr></table></figure><h3 id="4数值和布尔值的解构赋值"><a href="#4数值和布尔值的解构赋值" class="headerlink" title="4数值和布尔值的解构赋值"></a>4数值和布尔值的解构赋值</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> &#123;<span class="attr">toString</span>: s&#125; = <span class="number">123</span>;</span><br><span class="line">s === <span class="built_in">Number</span>.prototype.toString <span class="comment">// true</span></span><br><span class="line"><span class="comment">//数字和布尔类型会转化为对象 所以在s的原型链与赋值的原型链相等 前面的键 toString 是转化为字符串的方法</span></span><br><span class="line"><span class="keyword">let</span> &#123;<span class="attr">toString</span>: s&#125; = <span class="literal">true</span>;</span><br><span class="line">s === <span class="built_in">Boolean</span>.prototype.toString <span class="comment">// true</span></span><br><span class="line"><span class="comment">// 由于ndefined和null无法转为对象 所以不能进行赋值</span></span><br><span class="line"><span class="keyword">let</span> &#123; <span class="attr">prop</span>: x &#125; = <span class="literal">undefined</span>; <span class="comment">// TypeError</span></span><br><span class="line"><span class="keyword">let</span> &#123; <span class="attr">prop</span>: y &#125; = <span class="literal">null</span>; <span class="comment">// TypeError</span></span><br></pre></td></tr></table></figure><h2 id="5函数参数的解构赋值"><a href="#5函数参数的解构赋值" class="headerlink" title="5函数参数的解构赋值"></a>5函数参数的解构赋值</h2><p>函数的解构赋值我们经常使用 当我们进行传参时 就会进行解构赋值</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params">a,b</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">return</span> a+b</span><br><span class="line">&#125;</span><br><span class="line">fn(<span class="number">2</span>,<span class="number">3</span>) <span class="comment">//a和b都会在函数调用时传参解构赋值</span></span><br></pre></td></tr></table></figure><p>函数参数的默认值</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params">&#123;x = <span class="number">0</span>, y = <span class="number">0</span>&#125; = &#123;&#125;</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> [x, y];</span><br><span class="line">&#125;</span><br><span class="line">fn(&#123;<span class="attr">x</span>: <span class="number">3</span>, <span class="attr">y</span>: <span class="number">8</span>&#125;); <span class="comment">// [3, 8] </span></span><br><span class="line">fn(&#123;<span class="attr">x</span>: <span class="number">3</span>&#125;); <span class="comment">// [3, 0]</span></span><br><span class="line">fn(&#123;&#125;); <span class="comment">// [0, 0]</span></span><br><span class="line">fn(); <span class="comment">// [0, 0]</span></span><br><span class="line"><span class="comment">//如果有默认值,参数没有就使用默认值</span></span><br></pre></td></tr></table></figure><p>另一种函数的默认值</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params">&#123;x, y&#125; = &#123;x:<span class="number">0</span>,y:<span class="number">0</span>&#125;</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> [x, y];</span><br><span class="line">&#125;</span><br><span class="line">fn(&#123;<span class="attr">x</span>: <span class="number">3</span>, <span class="attr">y</span>: <span class="number">8</span>&#125;); <span class="comment">// [3, 8] </span></span><br><span class="line">fn(&#123;<span class="attr">x</span>: <span class="number">3</span>&#125;); <span class="comment">// [3, undefined]</span></span><br><span class="line">fn(&#123;&#125;); <span class="comment">// [undefined, undefined]</span></span><br><span class="line">fn(); <span class="comment">// [0, 0]</span></span><br><span class="line"><span class="comment">//如果有默认值,参数没有就使用默认值</span></span><br><span class="line"><span class="comment">//这种写法使用了对象的键值对赋值，不是之前的值传递，所以 当参数为&#123;&#125;时 传递的是undefined</span></span><br></pre></td></tr></table></figure><h3 id="圆括号"><a href="#圆括号" class="headerlink" title="圆括号"></a>圆括号</h3><p>圆括号是为了解决赋值时解析的无法辨别，但是要注意使用时机，否则会报错</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;变量的解构赋值&quot;&gt;&lt;a href=&quot;#变量的解构赋值&quot; class=&quot;headerlink&quot; title=&quot;变量的解构赋值&quot;&gt;&lt;/a&gt;变量的解构赋值&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;数组的解构赋值&lt;/li&gt;
+&lt;li&gt;对象的解构赋值&lt;/li&gt;
+&lt;li&gt;字符串的解构赋值&lt;/
+      
+    
+    </summary>
+    
+      <category term="基础" scheme="http://wang-zhibiao.github.io/categories/%E5%9F%BA%E7%A1%80/"/>
+    
+    
+      <category term="javascript" scheme="http://wang-zhibiao.github.io/tags/javascript/"/>
+    
+      <category term="Es6" scheme="http://wang-zhibiao.github.io/tags/Es6/"/>
+    
+  </entry>
   
   <entry>
     <title>JS全局污染</title>
@@ -44,6 +74,33 @@
   </entry>
   
   <entry>
+    <title>BFC协议</title>
+    <link href="http://wang-zhibiao.github.io/2019/06/12/BFC%E5%8D%8F%E8%AE%AE/"/>
+    <id>http://wang-zhibiao.github.io/2019/06/12/BFC协议/</id>
+    <published>2019-06-11T16:10:56.000Z</published>
+    <updated>2019-06-29T07:50:29.866Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="什么是BFC？BFC的布局规则是什么？如何创建BFC？"><a href="#什么是BFC？BFC的布局规则是什么？如何创建BFC？" class="headerlink" title="什么是BFC？BFC的布局规则是什么？如何创建BFC？"></a>什么是BFC？BFC的布局规则是什么？如何创建BFC？</h3><p><strong>查看解析</strong></p><ul><li>Box 是 CSS 布局的对象和基本单位，页面是由若干个Box组成的。</li><li>元素的类型 和 <code>display</code> 属性，决定了这个 Box 的类型。不同类型的 Box 会参与不同的 Formatting Context。</li></ul><blockquote><h4 id="Formatting-Context"><a href="#Formatting-Context" class="headerlink" title="Formatting Context"></a>Formatting Context</h4></blockquote><ul><li>Formatting Context 是页面的一块渲染区域，并且有一套渲染规则，决定了其子元素将如何定位，以及和其它元素的关系和相互作用。</li><li>Formatting Context 有 BFC (Block formatting context)，IFC (Inline formatting context)，FFC (Flex formatting context) 和 GFC (Grid formatting context)。FFC 和 GFC 为 CC3 中新增。</li></ul><blockquote><h4 id="BFC布局规则"><a href="#BFC布局规则" class="headerlink" title="BFC布局规则"></a><a href="https://link.juejin.im?target=https%3A%2F%2Fwww.w3.org%2FTR%2F2011%2FREC-CSS2-20110607%2Fvisuren.html%23block-formatting" target="_blank" rel="noopener">BFC布局规则</a></h4></blockquote><ul><li>BFC内，盒子依次垂直排列。</li><li>BFC内，两个盒子的垂直距离由 <code>margin</code> 属性决定。属于同一个BFC的两个相邻Box的margin会发生重叠【符合合并原则的margin合并后是使用大的margin】</li><li>BFC内，每个盒子的左外边缘接触内部盒子的左边缘（对于从右到左的格式，右边缘接触）。即使在存在浮动的情况下也是如此。除非创建新的BFC。</li><li>BFC的区域不会与float box重叠。</li><li>BFC就是页面上的一个隔离的独立容器，容器里面的子元素不会影响到外面的元素。反之也如此。</li><li>计算BFC的高度时，浮动元素也参与计算。</li></ul><blockquote><h4 id="如何创建BFC"><a href="#如何创建BFC" class="headerlink" title="如何创建BFC"></a>如何创建BFC</h4></blockquote><h2 id="根元素"><a href="#根元素" class="headerlink" title="根元素"></a>根元素</h2><ul><li>浮动元素（float 属性不为 none）</li><li>position 为 absolute 或 fixed</li><li>overflow 不为 visible 的块元素</li><li>display 为 inline-block, table-cell, table-caption</li></ul><blockquote><p>BFC 的应用</p></blockquote><ul><li>防止 margin  重叠 (同一个BFC内的两个两个相邻Box的 <code>margin</code> 会发生重叠，触发生成两个BFC，即不会重叠)</li><li>清除内部浮动 (创建一个新的 BFC，因为根据 BFC 的规则，计算 BFC 的高度时，浮动元素也参与计算)</li><li>自适应多栏布局 (BFC的区域不会与float box重叠。因此，可以触发生成一个新的BFC)</li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;什么是BFC？BFC的布局规则是什么？如何创建BFC？&quot;&gt;&lt;a href=&quot;#什么是BFC？BFC的布局规则是什么？如何创建BFC？&quot; class=&quot;headerlink&quot; title=&quot;什么是BFC？BFC的布局规则是什么？如何创建BFC？&quot;&gt;&lt;/a&gt;什么是BF
+      
+    
+    </summary>
+    
+      <category term="javascript" scheme="http://wang-zhibiao.github.io/categories/javascript/"/>
+    
+    
+      <category term="javascript" scheme="http://wang-zhibiao.github.io/tags/javascript/"/>
+    
+      <category term="function" scheme="http://wang-zhibiao.github.io/tags/function/"/>
+    
+  </entry>
+  
+  <entry>
     <title>隐藏元素的方法</title>
     <link href="http://wang-zhibiao.github.io/2019/06/12/%E9%9A%90%E8%97%8F%E5%85%83%E7%B4%A0%E7%9A%84%E6%96%B9%E6%B3%95/"/>
     <id>http://wang-zhibiao.github.io/2019/06/12/隐藏元素的方法/</id>
@@ -66,33 +123,6 @@
     </summary>
     
       <category term="基础" scheme="http://wang-zhibiao.github.io/categories/%E5%9F%BA%E7%A1%80/"/>
-    
-    
-      <category term="javascript" scheme="http://wang-zhibiao.github.io/tags/javascript/"/>
-    
-      <category term="function" scheme="http://wang-zhibiao.github.io/tags/function/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>BFC协议</title>
-    <link href="http://wang-zhibiao.github.io/2019/06/12/BFC%E5%8D%8F%E8%AE%AE/"/>
-    <id>http://wang-zhibiao.github.io/2019/06/12/BFC协议/</id>
-    <published>2019-06-11T16:10:56.000Z</published>
-    <updated>2019-06-29T07:50:29.866Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="什么是BFC？BFC的布局规则是什么？如何创建BFC？"><a href="#什么是BFC？BFC的布局规则是什么？如何创建BFC？" class="headerlink" title="什么是BFC？BFC的布局规则是什么？如何创建BFC？"></a>什么是BFC？BFC的布局规则是什么？如何创建BFC？</h3><p><strong>查看解析</strong></p><ul><li>Box 是 CSS 布局的对象和基本单位，页面是由若干个Box组成的。</li><li>元素的类型 和 <code>display</code> 属性，决定了这个 Box 的类型。不同类型的 Box 会参与不同的 Formatting Context。</li></ul><blockquote><h4 id="Formatting-Context"><a href="#Formatting-Context" class="headerlink" title="Formatting Context"></a>Formatting Context</h4></blockquote><ul><li>Formatting Context 是页面的一块渲染区域，并且有一套渲染规则，决定了其子元素将如何定位，以及和其它元素的关系和相互作用。</li><li>Formatting Context 有 BFC (Block formatting context)，IFC (Inline formatting context)，FFC (Flex formatting context) 和 GFC (Grid formatting context)。FFC 和 GFC 为 CC3 中新增。</li></ul><blockquote><h4 id="BFC布局规则"><a href="#BFC布局规则" class="headerlink" title="BFC布局规则"></a><a href="https://link.juejin.im?target=https%3A%2F%2Fwww.w3.org%2FTR%2F2011%2FREC-CSS2-20110607%2Fvisuren.html%23block-formatting" target="_blank" rel="noopener">BFC布局规则</a></h4></blockquote><ul><li>BFC内，盒子依次垂直排列。</li><li>BFC内，两个盒子的垂直距离由 <code>margin</code> 属性决定。属于同一个BFC的两个相邻Box的margin会发生重叠【符合合并原则的margin合并后是使用大的margin】</li><li>BFC内，每个盒子的左外边缘接触内部盒子的左边缘（对于从右到左的格式，右边缘接触）。即使在存在浮动的情况下也是如此。除非创建新的BFC。</li><li>BFC的区域不会与float box重叠。</li><li>BFC就是页面上的一个隔离的独立容器，容器里面的子元素不会影响到外面的元素。反之也如此。</li><li>计算BFC的高度时，浮动元素也参与计算。</li></ul><blockquote><h4 id="如何创建BFC"><a href="#如何创建BFC" class="headerlink" title="如何创建BFC"></a>如何创建BFC</h4></blockquote><h2 id="根元素"><a href="#根元素" class="headerlink" title="根元素"></a>根元素</h2><ul><li>浮动元素（float 属性不为 none）</li><li>position 为 absolute 或 fixed</li><li>overflow 不为 visible 的块元素</li><li>display 为 inline-block, table-cell, table-caption</li></ul><blockquote><p>BFC 的应用</p></blockquote><ul><li>防止 margin  重叠 (同一个BFC内的两个两个相邻Box的 <code>margin</code> 会发生重叠，触发生成两个BFC，即不会重叠)</li><li>清除内部浮动 (创建一个新的 BFC，因为根据 BFC 的规则，计算 BFC 的高度时，浮动元素也参与计算)</li><li>自适应多栏布局 (BFC的区域不会与float box重叠。因此，可以触发生成一个新的BFC)</li></ul>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h3 id=&quot;什么是BFC？BFC的布局规则是什么？如何创建BFC？&quot;&gt;&lt;a href=&quot;#什么是BFC？BFC的布局规则是什么？如何创建BFC？&quot; class=&quot;headerlink&quot; title=&quot;什么是BFC？BFC的布局规则是什么？如何创建BFC？&quot;&gt;&lt;/a&gt;什么是BF
-      
-    
-    </summary>
-    
-      <category term="javascript" scheme="http://wang-zhibiao.github.io/categories/javascript/"/>
     
     
       <category term="javascript" scheme="http://wang-zhibiao.github.io/tags/javascript/"/>
