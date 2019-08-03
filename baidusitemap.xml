@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://wang-zhibiao.github.io/2019/06/09/%E5%8F%98%E9%87%8F%E5%92%8Cjs%E7%B1%BB%E5%9E%8B%E7%9A%84%E7%90%86%E8%A7%A3/</loc>
+    <lastmod>2019-08-03</lastmod>
+  </url>  <url>
+    <loc>http://wang-zhibiao.github.io/2018/08/08/%E5%AE%9E%E7%94%A8css%E6%8A%80%E5%B7%A7/</loc>
+    <lastmod>2019-08-03</lastmod>
+  </url>  <url>
+    <loc>http://wang-zhibiao.github.io/2019/03/12/%E7%AE%80%E5%8D%95%E8%BD%AE%E6%92%AD%E5%9B%BE%E5%8E%9F%E7%90%86%E8%A7%A3%E6%9E%90/</loc>
+    <lastmod>2019-07-28</lastmod>
+  </url>  <url>
     <loc>http://wang-zhibiao.github.io/2019/06/26/%E9%AB%98%E5%BE%B7%E5%9C%B0%E5%9B%BE/</loc>
     <lastmod>2019-07-25</lastmod>
   </url>  <url>
@@ -29,9 +38,6 @@
     <lastmod>2019-07-14</lastmod>
   </url>  <url>
     <loc>http://wang-zhibiao.github.io/2019/05/10/var%20let%20const%E4%B8%89%E7%A7%8D%E5%AE%9A%E4%B9%89%E6%96%B9%E5%BC%8F%E5%8F%8A%E9%97%AD%E5%8C%85/</loc>
-    <lastmod>2019-07-14</lastmod>
-  </url>  <url>
-    <loc>http://wang-zhibiao.github.io/2019/06/09/%E5%8F%98%E9%87%8F%E5%92%8Cjs%E7%B1%BB%E5%9E%8B%E7%9A%84%E7%90%86%E8%A7%A3/</loc>
     <lastmod>2019-07-14</lastmod>
   </url>  <url>
     <loc>http://wang-zhibiao.github.io/2019/03/22/%E9%9A%90%E8%97%8F%E5%85%83%E7%B4%A0%E7%9A%84%E6%96%B9%E6%B3%95/</loc>
