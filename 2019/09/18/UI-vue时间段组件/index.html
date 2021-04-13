@@ -1,0 +1,1877 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head hexo-theme='https://github.com/volantis-x/hexo-theme-volantis/tree/4.3.1'>
+  <meta charset="utf-8">
+  <!-- SEO相关 -->
+  
+    
+  
+  <!-- 渲染优化 -->
+  <meta http-equiv='x-dns-prefetch-control' content='on' />
+  <link rel='dns-prefetch' href='https://cdn.jsdelivr.net'>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <link rel="preload" href="/css/first.css" as="style">
+  
+
+  <!-- 页面元数据 -->
+  
+  <title>时间段组件 - Mr.wang&#39;blog</title>
+  
+    <meta name="keywords" content="vue,UI">
+  
+
+  
+    <meta name="description" content="
+一周0.5*2*24*7的时间段选择,操作48位01字符串
+">
+  
+
+  <!-- feed -->
+  
+
+  <!-- import meta -->
+  
+
+  <!-- link -->
+  
+
+  <!-- import link -->
+  
+
+  
+    
+<link rel="stylesheet" href="/css/first.css">
+
+  
+
+  
+  <link rel="stylesheet" href="/css/style.css" media="print" onload="this.media='all';this.onload=null">
+  <noscript><link rel="stylesheet" href="/css/style.css"></noscript>
+  
+
+  <script id="loadcss"></script>
+
+  
+<script>
+if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMode))
+    document.write(
+	'<style>'+
+		'html{'+
+			'overflow-x: hidden !important;'+
+			'overflow-y: hidden !important;'+
+		'}'+
+		'.kill-ie{'+
+			'text-align:center;'+
+			'height: 100%;'+
+			'margin-top: 15%;'+
+			'margin-bottom: 5500%;'+
+		'}'+
+	'</style>'+
+    '<div class="kill-ie">'+
+        '<h1><b>抱歉，您的浏览器无法访问本站</b></h1>'+
+        '<h3>微软已经于2016年终止了对 Internet Explorer (IE) 10 及更早版本的支持，<br/>'+
+        '继续使用存在极大的安全隐患，请使用当代主流的浏览器进行访问。</h3><br/>'+
+        '<a target="_blank" rel="noopener" href="https://www.microsoft.com/zh-cn/WindowsForBusiness/End-of-IE-support"><strong>了解详情 ></strong></a>'+
+    '</div>');
+</script>
+
+
+<noscript>
+	<style>
+		html{
+			overflow-x: hidden !important;
+			overflow-y: hidden !important;
+		}
+		.kill-noscript{
+			text-align:center;
+			height: 100%;
+			margin-top: 15%;
+			margin-bottom: 5500%;
+		}
+	</style>
+    <div class="kill-noscript">
+        <h1><b>抱歉，您的浏览器无法访问本站</b></h1>
+        <h3>本页面需要浏览器支持（启用）JavaScript</h3><br/>
+        <a target="_blank" rel="noopener" href="https://www.baidu.com/s?wd=启用JavaScript"><strong>了解详情 ></strong></a>
+    </div>
+</noscript>
+
+</head>
+
+  <body>
+    
+
+<header id="l_header" class="l_header auto shadow blur " style='opacity: 0' >
+  <div class='container'>
+  <div id='wrapper'>
+    <div class='nav-sub'>
+      <p class="title"></p>
+      <ul class='switcher nav-list-h m-phone' id="pjax-header-nav-list">
+        <li><a id="s-comment" class="fas fa-comments fa-fw" target="_self" href='javascript:void(0)'></a></li>
+        
+          <li><a id="s-toc" class="s-toc fas fa-list fa-fw" target="_self" href='javascript:void(0)'></a></li>
+        
+      </ul>
+    </div>
+		<div class="nav-main">
+      
+        
+        <a class="title flat-box" target="_self" href='/'>
+          
+          
+          
+            Mr.wang
+          
+        </a>
+      
+
+			<div class='menu navigation'>
+				<ul class='nav-list-h m-pc'>
+          
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/
+                  
+                  
+                  
+                    id="home"
+                  >
+                  <i class='fas fa-rss fa-fw'></i>博客
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/categories/
+                  
+                  
+                  
+                    id="categories"
+                  >
+                  <i class='fas fa-folder-open fa-fw'></i>分类
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/tags/
+                  
+                  
+                  
+                    id="tags"
+                  >
+                  <i class='fas fa-tags fa-fw'></i>标签
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/archives/
+                  
+                  
+                  
+                    id="archives"
+                  >
+                  <i class='fas fa-archive fa-fw'></i>归档
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/friends/
+                  
+                  
+                  
+                    id="friends"
+                  >
+                  <i class='fas fa-link fa-fw'></i>友链
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/about/
+                  
+                  
+                  
+                    id="about"
+                  >
+                  <i class='fas fa-info-circle fa-fw'></i>关于
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box header toggle-mode-btn">
+                  <i class='fas fa-moon fa-fw'></i>暗黑模式
+                </a>
+              <li>
+            
+          
+          
+            
+            
+              
+                <li>
+                  <a class="menuitem flat-box">
+                    <i class='fas fa-compact-disc fa-fw music'></i>背景音乐
+                  </a>
+                  <ul class="list-v">
+                    <li>
+                      <div class="aplayer-container">
+                        
+
+  
+    <meting-js
+      theme='#1BCDFC'
+      autoplay='false'
+      volume='0.4'
+      loop='all'
+      order='random'
+      fixed='false'
+      list-max-height='320px'
+      server='netease'
+      type='playlist'
+      id='5062959861'
+      list-folded='true'>
+    </meting-js>
+  
+
+
+                      </div>
+                    </li>
+                  </ul>
+                <li>
+              
+            
+          
+          
+				</ul>
+			</div>
+
+      <div class="m_search">
+        <form name="searchform" class="form u-search-form">
+          <i class="icon fas fa-search fa-fw"></i>
+          <input type="text" class="input u-search-input" placeholder="Search..." />
+        </form>
+      </div>
+
+			<ul class='switcher nav-list-h m-phone'>
+				
+					<li><a class="s-search fas fa-search fa-fw" target="_self" href='javascript:void(0)'></a></li>
+				
+				<li>
+          <a class="s-menu fas fa-bars fa-fw" target="_self" href='javascript:void(0)'></a>
+          <ul class="menu-phone list-v navigation white-box">
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/
+                  
+                  
+                  
+                    id="home"
+                  >
+                  <i class='fas fa-rss fa-fw'></i>博客
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/categories/
+                  
+                  
+                  
+                    id="categories"
+                  >
+                  <i class='fas fa-folder-open fa-fw'></i>分类
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/tags/
+                  
+                  
+                  
+                    id="tags"
+                  >
+                  <i class='fas fa-tags fa-fw'></i>标签
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/archives/
+                  
+                  
+                  
+                    id="archives"
+                  >
+                  <i class='fas fa-archive fa-fw'></i>归档
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/friends/
+                  
+                  
+                  
+                    id="friends"
+                  >
+                  <i class='fas fa-link fa-fw'></i>友链
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/about/
+                  
+                  
+                  
+                    id="about"
+                  >
+                  <i class='fas fa-info-circle fa-fw'></i>关于
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box header toggle-mode-btn">
+                  <i class='fas fa-moon fa-fw'></i>暗黑模式
+                </a>
+              <li>
+            
+          
+            
+              
+            
+              
+            
+          
+            
+          </ul>
+        </li>
+			</ul>
+		</div>
+	</div>
+  </div>
+</header>
+
+    <div id="l_body">
+      <div id="l_cover">
+  
+    
+        <div id="half" class='cover-wrapper post dock' style="display: ;">
+          
+            <div id='cover-backstretch'></div>
+          
+          <div class='cover-body'>
+  <div class='top'>
+    
+    
+      <p class="title">Mr.wang</p>
+    
+    
+      <p class="subtitle">Time flies and people come and go</p>
+    
+  </div>
+  <div class='bottom'>
+    <div class='menu navigation'>
+      <div class='list-h'>
+        
+          
+            <a href="/"
+              
+              
+              id="home">
+              <img src='https://cdn.jsdelivr.net/gh/twitter/twemoji@13.0/assets/svg/1f4f0.svg'><p>博客</p>
+            </a>
+          
+            <a href="/archives/"
+              
+              
+              id="archives">
+              <img src='https://cdn.jsdelivr.net/gh/twitter/twemoji@13.0/assets/svg/1f5c3.svg'><p>归档</p>
+            </a>
+          
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+          <div id="scroll-down" style="display: none;"><i class="fa fa-chevron-down scroll-down-effects"></i></div>
+        </div>
+    
+  
+  </div>
+
+      <div id="safearea">
+        <div class="body-wrapper" id="pjax-container">
+          
+
+<div class='l_main'>
+  <article class="article post white-box reveal md shadow article-type-post" id="post" itemscope itemprop="blogPost">
+  
+
+
+  
+  <div class="article-meta" id="top">
+    
+    
+    
+      <h1 class="title">
+        时间段组件
+      </h1>
+      <div class='new-meta-box'>
+        
+          
+            
+<div class='new-meta-item author'>
+  <a class='author' target="_blank" href="https://github.com/volantis-x/" rel="nofollow noopener">
+    <img no-lazy src="https://wang-z.gitee.io/img/author.jpg">
+    <p>Mr.wang</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+  <div class='new-meta-item category'>
+    <a class='notlink'>
+      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
+      <a class="category-link" href="/categories/UI/">UI</a>
+    </a>
+  </div>
+
+
+          
+        
+          
+            <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：2019年9月18日</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+  <div class="new-meta-item browse leancloud">
+    <a class='notlink'>
+      
+      <div id="lc-pv" data-title="时间段组件" data-path="/2019/09/18/UI-vue%E6%97%B6%E9%97%B4%E6%AE%B5%E7%BB%84%E4%BB%B6/">
+        <i class="fas fa-eye fa-fw" aria-hidden="true"></i>
+        <span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
+        次浏览
+      </div>
+    </a>
+  </div>
+
+
+          
+        
+      </div>
+    
+  </div>
+
+
+  
+  
+  <blockquote>
+<p>一周<code>0.5*2*24*7</code>的时间段选择,操作48位01字符串</p>
+</blockquote>
+<span id="more"></span>
+
+<blockquote>
+<p>时间段UI展示</p>
+</blockquote>
+<p><img src="https://wang-z.gitee.io/img/timeQuantum.gif" class="lazyload" data-srcset="https://wang-z.gitee.io/img/timeQuantum.gif" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="时间段"></p>
+<h2 id="思考过程"><a href="#思考过程" class="headerlink" title="思考过程"></a>思考过程</h2><p>点击事件</p>
+<p>点击表格时触发点击事件，传入data-week(0-6) data-time  (0-23)</p>
+<p>触发mouseenter  mouseleave 事件</p>
+<p>下面的显示就是tr p便签v-for循环出来</p>
+<p>当你选择时是空的那么就全部都是选中 当你选择时 是有的就全清空</p>
+<p>考虑向上偏移了多少就要重新创建div</p>
+<p>封装一组组件对于不限和多选的控制</p>
+<p>多选全都不选就让不限 变active  数组小于零就可以 不限 大于零就去掉不限</p>
+<p>两个都是true 就要反选</p>
+<p>xy都大于screen</p>
+<p>x小于screen</p>
+<p>y小于screen</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="title">timeFiltrate</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="comment">//生成想要的数组</span></span><br><span class="line">      <span class="keyword">let</span> arr=[];</span><br><span class="line">   <span class="comment">//临时存放数组</span></span><br><span class="line">      <span class="keyword">let</span> tempArr = [];</span><br><span class="line">    <span class="comment">//循环date中的时间</span></span><br><span class="line">      <span class="built_in">this</span>.date.forEach(<span class="function">(<span class="params">item1,index1</span>)=&gt;</span>&#123;</span><br><span class="line">        item1.forEach(<span class="function">(<span class="params">item2,index2</span>)=&gt;</span>&#123;</span><br><span class="line">            <span class="comment">//筛选出想要的数据</span></span><br><span class="line">          <span class="keyword">if</span>(item2.active)&#123;</span><br><span class="line">              <span class="comment">//push进临时数组</span></span><br><span class="line">            tempArr.push(...item2.timeQuantum);</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;)</span><br><span class="line">          <span class="comment">// 生成数组存放进</span></span><br><span class="line">        arr.push(tempArr);</span><br><span class="line">          <span class="comment">//临时数组的清空</span></span><br><span class="line">        tempArr=[];</span><br><span class="line">      &#125;)</span><br><span class="line">    <span class="comment">//循环出想要删除的元素的索引值</span></span><br><span class="line">      arr.forEach(<span class="function">(<span class="params">item1,index1</span>)=&gt;</span>&#123;</span><br><span class="line">        item1.forEach(<span class="function">(<span class="params">item2,index2</span>)=&gt;</span>&#123;</span><br><span class="line">          <span class="keyword">if</span>(arr[index1][index2]===arr[index1][index2+<span class="number">1</span>])&#123;</span><br><span class="line">            tempArr.push(index2,index2+<span class="number">1</span>)</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;)</span><br><span class="line">          <span class="comment">//数组的删除从后面来可以不影响数组</span></span><br><span class="line">        tempArr.sort(<span class="function">(<span class="params">a,b</span>)=&gt;</span>&#123;<span class="keyword">return</span> b-a&#125;)</span><br><span class="line">          <span class="comment">//根据索引值删除元素</span></span><br><span class="line">        tempArr.map(<span class="function">(<span class="params">v,i</span>)=&gt;</span>&#123;</span><br><span class="line">          arr[index1].splice(v,<span class="number">1</span>);</span><br><span class="line">        &#125;)</span><br><span class="line">          <span class="comment">//置空</span></span><br><span class="line">        tempArr=[];</span><br><span class="line">      &#125;)</span><br><span class="line">     <span class="built_in">console</span>.log(arr);</span><br><span class="line">      <span class="keyword">return</span> arr</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h2 id="源码（清晰版）"><a href="#源码（清晰版）" class="headerlink" title="源码（清晰版）"></a>源码（清晰版）</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br><span class="line">242</span><br><span class="line">243</span><br><span class="line">244</span><br><span class="line">245</span><br><span class="line">246</span><br><span class="line">247</span><br><span class="line">248</span><br><span class="line">249</span><br><span class="line">250</span><br><span class="line">251</span><br><span class="line">252</span><br><span class="line">253</span><br><span class="line">254</span><br><span class="line">255</span><br><span class="line">256</span><br><span class="line">257</span><br><span class="line">258</span><br><span class="line">259</span><br><span class="line">260</span><br><span class="line">261</span><br><span class="line">262</span><br><span class="line">263</span><br><span class="line">264</span><br><span class="line">265</span><br><span class="line">266</span><br><span class="line">267</span><br><span class="line">268</span><br><span class="line">269</span><br><span class="line">270</span><br><span class="line">271</span><br><span class="line">272</span><br><span class="line">273</span><br><span class="line">274</span><br><span class="line">275</span><br><span class="line">276</span><br><span class="line">277</span><br><span class="line">278</span><br><span class="line">279</span><br><span class="line">280</span><br><span class="line">281</span><br><span class="line">282</span><br><span class="line">283</span><br><span class="line">284</span><br><span class="line">285</span><br><span class="line">286</span><br><span class="line">287</span><br><span class="line">288</span><br><span class="line">289</span><br><span class="line">290</span><br><span class="line">291</span><br><span class="line">292</span><br><span class="line">293</span><br><span class="line">294</span><br><span class="line">295</span><br><span class="line">296</span><br><span class="line">297</span><br><span class="line">298</span><br><span class="line">299</span><br><span class="line">300</span><br><span class="line">301</span><br><span class="line">302</span><br><span class="line">303</span><br><span class="line">304</span><br><span class="line">305</span><br><span class="line">306</span><br><span class="line">307</span><br><span class="line">308</span><br><span class="line">309</span><br><span class="line">310</span><br><span class="line">311</span><br><span class="line">312</span><br><span class="line">313</span><br><span class="line">314</span><br><span class="line">315</span><br><span class="line">316</span><br><span class="line">317</span><br><span class="line">318</span><br><span class="line">319</span><br><span class="line">320</span><br><span class="line">321</span><br><span class="line">322</span><br><span class="line">323</span><br><span class="line">324</span><br><span class="line">325</span><br><span class="line">326</span><br><span class="line">327</span><br><span class="line">328</span><br><span class="line">329</span><br><span class="line">330</span><br><span class="line">331</span><br><span class="line">332</span><br><span class="line">333</span><br><span class="line">334</span><br><span class="line">335</span><br><span class="line">336</span><br><span class="line">337</span><br><span class="line">338</span><br><span class="line">339</span><br><span class="line">340</span><br><span class="line">341</span><br><span class="line">342</span><br><span class="line">343</span><br><span class="line">344</span><br><span class="line">345</span><br><span class="line">346</span><br><span class="line">347</span><br><span class="line">348</span><br><span class="line">349</span><br><span class="line">350</span><br><span class="line">351</span><br><span class="line">352</span><br><span class="line">353</span><br><span class="line">354</span><br><span class="line">355</span><br><span class="line">356</span><br><span class="line">357</span><br><span class="line">358</span><br><span class="line">359</span><br><span class="line">360</span><br><span class="line">361</span><br><span class="line">362</span><br><span class="line">363</span><br><span class="line">364</span><br><span class="line">365</span><br><span class="line">366</span><br><span class="line">367</span><br><span class="line">368</span><br><span class="line">369</span><br><span class="line">370</span><br><span class="line">371</span><br><span class="line">372</span><br><span class="line">373</span><br><span class="line">374</span><br><span class="line">375</span><br><span class="line">376</span><br><span class="line">377</span><br><span class="line">378</span><br><span class="line">379</span><br><span class="line">380</span><br><span class="line">381</span><br><span class="line">382</span><br><span class="line">383</span><br><span class="line">384</span><br><span class="line">385</span><br><span class="line">386</span><br><span class="line">387</span><br><span class="line">388</span><br><span class="line">389</span><br><span class="line">390</span><br><span class="line">391</span><br><span class="line">392</span><br><span class="line">393</span><br><span class="line">394</span><br><span class="line">395</span><br><span class="line">396</span><br><span class="line">397</span><br><span class="line">398</span><br><span class="line">399</span><br><span class="line">400</span><br><span class="line">401</span><br><span class="line">402</span><br><span class="line">403</span><br><span class="line">404</span><br><span class="line">405</span><br><span class="line">406</span><br><span class="line">407</span><br><span class="line">408</span><br><span class="line">409</span><br><span class="line">410</span><br><span class="line">411</span><br><span class="line">412</span><br><span class="line">413</span><br><span class="line">414</span><br><span class="line">415</span><br><span class="line">416</span><br><span class="line">417</span><br><span class="line">418</span><br><span class="line">419</span><br><span class="line">420</span><br><span class="line">421</span><br><span class="line">422</span><br><span class="line">423</span><br><span class="line">424</span><br><span class="line">425</span><br><span class="line">426</span><br><span class="line">427</span><br><span class="line">428</span><br><span class="line">429</span><br><span class="line">430</span><br><span class="line">431</span><br><span class="line">432</span><br><span class="line">433</span><br><span class="line">434</span><br><span class="line">435</span><br><span class="line">436</span><br><span class="line">437</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">&quot;timeQyantum&quot;</span> @mouseup=<span class="string">&quot;handleMouseOutUp()&quot;</span> @mouseleave=<span class="string">&quot;handleMouseOutUp&quot;</span>&gt;</span><br><span class="line">    &lt;div</span><br><span class="line">      <span class="class"><span class="keyword">class</span></span>=<span class="string">&quot;schedule&quot;</span></span><br><span class="line">      :style=<span class="string">&quot;&#123;opacity: isShow, left: screenX+&#x27;px&#x27;, top: screenY+&#x27;px&#x27;, width: mouseWidth+&#x27;px&#x27;, height: mouseHeight+&#x27;px&#x27;, display: Display&#125;&quot;</span></span><br><span class="line">    &gt;&lt;/div&gt;</span><br><span class="line">    &lt;table <span class="class"><span class="keyword">class</span></span>=<span class="string">&quot;calendar-table&quot;</span>&gt;</span><br><span class="line">      &lt;thead <span class="class"><span class="keyword">class</span></span>=<span class="string">&quot;calendar-head&quot;</span>&gt;</span><br><span class="line">        &lt;tr&gt;</span><br><span class="line">          &lt;th rowspan=<span class="string">&quot;8&quot;</span> <span class="class"><span class="keyword">class</span></span>=<span class="string">&quot;week-td&quot;</span>&gt;星期/时间&lt;/th&gt;</span><br><span class="line">          &lt;th colspan=<span class="string">&quot;24&quot;</span>&gt;<span class="number">00</span>:<span class="number">00</span> - <span class="number">12</span>:<span class="number">00</span>&lt;/th&gt;</span><br><span class="line">          &lt;th colspan=<span class="string">&quot;24&quot;</span>&gt;<span class="number">12</span>:<span class="number">00</span> - <span class="number">24</span>:<span class="number">00</span>&lt;/th&gt;</span><br><span class="line">        &lt;/tr&gt;</span><br><span class="line">        &lt;tr&gt;</span><br><span class="line">          &lt;td colspan=<span class="string">&quot;2&quot;</span> v-<span class="keyword">for</span>=<span class="string">&quot;v in List&quot;</span> :key=<span class="string">&quot;v&quot;</span>&gt;&#123;&#123;v&#125;&#125;&lt;/td&gt;</span><br><span class="line">        &lt;/tr&gt;</span><br><span class="line">      &lt;/thead&gt;</span><br><span class="line">      &lt;tbody <span class="class"><span class="keyword">class</span></span>=<span class="string">&quot;calendar-body&quot;</span>&gt;</span><br><span class="line">        &lt;tr v-<span class="keyword">for</span>=<span class="string">&quot;(item1,index1) in date&quot;</span> :key=<span class="string">&quot;index1&quot;</span>&gt;</span><br><span class="line">          &lt;td&gt;星期&#123;&#123;index1|weekend&#125;&#125;&lt;/td&gt;</span><br><span class="line">          &lt;td</span><br><span class="line">            @mousedown=<span class="string">&quot;handleMouseClick($event,item2)&quot;</span></span><br><span class="line">            @mousemove=<span class="string">&quot;handleMouseMove&quot;</span></span><br><span class="line">            @mouseup=<span class="string">&quot;handleMouseUp($event,item2)&quot;</span></span><br><span class="line">            @mouseenter=<span class="string">&quot;handleMouseEnter($event,item2)&quot;</span></span><br><span class="line">            @mouseout=<span class="string">&quot;handleMouseOut&quot;</span></span><br><span class="line">            v-<span class="keyword">for</span>=<span class="string">&quot;(item2,index2) in item1&quot;</span></span><br><span class="line">            :key=<span class="string">&quot;index2&quot;</span></span><br><span class="line">            :<span class="class"><span class="keyword">class</span></span>=<span class="string">&quot;[item2.active ? &#x27;ui-selected&#x27; : &#x27;&#x27;]&quot;</span></span><br><span class="line">          &gt;&lt;/td&gt;</span><br><span class="line">        &lt;/tr&gt;</span><br><span class="line">        &lt;tr&gt;</span><br><span class="line">          &lt;td colspan=<span class="string">&quot;49&quot;</span> <span class="class"><span class="keyword">class</span></span>=<span class="string">&quot;td-table-tip&quot;</span>&gt;</span><br><span class="line">            &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">&quot;timeQuantum&quot;</span>&gt;</span><br><span class="line">              &lt;span <span class="class"><span class="keyword">class</span></span>=<span class="string">&quot;areadySelect&quot;</span>&gt;已选择时间段&lt;/span&gt;</span><br><span class="line">              &lt;a <span class="class"><span class="keyword">class</span></span>=<span class="string">&quot;empty&quot;</span> @click=<span class="string">&quot;handleEmpty&quot;</span>&gt;清空&lt;/a&gt;</span><br><span class="line">            &lt;/div&gt;</span><br><span class="line">            &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">&quot;td-selected-time&quot;</span>&gt;</span><br><span class="line">              &lt;p v-<span class="keyword">for</span>=<span class="string">&quot;(item1,index1) in timeFiltrate&quot;</span> :key=<span class="string">&quot;index1&quot;</span>&gt;</span><br><span class="line">                &lt;span <span class="class"><span class="keyword">class</span></span>=<span class="string">&quot;tip-text&quot;</span>&gt;星期&#123;&#123;index1|weekend&#125;&#125;:&lt;/span&gt;</span><br><span class="line">                &lt;span&gt;&#123;&#123;item1 | timeDifference&#125;&#125;&lt;/span&gt;</span><br><span class="line">              &lt;/p&gt;</span><br><span class="line">            &lt;/div&gt;</span><br><span class="line">          &lt;/td&gt;</span><br><span class="line">        &lt;/tr&gt;</span><br><span class="line">      &lt;/tbody&gt;</span><br><span class="line">      &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">&quot;byted-popover-wrapper&quot;</span>&gt;</span><br><span class="line">        &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">&quot;bui-popper byted-popover&quot;</span> :style=<span class="string">&quot;timeTips&quot;</span> x-placement=<span class="string">&quot;top&quot;</span>&gt;</span><br><span class="line">          &lt;div x-arrow <span class="class"><span class="keyword">class</span></span>=<span class="string">&quot;bui-popover-arrow&quot;</span> style=<span class="string">&quot;left: 86px;&quot;</span>&gt;&lt;/div&gt;</span><br><span class="line">          &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">&quot;bui-popover-panel&quot;</span>&gt;</span><br><span class="line">            &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">&quot;bui-popover-body&quot;</span>&gt;星期&#123;&#123;timeTips_week|weekend&#125;&#125; &#123;&#123;timeTIps_content&#125;&#125;&lt;/div&gt;</span><br><span class="line">          &lt;/div&gt;</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">      &lt;/div&gt;</span><br><span class="line">    &lt;/table&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line"><span class="keyword">import</span> &#123; debounce &#125; <span class="keyword">from</span> <span class="string">&quot;@/utils/common.js&quot;</span>;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  props: &#123;</span><br><span class="line">    time: &#123;</span><br><span class="line">      type: <span class="built_in">String</span>,</span><br><span class="line">      <span class="keyword">default</span>: <span class="built_in">Array</span>(<span class="number">337</span>).join(<span class="number">1</span>)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="function"><span class="title">data</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">      schedule_time: <span class="string">&quot;&quot;</span>,</span><br><span class="line">      timeTips_week: <span class="number">0</span>,</span><br><span class="line">      timeTIps_content: <span class="string">&quot;&quot;</span>,</span><br><span class="line">      timeTips: &#123;</span><br><span class="line">        width: <span class="string">&quot;182px&quot;</span>,</span><br><span class="line">        display: <span class="string">&quot;none&quot;</span></span><br><span class="line">      &#125;,</span><br><span class="line">      isSelect: <span class="literal">false</span>,</span><br><span class="line">      startTime: <span class="number">0</span>,</span><br><span class="line">      endTime: <span class="number">0</span>,</span><br><span class="line">      startWeek: <span class="number">0</span>,</span><br><span class="line">      endWeek: <span class="number">0</span>,</span><br><span class="line">      isShow: <span class="number">0.6</span>,</span><br><span class="line">      screenX: <span class="number">0</span>,</span><br><span class="line">      screenY: <span class="number">0</span>,</span><br><span class="line">      ClickX: <span class="number">0</span>,</span><br><span class="line">      ClickY: <span class="number">0</span>,</span><br><span class="line">      mouseWidth: <span class="number">10</span>,</span><br><span class="line">      mouseHeight: <span class="number">30</span>,</span><br><span class="line">      Display: <span class="string">&quot;none&quot;</span>,</span><br><span class="line">      date: []</span><br><span class="line">    &#125;;</span><br><span class="line">  &#125;,</span><br><span class="line">  methods: &#123;</span><br><span class="line">    <span class="function"><span class="title">CreateData</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">      <span class="keyword">let</span> timeQuantumArr = [],</span><br><span class="line">        hours = [],</span><br><span class="line">        minutes = [<span class="string">&quot;00&quot;</span>, <span class="string">&quot;30&quot;</span>];</span><br><span class="line">      <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; <span class="number">24</span>; i++) &#123;</span><br><span class="line">        i &lt; <span class="number">10</span> ? hours.push(<span class="string">&quot;0&quot;</span> + i) : hours.push(i.toString());</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">for</span> (<span class="keyword">const</span> hour <span class="keyword">of</span> hours) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">const</span> minute <span class="keyword">of</span> minutes) &#123;</span><br><span class="line">          timeQuantumArr.push(<span class="string">`<span class="subst">$&#123;hour&#125;</span>:<span class="subst">$&#123;minute&#125;</span>`</span>);</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">      timeQuantumArr = timeQuantumArr.map(<span class="function">(<span class="params">v, i</span>) =&gt;</span> [</span><br><span class="line">        v,</span><br><span class="line">        timeQuantumArr[i + <span class="number">1</span>] || <span class="string">&quot;24:00&quot;</span></span><br><span class="line">      ]);</span><br><span class="line">      <span class="keyword">let</span> num = <span class="number">0</span>;</span><br><span class="line">      <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">7</span>; i++) &#123;</span><br><span class="line">        <span class="built_in">this</span>.date.push([]);</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">var</span> j = <span class="number">0</span>; j &lt; <span class="number">48</span>; j++) &#123;</span><br><span class="line">          <span class="built_in">this</span>.date[i].push(&#123;</span><br><span class="line">            active: <span class="built_in">Boolean</span>(<span class="built_in">this</span>.schedule_time.substr(num, <span class="number">1</span>) / <span class="number">1</span>),</span><br><span class="line">            week: i,</span><br><span class="line">            time: j,</span><br><span class="line">            timeQuantum: timeQuantumArr[j]</span><br><span class="line">          &#125;);</span><br><span class="line">          num++;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="function"><span class="title">handleEmpty</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">      <span class="built_in">this</span>.date.forEach(<span class="function">(<span class="params">item1, index1</span>) =&gt;</span> &#123;</span><br><span class="line">        item1.forEach(<span class="function">(<span class="params">item2, index2</span>) =&gt;</span> &#123;</span><br><span class="line">          item2.active = <span class="literal">false</span>;</span><br><span class="line">        &#125;);</span><br><span class="line">      &#125;);</span><br><span class="line">      <span class="built_in">this</span>.$emit(<span class="string">&quot;scheduleTime&quot;</span>, <span class="built_in">Array</span>(<span class="number">337</span>).join(<span class="number">1</span>));</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="function"><span class="title">handleMouseOut</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">      <span class="built_in">this</span>.timeTips = &#123;</span><br><span class="line">        width: <span class="string">&quot;182px&quot;</span>,</span><br><span class="line">        display: <span class="string">&quot;none&quot;</span></span><br><span class="line">      &#125;;</span><br><span class="line">      debounce(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.timeTips = &#123;</span><br><span class="line">          width: <span class="string">&quot;182px&quot;</span>,</span><br><span class="line">          display: <span class="string">&quot;none&quot;</span></span><br><span class="line">        &#125;;</span><br><span class="line">      &#125;, <span class="number">1000</span>);</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="function"><span class="title">handleMouseEnter</span>(<span class="params">value, item</span>)</span> &#123;</span><br><span class="line">      debounce(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">let</span> x = -<span class="number">10</span> + <span class="number">12</span> * item.time;</span><br><span class="line">        <span class="keyword">let</span> y = -<span class="number">15</span> + <span class="number">30</span> * item.week;</span><br><span class="line">        <span class="built_in">this</span>.timeTips = &#123;</span><br><span class="line">          width: <span class="string">&quot;182px&quot;</span>,</span><br><span class="line">          position: <span class="string">&quot;absolute&quot;</span>,</span><br><span class="line">          transform: <span class="string">`translate3d(<span class="subst">$&#123;x&#125;</span>px, <span class="subst">$&#123;y&#125;</span>px, 0px)`</span>,</span><br><span class="line">          top: <span class="string">&quot;0px&quot;</span>,</span><br><span class="line">          left: <span class="string">&quot;0px&quot;</span></span><br><span class="line">        &#125;;</span><br><span class="line">        <span class="built_in">this</span>.timeTips_week = item.week;</span><br><span class="line">        <span class="built_in">this</span>.timeTIps_content = <span class="string">`<span class="subst">$&#123;item.timeQuantum[<span class="number">0</span>]&#125;</span>~<span class="subst">$&#123;item.timeQuantum[<span class="number">1</span>]&#125;</span>`</span>;</span><br><span class="line">      &#125;, <span class="number">1000</span>);</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="function"><span class="title">handleMouseOutUp</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">      <span class="built_in">this</span>.Display = <span class="string">&quot;none&quot;</span>;</span><br><span class="line">      <span class="built_in">this</span>.screenX = <span class="number">0</span>;</span><br><span class="line">      <span class="built_in">this</span>.screenY = <span class="number">0</span>;</span><br><span class="line">      <span class="built_in">this</span>.mouseWidth = <span class="number">0</span>;</span><br><span class="line">      <span class="built_in">this</span>.mouseHeight = <span class="number">0</span>;</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="function"><span class="title">handleMouseUp</span>(<span class="params">value, item</span>)</span> &#123;</span><br><span class="line">      <span class="built_in">this</span>.Display = <span class="string">&quot;none&quot;</span>;</span><br><span class="line">      <span class="built_in">this</span>.screenX = <span class="number">0</span>;</span><br><span class="line">      <span class="built_in">this</span>.screenY = <span class="number">0</span>;</span><br><span class="line">      <span class="built_in">this</span>.mouseWidth = <span class="number">0</span>;</span><br><span class="line">      <span class="built_in">this</span>.mouseHeight = <span class="number">0</span>;</span><br><span class="line">      <span class="keyword">const</span> &#123; active, time, week &#125; = item;</span><br><span class="line">      <span class="keyword">if</span> (active == <span class="built_in">this</span>.isSelect) &#123;</span><br><span class="line">        <span class="built_in">this</span>.isSelect = !<span class="built_in">this</span>.isSelect;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">if</span> (week &lt; <span class="built_in">this</span>.startWeek) &#123;</span><br><span class="line">        <span class="built_in">this</span>.endWeek = <span class="built_in">this</span>.startWeek;</span><br><span class="line">        <span class="built_in">this</span>.startWeek = week;</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.endWeek = week;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">if</span> (time &lt; <span class="built_in">this</span>.startTime) &#123;</span><br><span class="line">        <span class="built_in">this</span>.endTime = <span class="built_in">this</span>.startTime;</span><br><span class="line">        <span class="built_in">this</span>.startTime = time;</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.endTime = time;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="built_in">this</span>.date.forEach(<span class="function">(<span class="params">v, i</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (i &gt;= <span class="built_in">this</span>.startWeek &amp;&amp; i &lt;= <span class="built_in">this</span>.endWeek) &#123;</span><br><span class="line">          v.forEach(<span class="function">(<span class="params">item, index</span>) =&gt;</span> &#123;</span><br><span class="line">            <span class="keyword">if</span> (index &gt;= <span class="built_in">this</span>.startTime &amp;&amp; index &lt;= <span class="built_in">this</span>.endTime) &#123;</span><br><span class="line">              item.active = <span class="built_in">this</span>.isSelect;</span><br><span class="line">            &#125;</span><br><span class="line">          &#125;);</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;);</span><br><span class="line">      <span class="keyword">let</span> tempString = <span class="string">&quot;&quot;</span>;</span><br><span class="line">      <span class="built_in">this</span>.date.forEach(<span class="function"><span class="params">v</span> =&gt;</span> &#123;</span><br><span class="line">        v.forEach(<span class="function"><span class="params">item</span> =&gt;</span> &#123;</span><br><span class="line">          <span class="keyword">if</span> (item.active) &#123;</span><br><span class="line">            tempString += <span class="string">&quot;1&quot;</span>;</span><br><span class="line">          &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            tempString += <span class="string">&quot;0&quot;</span>;</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">      &#125;);</span><br><span class="line">      <span class="built_in">this</span>.schedule_time = tempString;</span><br><span class="line">      <span class="built_in">this</span>.$emit(<span class="string">&quot;scheduleTime&quot;</span>, <span class="built_in">this</span>.schedule_time);</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="function"><span class="title">handleMouseMove</span>(<span class="params">value</span>)</span> &#123;</span><br><span class="line">      <span class="keyword">const</span> &#123; x, y, offsetX, offsetY &#125; = value;</span><br><span class="line">      <span class="keyword">if</span> (x &gt;= <span class="built_in">this</span>.ClickX &amp;&amp; y &gt;= <span class="built_in">this</span>.ClickY) &#123;</span><br><span class="line">        <span class="built_in">this</span>.screenX = <span class="built_in">this</span>.ClickX;</span><br><span class="line">        <span class="built_in">this</span>.screenY = <span class="built_in">this</span>.ClickY;</span><br><span class="line">        <span class="built_in">this</span>.mouseWidth = x - <span class="built_in">this</span>.ClickX + <span class="number">12</span> - offsetX;</span><br><span class="line">        <span class="built_in">this</span>.mouseHeight = y - <span class="built_in">this</span>.ClickY + <span class="number">30</span> - offsetY;</span><br><span class="line">      &#125; <span class="keyword">else</span> <span class="keyword">if</span> (x &gt;= <span class="built_in">this</span>.ClickX &amp;&amp; y &lt;= <span class="built_in">this</span>.ClickY) &#123;</span><br><span class="line">        <span class="built_in">this</span>.mouseWidth = x - <span class="built_in">this</span>.ClickX + <span class="number">12</span> - offsetX;</span><br><span class="line">        <span class="built_in">this</span>.mouseHeight = <span class="built_in">this</span>.ClickY - y + <span class="number">30</span> + offsetY;</span><br><span class="line">        <span class="built_in">this</span>.screenY = y - offsetY;</span><br><span class="line">      &#125; <span class="keyword">else</span> <span class="keyword">if</span> (x &lt;= <span class="built_in">this</span>.ClickX &amp;&amp; y &lt;= <span class="built_in">this</span>.ClickY) &#123;</span><br><span class="line">        <span class="built_in">this</span>.mouseWidth = <span class="built_in">this</span>.ClickX - x + <span class="number">12</span> + offsetX;</span><br><span class="line">        <span class="built_in">this</span>.mouseHeight = <span class="built_in">this</span>.ClickY - y + <span class="number">30</span> + offsetY;</span><br><span class="line">        <span class="built_in">this</span>.screenX = x - offsetX;</span><br><span class="line">        <span class="built_in">this</span>.screenY = y - offsetY;</span><br><span class="line">      &#125; <span class="keyword">else</span> <span class="keyword">if</span> (x &lt;= <span class="built_in">this</span>.ClickX &amp;&amp; y &gt;= <span class="built_in">this</span>.ClickY) &#123;</span><br><span class="line">        <span class="built_in">this</span>.mouseWidth = <span class="built_in">this</span>.ClickX - x + <span class="number">12</span> + offsetX;</span><br><span class="line">        <span class="built_in">this</span>.mouseHeight = y - <span class="built_in">this</span>.ClickY + <span class="number">30</span> - offsetY;</span><br><span class="line">        <span class="built_in">this</span>.screenX = x - offsetX;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="function"><span class="title">handleMouseClick</span>(<span class="params">val, item</span>)</span> &#123;</span><br><span class="line">      <span class="built_in">this</span>.Display = <span class="string">&quot;block&quot;</span>;</span><br><span class="line">      <span class="built_in">this</span>.mouseWidth = <span class="number">0</span>;</span><br><span class="line">      <span class="built_in">this</span>.mouseHeight = <span class="number">0</span>;</span><br><span class="line">      <span class="keyword">const</span> &#123; x, y, offsetX, offsetY &#125; = val;</span><br><span class="line">      <span class="built_in">this</span>.screenX = x - offsetX;</span><br><span class="line">      <span class="built_in">this</span>.screenY = y - offsetY;</span><br><span class="line">      <span class="built_in">this</span>.ClickX = x - offsetX;</span><br><span class="line">      <span class="built_in">this</span>.ClickY = y - offsetY;</span><br><span class="line">      <span class="keyword">const</span> &#123; active, time, week &#125; = item;</span><br><span class="line">      <span class="built_in">this</span>.isSelect = active;</span><br><span class="line">      <span class="built_in">this</span>.startTime = time;</span><br><span class="line">      <span class="built_in">this</span>.startWeek = week;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  filters: &#123;</span><br><span class="line">    <span class="function"><span class="title">weekend</span>(<span class="params">value</span>)</span> &#123;</span><br><span class="line">      <span class="keyword">let</span> weekend = <span class="string">&quot;&quot;</span>;</span><br><span class="line">      value == <span class="number">0</span> ? (weekend = <span class="string">&quot;一&quot;</span>) : <span class="string">&quot;&quot;</span>;</span><br><span class="line">      value == <span class="number">1</span> ? (weekend = <span class="string">&quot;二&quot;</span>) : <span class="string">&quot;&quot;</span>;</span><br><span class="line">      value == <span class="number">2</span> ? (weekend = <span class="string">&quot;三&quot;</span>) : <span class="string">&quot;&quot;</span>;</span><br><span class="line">      value == <span class="number">3</span> ? (weekend = <span class="string">&quot;四&quot;</span>) : <span class="string">&quot;&quot;</span>;</span><br><span class="line">      value == <span class="number">4</span> ? (weekend = <span class="string">&quot;五&quot;</span>) : <span class="string">&quot;&quot;</span>;</span><br><span class="line">      value == <span class="number">5</span> ? (weekend = <span class="string">&quot;六&quot;</span>) : <span class="string">&quot;&quot;</span>;</span><br><span class="line">      value == <span class="number">6</span> ? (weekend = <span class="string">&quot;日&quot;</span>) : <span class="string">&quot;&quot;</span>;</span><br><span class="line">      <span class="keyword">return</span> weekend;</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="function"><span class="title">timeDifference</span>(<span class="params">time</span>)</span> &#123;</span><br><span class="line">      <span class="keyword">let</span> timeDifference = <span class="string">&quot;&quot;</span>;</span><br><span class="line">      time.forEach(<span class="function">(<span class="params">v, i</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> i % <span class="number">2</span> == <span class="number">0</span></span><br><span class="line">          ? (timeDifference += <span class="string">`<span class="subst">$&#123;time[i]&#125;</span>~<span class="subst">$&#123;time[i + <span class="number">1</span>]&#125;</span> `</span>)</span><br><span class="line">          : <span class="string">&quot; &quot;</span>;</span><br><span class="line">      &#125;);</span><br><span class="line">      <span class="keyword">return</span> timeDifference;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  computed: &#123;</span><br><span class="line">    <span class="function"><span class="title">timeFiltrate</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">      <span class="keyword">let</span> arr = [];</span><br><span class="line">      <span class="keyword">let</span> tempArr = [];</span><br><span class="line">      <span class="built_in">this</span>.date.forEach(<span class="function">(<span class="params">item1, index1</span>) =&gt;</span> &#123;</span><br><span class="line">        item1.forEach(<span class="function">(<span class="params">item2, index2</span>) =&gt;</span> &#123;</span><br><span class="line">          <span class="keyword">if</span> (item2.active) &#123;</span><br><span class="line">            tempArr.push(...item2.timeQuantum);</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">        <span class="keyword">if</span> (tempArr.length !== <span class="number">0</span>) &#123;</span><br><span class="line">          arr.push(tempArr);</span><br><span class="line">          tempArr = [];</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;);</span><br><span class="line">      arr.forEach(<span class="function">(<span class="params">item1, index1</span>) =&gt;</span> &#123;</span><br><span class="line">        item1.forEach(<span class="function">(<span class="params">item2, index2</span>) =&gt;</span> &#123;</span><br><span class="line">          <span class="keyword">if</span> (arr[index1][index2] === arr[index1][index2 + <span class="number">1</span>]) &#123;</span><br><span class="line">            tempArr.push(index2, index2 + <span class="number">1</span>);</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">        tempArr.sort(<span class="function">(<span class="params">a, b</span>) =&gt;</span> &#123;</span><br><span class="line">          <span class="keyword">return</span> b - a;</span><br><span class="line">        &#125;);</span><br><span class="line">        tempArr.map(<span class="function">(<span class="params">v, i</span>) =&gt;</span> &#123;</span><br><span class="line">          arr[index1].splice(v, <span class="number">1</span>);</span><br><span class="line">        &#125;);</span><br><span class="line">        tempArr = [];</span><br><span class="line">      &#125;);</span><br><span class="line">      <span class="keyword">return</span> arr;</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="function"><span class="title">List</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">      <span class="keyword">return</span> [...new <span class="built_in">Array</span>(<span class="number">24</span>).keys()];</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="function"><span class="title">mounted</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">    <span class="built_in">this</span>.schedule_time = <span class="built_in">this</span>.time;</span><br><span class="line">    <span class="built_in">this</span>.CreateData();</span><br><span class="line">  &#125;,</span><br><span class="line">  watch: &#123;</span><br><span class="line">    <span class="function"><span class="title">time</span>(<span class="params">newVal, oldVal</span>)</span> &#123;</span><br><span class="line">      <span class="built_in">this</span>.schedule_time = newVal;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">&lt;style lang=<span class="string">&quot;less&quot;</span> scoped&gt;</span><br><span class="line">.schedule &#123;</span><br><span class="line">  background: #2f88ff;</span><br><span class="line">  width: <span class="number">0</span>;</span><br><span class="line">  height: <span class="number">0</span>;</span><br><span class="line">  position: fixed;</span><br><span class="line">  display: none;</span><br><span class="line">  top: <span class="number">0</span>;</span><br><span class="line">  left: <span class="number">0</span>;</span><br><span class="line">  pointer-events: none;</span><br><span class="line">  -webkit-transition: all 400ms ease;</span><br><span class="line">  -moz-transition: all 400ms ease;</span><br><span class="line">  -ms-transition: all 400ms ease;</span><br><span class="line">  transition: all 400ms ease;</span><br><span class="line">&#125;</span><br><span class="line">.calendar-table th &#123;</span><br><span class="line">  background: #f8f9fa;</span><br><span class="line">  font-weight: <span class="number">600</span>;</span><br><span class="line">&#125;</span><br><span class="line">.calendar-table tr td:first-child &#123;</span><br><span class="line">  background: #f8f9fa;</span><br><span class="line">&#125;</span><br><span class="line">.week-td &#123;</span><br><span class="line">  width: 75px;</span><br><span class="line">  padding: 20px <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line">.timeQuantum &#123;</span><br><span class="line">  position: relative;</span><br><span class="line">  top: <span class="number">0</span>;</span><br><span class="line">  left: <span class="number">0</span>;</span><br><span class="line">  display: flex;</span><br><span class="line">  justify-content: space-between;</span><br><span class="line">  align-content: center;</span><br><span class="line">  .areadySelect,</span><br><span class="line">  .empty &#123;</span><br><span class="line">    cursor: pointer;</span><br><span class="line">    padding: 10px 10px 5px;</span><br><span class="line">    font-size: 16px;</span><br><span class="line">    font-weight: <span class="number">600</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  .empty &#123;</span><br><span class="line">    color: #559eff;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">.calendar-table .tip-text &#123;</span><br><span class="line">  color: #999;</span><br><span class="line">  margin: 8px;</span><br><span class="line">&#125;</span><br><span class="line">.calendar-table tbody tr &#123;</span><br><span class="line">  height: 30px;</span><br><span class="line">  .ui-selected &#123;</span><br><span class="line">    background: #2f88ff;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">.calendar-table &#123;</span><br><span class="line">  background: #fff;</span><br><span class="line">  -webkit-user-select: none;</span><br><span class="line">  -moz-user-select: none;</span><br><span class="line">  -ms-user-select: none;</span><br><span class="line">  user-select: none;</span><br><span class="line">  .td-selected-time &#123;</span><br><span class="line">    p &#123;</span><br><span class="line">      max-width: 571px;</span><br><span class="line">      word-<span class="keyword">break</span>: <span class="keyword">break</span>-all;</span><br><span class="line">      margin: 8px <span class="number">0</span>;</span><br><span class="line">      text-align: left;</span><br><span class="line">      font-size: 14px;</span><br><span class="line">      line-height: 22px;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  tr,</span><br><span class="line">  td,</span><br><span class="line">  th &#123;</span><br><span class="line">    cursor: pointer;</span><br><span class="line">    border: 1px solid #e4e9ed;</span><br><span class="line">    font-size: 12px;</span><br><span class="line">    text-align: center;</span><br><span class="line">    min-width: 11px;</span><br><span class="line">    line-height: <span class="number">1.</span>8em;</span><br><span class="line">    -webkit-transition: background 200ms ease;</span><br><span class="line">    -moz-transition: background 200ms ease;</span><br><span class="line">    -ms-transition: background 200ms ease;</span><br><span class="line">    transition: background 200ms ease;</span><br><span class="line">  &#125;</span><br><span class="line">  tr &#123;</span><br><span class="line">    .ui-selected &#123;</span><br><span class="line">      background: #2f88ff;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">.byted-popover-wrapper &#123;</span><br><span class="line">  .bui-popper &#123;</span><br><span class="line">    z-index: <span class="number">2</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  .bui-popover-arrow &#123;</span><br><span class="line">    position: absolute;</span><br><span class="line">    width: 10px;</span><br><span class="line">    height: 10px;</span><br><span class="line">    background-color: #fff;</span><br><span class="line">    -webkit-transform: rotate(45deg);</span><br><span class="line">    transform: rotate(45deg);</span><br><span class="line">  &#125;</span><br><span class="line">  .byted-popover[x-placement^=<span class="string">&quot;top&quot;</span>] &#123;</span><br><span class="line">    padding: 12px <span class="number">0</span>;</span><br><span class="line">    .bui-popover-arrow &#123;</span><br><span class="line">      bottom: 7px;</span><br><span class="line">      border-width: <span class="number">0</span> 1px 1px <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  .bui-popover-panel &#123;</span><br><span class="line">    padding: 16px;</span><br><span class="line">    background-color: #fff;</span><br><span class="line">    border-radius: 4px;</span><br><span class="line">    -webkit-box-shadow: <span class="number">0</span> 2px 6px <span class="number">0</span> rgba(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0.15</span>);</span><br><span class="line">    box-shadow: <span class="number">0</span> 2px 6px <span class="number">0</span> rgba(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0.15</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  .bui-popover-body &#123;</span><br><span class="line">    color: #666;</span><br><span class="line">    font-size: 12px;</span><br><span class="line">    line-height: 22px;</span><br><span class="line">    white-space: normal;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="使用方式"><a href="#使用方式" class="headerlink" title="使用方式"></a>使用方式</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;TimeQuantum :time=<span class="string">&quot;schedule_time&quot;</span> @scheduleTime=<span class="string">&quot;getScheduleTime&quot;</span> /&gt;</span><br><span class="line"><span class="keyword">import</span> TimeQuantum <span class="keyword">from</span> <span class="string">&quot;timeQuantum.vue&quot;</span>;</span><br><span class="line">components:&#123;TimeQuantums&#125;</span><br></pre></td></tr></table></figure>
+
+
+  
+  
+    
+    <div class='footer'>
+      
+      
+      
+        <div class='copyright'>
+          <blockquote>
+            
+              
+                <p>博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</p>
+
+              
+            
+              
+                <p>本文永久链接是：<a href=http://wang-z.gitee.io/2019/09/18/UI-vue%E6%97%B6%E9%97%B4%E6%AE%B5%E7%BB%84%E4%BB%B6/>http://wang-z.gitee.io/2019/09/18/UI-vue%E6%97%B6%E9%97%B4%E6%AE%B5%E7%BB%84%E4%BB%B6/</a></p>
+              
+            
+          </blockquote>
+        </div>
+      
+      
+    </div>
+  
+  
+    
+
+
+  <div class='article-meta' id="bottom">
+    <div class='new-meta-box'>
+      
+        
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-04-13T11:51:00+08:00">
+  <a class='notlink'>
+    <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
+    <p>本页文档最后更新于：2021年4月13日</p>
+  </a>
+</div>
+
+        
+      
+        
+          
+  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/vue/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>vue</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/UI/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>UI</p></a></div>
+
+
+        
+      
+        
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
+    
+      
+        <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://wang-z.gitee.io/2019/09/18/UI-vue%E6%97%B6%E9%97%B4%E6%AE%B5%E7%BB%84%E4%BB%B6/&title=时间段组件 - Mr.wang'blog&summary=
+一周0.5*2*24*7的时间段选择,操作48位01字符串
+"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://wang-z.gitee.io/2019/09/18/UI-vue%E6%97%B6%E9%97%B4%E6%AE%B5%E7%BB%84%E4%BB%B6/&title=时间段组件 - Mr.wang'blog&summary=
+一周0.5*2*24*7的时间段选择,操作48位01字符串
+"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="http://service.weibo.com/share/share.php?url=http://wang-z.gitee.io/2019/09/18/UI-vue%E6%97%B6%E9%97%B4%E6%AE%B5%E7%BB%84%E4%BB%B6/&title=时间段组件 - Mr.wang'blog&summary=
+一周0.5*2*24*7的时间段选择,操作48位01字符串
+"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+          
+        </a>
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+
+
+        
+      
+    </div>
+  </div>
+
+
+  
+  
+
+  
+    <div class="prev-next">
+      
+        <a class='prev' href='/2019/10/10/js-%E5%BC%95%E5%85%A5%E6%96%B9%E5%BC%8F/'>
+          <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>commonJS以及ES6的引入方法</p>
+          <p class='content'>
+模块,js函数的导入和使用
+
+
+
+自动引入模块
+当前例子为vuex的modules内的自动导入
+modules即是所有模块的集合对象 {模块名，模块名}
+
+1234567const modul...</p>
+        </a>
+      
+      
+        <a class='next' href='/2019/09/12/html-%E7%90%86%E6%83%B3%E8%A7%86%E5%8F%A3/'>
+          <p class='title'>理想视口<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+          <p class='content'>
+关于移动端的meta name=”viewport”的使用
+
+
+
+标准的理想视口如下：1&lt;meta name=&quot;viewport&quot; content=&quot;wid...</p>
+        </a>
+      
+    </div>
+  
+</article>
+
+
+  
+
+  <article class="post white-box reveal shadow" id="comments">
+    <p ct><i class='fas fa-comments'></i> 评论</p>
+    
+    <div id="valine_container" class="valine_thread">
+  <i class="fas fa-cog fa-spin fa-fw fa-2x"></i>
+</div>
+
+  </article>
+
+
+
+
+
+
+</div>
+<aside class='l_side'>
+  
+  
+
+  
+    
+    
+
+
+
+  <section class="widget toc-wrapper shadow desktop mobile" id="toc-div" >
+    
+  <header>
+    
+      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
+    
+  </header>
+
+
+    <div class='content'>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%9D%E8%80%83%E8%BF%87%E7%A8%8B"><span class="toc-text">思考过程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%BA%90%E7%A0%81%EF%BC%88%E6%B8%85%E6%99%B0%E7%89%88%EF%BC%89"><span class="toc-text">源码（清晰版）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E6%96%B9%E5%BC%8F"><span class="toc-text">使用方式</span></a></li></ol>
+    </div>
+  </section>
+
+
+  
+
+  
+
+
+</aside>
+
+
+
+		  
+		  <!--此文件用来存放一些不方便取值的变量-->
+<!--思路大概是将值藏到重加载的区域内-->
+
+<script>
+  window.pdata={}
+  pdata.ispage=true;
+  pdata.postTitle="时间段组件";
+  pdata.commentPath="";
+  pdata.commentPlaceholder="";
+  // header 这里无论是否开启pjax都需要
+  var l_header=document.getElementById("l_header");
+  
+  l_header.classList.remove("show");
+  
+  
+    // cover
+    var cover_wrapper=document.querySelector('.cover-wrapper');
+    
+    cover_wrapper.id="half";
+    cover_wrapper.style.display="";
+    
+  
+</script>
+
+        </div>
+        
+  
+  <footer class="footer clearfix">
+    <br><br>
+    
+      
+        <div class="aplayer-container">
+          
+
+  
+    <meting-js
+      theme='#1BCDFC'
+      autoplay='false'
+      volume='0.4'
+      loop='all'
+      order='random'
+      fixed='false'
+      list-max-height='320px'
+      server='netease'
+      type='playlist'
+      id='5062959861'
+      list-folded='true'>
+    </meting-js>
+  
+
+
+        </div>
+      
+    
+      
+        <br>
+        <div class="social-wrapper">
+          
+            
+              <a href="/atom.xml"
+                class="social  flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer">
+                
+                  <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org@1.1/icon/1322024-social-media/020-rss.svg" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org@1.1/icon/1322024-social-media/020-rss.svg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="/>
+                
+              </a>
+            
+          
+            
+              <a href="https://github.com/volantis-x/"
+                class="social  flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer">
+                
+                  <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org@1.1/icon/1322024-social-media/029-github.svg" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org@1.1/icon/1322024-social-media/029-github.svg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="/>
+                
+              </a>
+            
+          
+            
+              <a href="/"
+                class="social  flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer">
+                
+                  <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org@1.1/icon/1322024-social-media/010-facebook.svg" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org@1.1/icon/1322024-social-media/010-facebook.svg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="/>
+                
+              </a>
+            
+          
+            
+              <a href="/"
+                class="social  flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer">
+                
+                  <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org@1.1/icon/1322024-social-media/018-twitter.svg" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org@1.1/icon/1322024-social-media/018-twitter.svg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="/>
+                
+              </a>
+            
+          
+            
+              <a href="/"
+                class="social  flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer">
+                
+                  <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org@1.1/icon/1322024-social-media/045-telegram.svg" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org@1.1/icon/1322024-social-media/045-telegram.svg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="/>
+                
+              </a>
+            
+          
+            
+              <a href="/"
+                class="social  flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer">
+                
+                  <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org@1.1/icon/1322024-social-media/006-youtube.svg" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org@1.1/icon/1322024-social-media/006-youtube.svg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="/>
+                
+              </a>
+            
+          
+        </div>
+      
+    
+      
+        <p>本站使用 <a target="_blank" rel="noopener" href="https://github.com/volantis-x/hexo-theme-volantis/tree/4.3.1">Volantis</a> 作为主题，您可以在 GitHub 找到<a target="_blank" rel="noopener" href="https://github.com/volantis-x/volantis-docs">本站源码</a>。</p>
+
+      
+    
+      
+        
+          <div><p><span id="lc-sv">本站总访问量为 <span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span> 次</span> <span id="lc-uv">访客数为 <span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span> 人</span></p>
+</div>
+        
+      
+    
+      
+        <div class='copyright'>
+        <p><a target="_blank" rel="noopener" href="https://github.com/volantis-x/">Copyright © 2017-2021 Volantis Team</a></p>
+
+        </div>
+      
+    
+  </footer>
+
+
+        <a id="s-top" class="fas fa-arrow-up fa-fw" href="javascript:void(0)"></a>
+      </div>
+    </div>
+    <div>
+      <script>
+/************这个文件存放不需要重载的全局变量和全局函数*********/
+window.volantis={};
+window.volantis.loadcss=document.getElementById("loadcss");
+/******************** Pjax ********************************/
+function VPjax(){
+	this.list=[] // 存放回调函数
+	this.start=()=>{
+	  for(var i=0;i<this.list.length;i++){
+		this.list[i].run();
+	  }
+	}
+	this.push=(fn,name)=>{
+		var f=new PjaxItem(fn,name);
+		this.list.push(f);
+	}
+	// 构造一个可以run的对象
+	function PjaxItem(fn,name){
+		// 函数名称
+		this.name = name || fn.name
+		// run方法
+		this.run=()=>{
+			fn()
+		}
+	}
+}
+volantis.pjax={}
+volantis.pjax.method={
+	complete: new VPjax(),
+	error: new VPjax(),
+	send: new VPjax()
+}
+volantis.pjax={
+	...volantis.pjax,
+	push: volantis.pjax.method.complete.push,
+	error: volantis.pjax.method.error.push,
+	send: volantis.pjax.method.send.push
+}
+/********************脚本懒加载函数********************************/
+// 已经加入了setTimeout
+function loadScript(src, cb) {
+	setTimeout(function() {
+		var HEAD = document.getElementsByTagName('head')[0] || document.documentElement;
+		var script = document.createElement('script');
+		script.setAttribute('type','text/javascript');
+		if (cb) script.onload = cb;
+		script.setAttribute('src', src);
+		HEAD.appendChild(script);
+	});
+}
+//https://github.com/filamentgroup/loadCSS
+var loadCSS = function( href, before, media, attributes ){
+	var doc = window.document;
+	var ss = doc.createElement( "link" );
+	var ref;
+	if( before ){
+		ref = before;
+	}
+	else {
+		var refs = ( doc.body || doc.getElementsByTagName( "head" )[ 0 ] ).childNodes;
+		ref = refs[ refs.length - 1];
+	}
+	var sheets = doc.styleSheets;
+	if( attributes ){
+		for( var attributeName in attributes ){
+			if( attributes.hasOwnProperty( attributeName ) ){
+				ss.setAttribute( attributeName, attributes[attributeName] );
+			}
+		}
+	}
+	ss.rel = "stylesheet";
+	ss.href = href;
+	ss.media = "only x";
+	function ready( cb ){
+		if( doc.body ){
+			return cb();
+		}
+		setTimeout(function(){
+			ready( cb );
+		});
+	}
+	ready( function(){
+		ref.parentNode.insertBefore( ss, ( before ? ref : ref.nextSibling ) );
+	});
+	var onloadcssdefined = function( cb ){
+		var resolvedHref = ss.href;
+		var i = sheets.length;
+		while( i-- ){
+			if( sheets[ i ].href === resolvedHref ){
+				return cb();
+			}
+		}
+		setTimeout(function() {
+			onloadcssdefined( cb );
+		});
+	};
+	function loadCB(){
+		if( ss.addEventListener ){
+			ss.removeEventListener( "load", loadCB );
+		}
+		ss.media = media || "all";
+	}
+	if( ss.addEventListener ){
+		ss.addEventListener( "load", loadCB);
+	}
+	ss.onloadcssdefined = onloadcssdefined;
+	onloadcssdefined( loadCB );
+	return ss;
+};
+</script>
+<script>
+  
+  loadCSS("https://cdn.jsdelivr.net/gh/volantis-x/cdn-fontawesome-pro@master/css/all.min.css", window.volantis.loadcss);
+  
+  
+  
+  
+  loadCSS("https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10/build/styles/solarized-light.min.css", window.volantis.loadcss);
+  
+</script>
+<!-- required -->
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5/dist/jquery.min.js"></script>
+
+<script>
+  function pjax_fancybox() {
+    $(".md .gallery").find("img").each(function () { //渲染 fancybox
+      var element = document.createElement("a"); // a 标签
+      $(element).attr("class", "fancybox");
+      $(element).attr("pjax-fancybox", "");  // 过滤 pjax
+      $(element).attr("href", $(this).attr("src"));
+      if ($(this).attr("data-original")) {
+        $(element).attr("href", $(this).attr("data-original"));
+      }
+      $(element).attr("data-fancybox", "images");
+      var caption = "";   // 描述信息
+      if ($(this).attr('alt')) {  // 判断当前页面是否存在描述信息
+        $(element).attr('data-caption', $(this).attr('alt'));
+        caption = $(this).attr('alt');
+      }
+      var div = document.createElement("div");
+      $(div).addClass("fancybox");
+      $(this).wrap(div); // 最外层套 div ，其实主要作用还是 class 样式
+      var span = document.createElement("span");
+      $(span).addClass("image-caption");
+      $(span).text(caption); // 加描述
+      $(this).after(span);  // 再套一层描述
+      $(this).wrap(element);  // 最后套 a 标签
+    })
+    $(".md .gallery").find("img").fancybox({
+      selector: '[data-fancybox="images"]',
+      hash: false,
+      loop: false,
+      closeClick: true,
+      helpers: {
+        overlay: {closeClick: true}
+      },
+      buttons: [
+        "zoom",
+        "close"
+      ]
+    });
+  };
+  function SCload_fancybox() {
+    if ($(".md .gallery").find("img").length == 0) return;
+    loadCSS("https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css", document.getElementById("loadcss"));
+    loadScript('https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js', pjax_fancybox)
+  };
+  $(function () {
+    SCload_fancybox();
+  });
+  function Pjax_SCload_fancybox(){
+	if (typeof $.fancybox == "undefined") {
+	 SCload_fancybox();
+    } else {
+	 pjax_fancybox();
+    }
+  }
+  volantis.pjax.push(Pjax_SCload_fancybox)
+  volantis.pjax.send(()=>{
+      if (typeof $.fancybox != "undefined") {
+        $.fancybox.close();    // 关闭弹窗
+      }
+  },'fancybox')
+</script>
+
+
+<!-- internal -->
+
+  
+  
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/jquery-backstretch@2.1.18/jquery.backstretch.min.js"></script>
+
+    <script type="text/javascript">
+        var imgs=["https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/001.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/002.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/003.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/004.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/005.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/006.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/012.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/016.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/019.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/025.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/033.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/034.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/035.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/038.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/039.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/042.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/046.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/051.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/052.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/054.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/056.jpg"];
+        if ('true' == 'true') {
+          function shuffle(arr){
+            /*From countercurrent-time*/
+            var n = arr.length;
+            while(n--) {
+              var index = Math.floor(Math.random() * n);
+              var temp = arr[index];
+              arr[index] = arr[n];
+              arr[n] = temp;
+            }
+          }
+          shuffle(imgs);
+        }
+	  function Pjax_backstretch(){
+        
+          $('#cover-backstretch').backstretch(
+            imgs,
+          {
+            duration: "20000",
+            fade: "1500"
+          });
+        
+	  }
+	  loadScript("https://cdn.jsdelivr.net/npm/jquery-backstretch@2.1.18/jquery.backstretch.min.js",Pjax_backstretch)
+    </script>
+  
+
+
+
+
+<script>
+  function loadIssuesJS() {
+    if ($(".md").find(".issues-api").length == 0) return;
+	
+	  loadScript('/js/issues.js');
+	
+  };
+  $(function () {
+    loadIssuesJS();
+  });
+  volantis.pjax.push(()=>{
+	if (typeof IssuesAPI == "undefined") {
+	  loadIssuesJS();
+	}
+  },"IssuesJS")
+</script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.1.0/dist/lazyload.min.js"></script>
+<script>
+  // https://www.npmjs.com/package/vanilla-lazyload
+  // Set the options globally
+  // to make LazyLoad self-initialize
+  window.lazyLoadOptions = {
+    elements_selector: ".lazyload",
+    threshold: 0
+  };
+  // Listen to the initialization event
+  // and get the instance of LazyLoad
+  window.addEventListener(
+    "LazyLoad::Initialized",
+    function (event) {
+      window.lazyLoadInstance = event.detail.instance;
+    },
+    false
+  );
+  document.addEventListener('DOMContentLoaded', function () {
+    lazyLoadInstance.update();
+  });
+  document.addEventListener('pjax:complete', function () {
+    lazyLoadInstance.update();
+  });
+</script>
+
+
+
+
+  
+
+<script>
+  window.FPConfig = {
+	delay: 0,
+	ignoreKeywords: [],
+	maxRPS: 5,
+	hoverDelay: 25
+  };
+</script>
+<script defer src="https://cdn.jsdelivr.net/gh/gijo-varghese/flying-pages@2.1.2/flying-pages.min.js"></script>
+
+
+
+
+
+  <script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+<script>
+    var clipboard = new ClipboardJS('.btn-copy', {
+        target: function (trigger) {
+            return trigger.nextElementSibling
+        }
+    });
+    function wait(callback, seconds) {
+        var timelag = null;
+        timelag = window.setTimeout(callback, seconds)
+    }
+    function pjax_initCopyCode() {
+		if($(".highlight .code pre").length+$(".article pre code").length==0)return;
+        var copyHtml = '';
+        copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+        copyHtml += '<i class="fas fa-copy"></i><span>COPY</span>';
+        copyHtml += '</button>';
+        $(".highlight .code pre").before(copyHtml);
+        $(".article pre code").before(copyHtml);
+        clipboard.off('success').on('success', function (e) {
+            let $btn = $(e.trigger);
+            $btn.addClass('copied');
+            let $icon = $($btn.find('i'));
+            $icon.removeClass('fa-copy');
+            $icon.addClass('fa-check-circle');
+            let $span = $($btn.find('span'));
+            $span[0].innerText = 'COPIED';
+            wait(function () {
+                $icon.removeClass('fa-check-circle');
+                $icon.addClass('fa-copy');
+                $span[0].innerText = 'COPY'
+            }, 2000)
+        });
+        clipboard.off('error').on('error', function (e) {
+            e.clearSelection();
+            let $btn = $(e.trigger);
+            $btn.addClass('copy-failed');
+            let $icon = $($btn.find('i'));
+            $icon.removeClass('fa-copy');
+            $icon.addClass('fa-times-circle');
+            let $span = $($btn.find('span'));
+            $span[0].innerText = 'COPY FAILED';
+            wait(function () {
+                $icon.removeClass('fa-times-circle');
+                $icon.addClass('fa-copy');
+                $span[0].innerText = 'COPY'
+            }, 2000)
+        })
+    }
+    $(function () {
+        pjax_initCopyCode()
+    });
+	volantis.pjax.push(pjax_initCopyCode)
+</script>
+
+
+
+
+
+
+  <script>
+  let APlayerController = new Object();
+  APlayerController.id = '5062959861';  // 设定全局音乐播放ID
+  APlayerController.volume = '0.4';
+  loadCSS("https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.css", window.volantis.loadcss);
+  // APlayer 需要在  MetingJS 之前加载
+  loadScript("https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.js")
+  window.volantis.APlayerLoaded=0 // APlayer加载完成状态
+  var checkAPlayer = setInterval(function () {
+    if (!window.APlayer) return // APlayer加载完成？
+	  if ($("#safearea").css("display")!="block") return // 文章内容加载完成？ see: source/css/first.styl
+    clearInterval(checkAPlayer)
+	  if (!window.volantis.APlayerLoaded&&!window.MetingJSElement){ // APlayer只能加载一次
+      window.volantis.APlayerLoaded=1 // APlayer加载完成
+      loadScript("https://cdn.jsdelivr.net/npm/meting@2.0/dist/Meting.min.js") // 加载 MetingJS
+	  }
+  }, 2500) // 按照网速调节差分2.5s
+  // rightmenu see: layout/_partial/rightmenu.ejs
+
+</script>
+
+
+
+
+  
+  
+<script src="/js/valine.js"></script>
+
+
+<script>
+  function emoji(path, idx, ext) {
+    return path + "/" + path + "-" + idx + "." + ext;
+  }
+  var emojiMaps = {};
+  for (var i = 1; i <= 54; i++) {
+    emojiMaps['tieba-' + i] = emoji('tieba', i, 'png');
+  }
+  for (var i = 1; i <= 101; i++) {
+    emojiMaps['qq-' + i] = emoji('qq', i, 'gif');
+  }
+  for (var i = 1; i <= 116; i++) {
+    emojiMaps['aru-' + i] = emoji('aru', i, 'gif');
+  }
+  for (var i = 1; i <= 125; i++) {
+    emojiMaps['twemoji-' + i] = emoji('twemoji', i, 'png');
+  }
+  for (var i = 1; i <= 4; i++) {
+    emojiMaps['weibo-' + i] = emoji('weibo', i, 'png');
+  }
+  function pjax_valine() {
+    if(!document.querySelectorAll("#valine_container")[0])return;
+    let pagePlaceholder = pdata.commentPlaceholder || "快来评论吧~";
+    let path = pdata.commentPath;
+    if (path.length == 0) {
+      let defaultPath = '';
+      path = defaultPath || decodeURI(window.location.pathname);
+    }
+    var valine = new Valine();
+    valine.init(Object.assign({"path":null,"placeholder":"快来评论吧~","appId":null,"appKey":null,"meta":["nick","mail","link"],"requiredFields":["nick","mail"],"enableQQ":true,"recordIP":false,"avatar":"robohash","pageSize":10,"lang":"zh-cn","highlight":true,"mathJax":false}, {
+      el: '#valine_container',
+      path: path,
+      placeholder: pagePlaceholder,
+      emojiCDN: 'https://cdn.jsdelivr.net/gh/volantis-x/cdn-emoji/valine/',
+      emojiMaps: emojiMaps,
+    }))
+  }
+  $(function () {
+    pjax_valine();
+  });
+  volantis.pjax.push(pjax_valine);
+</script>
+
+
+
+
+
+
+  
+<script src="/js/app.js"></script>
+
+
+
+<!-- optional -->
+
+  <script>
+const SearchServiceimagePath="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@master/img/";
+const ROOT =  ("/" || "/").endsWith('/') ? ("/" || "/") : ("//" || "/" );
+
+$('.input.u-search-input').one('focus',function(){
+	
+		loadScript('/js/search/hexo.js',setSearchService);
+	
+})
+
+function listenSearch(){
+  
+    customSearch = new HexoSearch({
+      imagePath: SearchServiceimagePath
+    });
+  
+}
+function setSearchService() {
+	listenSearch();
+	
+}
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10/build/highlight.min.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+
+<script>
+volantis.pjax.push(()=>{
+	document.querySelectorAll('pre code').forEach((block) => {
+	  hljs.highlightBlock(block);
+	});
+},"highlightjs")
+</script>
+
+
+
+  <script defer>
+
+  const LCCounter = {
+    app_id: 'GCYDRKI6XRkyC7EuEhJv90ia-MdYXbMMI',
+    app_key: '4xKBXGBj6BgecU62vff5rJHs',
+    custom_api_server: '',
+
+    // 查询存储的记录
+    getRecord(Counter, url, title) {
+      return new Promise(function (resolve, reject) {
+        Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({url})))
+          .then(resp => resp.json())
+          .then(({results, code, error}) => {
+            if (code === 401) {
+              throw error;
+            }
+            if (results && results.length > 0) {
+              var record = results[0];
+              resolve(record);
+            } else {
+              Counter('post', '/classes/Counter', {url, title: title, times: 0})
+                .then(resp => resp.json())
+                .then((record, error) => {
+                  if (error) {
+                    throw error;
+                  }
+                  resolve(record);
+                }).catch(error => {
+                console.error('Failed to create', error);
+                reject(error);
+              });
+            }
+          }).catch((error) => {
+          console.error('LeanCloud Counter Error:', error);
+          reject(error);
+        });
+      })
+    },
+
+    // 发起自增请求
+    increment(Counter, incrArr) {
+      return new Promise(function (resolve, reject) {
+        Counter('post', '/batch', {
+          "requests": incrArr
+        }).then((res) => {
+          res = res.json();
+          if (res.error) {
+            throw res.error;
+          }
+          resolve(res);
+        }).catch((error) => {
+          console.error('Failed to save visitor count', error);
+          reject(error);
+        });
+      });
+    },
+
+    // 构建自增请求体
+    buildIncrement(objectId) {
+      return {
+        "method": "PUT",
+        "path": `/1.1/classes/Counter/${ objectId }`,
+        "body": {
+          "times": {
+            '__op': 'Increment',
+            'amount': 1
+          }
+        }
+      }
+    },
+
+    // 校验是否为有效的 UV
+    validUV() {
+      var key = 'LeanCloudUVTimestamp';
+      var flag = localStorage.getItem(key);
+      if (flag) {
+        // 距离标记小于 24 小时则不计为 UV
+        if (new Date().getTime() - parseInt(flag) <= 86400000) {
+          return false;
+        }
+      }
+      localStorage.setItem(key, new Date().getTime().toString());
+      return true;
+    },
+
+    addCount(Counter) {
+      var enableIncr = '' === 'true' && window.location.hostname !== 'localhost';
+      enableIncr = true;
+      var getterArr = [];
+      var incrArr = [];
+      // 请求 PV 并自增
+      var pvCtn = document.querySelector('#lc-sv');
+      if (pvCtn || enableIncr) {
+        var pvGetter = this.getRecord(Counter, 'http://wang-z.gitee.io' + '/#lc-sv', 'Visits').then((record) => {
+          incrArr.push(this.buildIncrement(record.objectId))
+          var eles = document.querySelectorAll('#lc-sv #number');
+          if (eles.length > 0) {
+            eles.forEach((el,index,array)=>{
+              el.innerText = record.times + 1;
+              if (pvCtn) {
+                pvCtn.style.display = 'inline';
+              }
+            })
+          }
+        });
+        getterArr.push(pvGetter);
+      }
+
+      // 请求 UV 并自增
+      var uvCtn = document.querySelector('#lc-uv');
+      if (uvCtn || enableIncr) {
+        var uvGetter = this.getRecord(Counter, 'http://wang-z.gitee.io' + '/#lc-uv', 'Visitors').then((record) => {
+          var vuv = this.validUV();
+          vuv && incrArr.push(this.buildIncrement(record.objectId))
+          var eles = document.querySelectorAll('#lc-uv #number');
+          if (eles.length > 0) {
+            eles.forEach((el,index,array)=>{
+              el.innerText = record.times + (vuv ? 1 : 0);
+              if (uvCtn) {
+                uvCtn.style.display = 'inline';
+              }
+            })
+          }
+        });
+        getterArr.push(uvGetter);
+      }
+
+      // 请求文章的浏览数，如果是当前页面就自增
+      var allPV = document.querySelectorAll('#lc-pv');
+      if (allPV.length > 0 || enableIncr) {
+        for (i = 0; i < allPV.length; i++) {
+          let pv = allPV[i];
+          let title = pv.getAttribute('data-title');
+          var url = 'http://wang-z.gitee.io' + pv.getAttribute('data-path');
+          if (url) {
+            var viewGetter = this.getRecord(Counter, url, title).then((record) => {
+              // 是当前页面就自增
+              let curPath = window.location.pathname;
+              if (curPath.includes('index.html')) {
+                curPath = curPath.substring(0, curPath.lastIndexOf('index.html'));
+              }
+              if (pv.getAttribute('data-path') == curPath) {
+                incrArr.push(this.buildIncrement(record.objectId));
+              }
+              if (pv) {
+                var ele = pv.querySelector('#lc-pv #number');
+                if (ele) {
+                  if (pv.getAttribute('data-path') == curPath) {
+                    ele.innerText = (record.times || 0) + 1;
+                  } else {
+                    ele.innerText = record.times || 0;
+                  }
+                  pv.style.display = 'inline';
+                }
+              }
+            });
+            getterArr.push(viewGetter);
+          }
+        }
+      }
+
+      // 如果启动计数自增，批量发起自增请求
+      if (enableIncr) {
+        Promise.all(getterArr).then(() => {
+          incrArr.length > 0 && this.increment(Counter, incrArr);
+        })
+      }
+
+    },
+
+
+    fetchData(api_server) {
+      var Counter = (method, url, data) => {
+        return fetch(`${ api_server }/1.1${ url }`, {
+          method,
+          headers: {
+            'X-LC-Id': this.app_id,
+            'X-LC-Key': this.app_key,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data)
+        });
+      };
+      this.addCount(Counter);
+    },
+
+    refreshCounter() {
+      var api_server = this.app_id.slice(-9) !== '-MdYXbMMI' ? this.custom_api_server : `https://${ this.app_id.slice(0, 8).toLowerCase() }.api.lncldglobal.com`;
+      if (api_server) {
+        this.fetchData(api_server);
+      } else {
+        fetch('https://app-router.leancloud.cn/2/route?appId=' + this.app_id)
+          .then(resp => resp.json())
+          .then(({api_server}) => {
+            this.fetchData('https://' + api_server);
+          });
+      }
+    }
+
+  };
+
+  LCCounter.refreshCounter();
+
+  document.addEventListener('pjax:complete', function () {
+    LCCounter.refreshCounter();
+  });
+</script>
+
+
+
+
+  <script>
+const rootElement = document.documentElement;
+const darkModeStorageKey = "user-color-scheme";
+const rootElementDarkModeAttributeName = "data-user-color-scheme";
+
+const setLS = (k, v) => {
+    localStorage.setItem(k, v);
+};
+
+const removeLS = (k) => {
+    localStorage.removeItem(k);
+};
+
+const getLS = (k) => {
+    return localStorage.getItem(k);
+};
+
+const getModeFromCSSMediaQuery = () => {
+  return window.matchMedia("(prefers-color-scheme: dark)").matches
+    ? "dark"
+    : "light";
+};
+
+const resetRootDarkModeAttributeAndLS = () => {
+  rootElement.removeAttribute(rootElementDarkModeAttributeName);
+  removeLS(darkModeStorageKey);
+};
+
+const validColorModeKeys = {
+  dark: true,
+  light: true,
+};
+
+const applyCustomDarkModeSettings = (mode) => {
+  const currentSetting = mode || getLS(darkModeStorageKey);
+
+  if (currentSetting === getModeFromCSSMediaQuery()) {
+    resetRootDarkModeAttributeAndLS();
+  } else if (validColorModeKeys[currentSetting]) {
+    rootElement.setAttribute(rootElementDarkModeAttributeName, currentSetting);
+  } else {
+    resetRootDarkModeAttributeAndLS();
+  }
+};
+
+const invertDarkModeObj = {
+  dark: "light",
+  light: "dark",
+};
+
+/**
+ * get target mode
+ */
+const toggleCustomDarkMode = () => {
+  let currentSetting = getLS(darkModeStorageKey);
+
+  if (validColorModeKeys[currentSetting]) {
+    currentSetting = invertDarkModeObj[currentSetting];
+  } else if (currentSetting === null) {
+    currentSetting = invertDarkModeObj[getModeFromCSSMediaQuery()];
+  } else {
+    return;
+  }
+  setLS(darkModeStorageKey, currentSetting);
+  return currentSetting;
+};
+
+/**
+ * bind click event for toggle button
+ */
+var btn=$("#wrapper .toggle-mode-btn,#rightmenu-wrapper .toggle-mode-btn");
+function bindToggleButton() {
+    btn.on('click',(e) => {
+      const mode = toggleCustomDarkMode();
+      applyCustomDarkModeSettings(mode);
+    });
+}
+
+applyCustomDarkModeSettings();
+document.addEventListener("DOMContentLoaded", bindToggleButton);
+volantis.pjax.push(bindToggleButton);
+volantis.pjax.send(()=>{
+	btn.unbind('click');
+},'toggle-mode-btn-unbind');
+</script>
+
+
+
+
+
+
+
+
+<script>
+function listennSidebarTOC() {
+  const navItems = document.querySelectorAll(".toc li");
+  if (!navItems.length) return;
+  const sections = [...navItems].map((element) => {
+    const link = element.querySelector(".toc-link");
+    const target = document.getElementById(
+      decodeURI(link.getAttribute("href")).replace("#", "")
+    );
+    link.addEventListener("click", (event) => {
+      event.preventDefault();
+      window.scrollTo({
+		top: target.offsetTop + 100,
+		
+		behavior: "smooth"
+		
+	  });
+    });
+    return target;
+  });
+
+  function activateNavByIndex(target) {
+    if (target.classList.contains("active-current")) return;
+
+    document.querySelectorAll(".toc .active").forEach((element) => {
+      element.classList.remove("active", "active-current");
+    });
+    target.classList.add("active", "active-current");
+    let parent = target.parentNode;
+    while (!parent.matches(".toc")) {
+      if (parent.matches("li")) parent.classList.add("active");
+      parent = parent.parentNode;
+    }
+  }
+
+  function findIndex(entries) {
+    let index = 0;
+    let entry = entries[index];
+    if (entry.boundingClientRect.top > 0) {
+      index = sections.indexOf(entry.target);
+      return index === 0 ? 0 : index - 1;
+    }
+    for (; index < entries.length; index++) {
+      if (entries[index].boundingClientRect.top <= 0) {
+        entry = entries[index];
+      } else {
+        return sections.indexOf(entry.target);
+      }
+    }
+    return sections.indexOf(entry.target);
+  }
+
+  function createIntersectionObserver(marginTop) {
+    marginTop = Math.floor(marginTop + 10000);
+    let intersectionObserver = new IntersectionObserver(
+      (entries, observe) => {
+        let scrollHeight = document.documentElement.scrollHeight + 100;
+        if (scrollHeight > marginTop) {
+          observe.disconnect();
+          createIntersectionObserver(scrollHeight);
+          return;
+        }
+        let index = findIndex(entries);
+        activateNavByIndex(navItems[index]);
+      },
+      {
+        rootMargin: marginTop + "px 0px -100% 0px",
+        threshold: 0,
+      }
+    );
+    sections.forEach((element) => {
+      element && intersectionObserver.observe(element);
+    });
+  }
+  createIntersectionObserver(document.documentElement.scrollHeight);
+}
+
+document.addEventListener("DOMContentLoaded", listennSidebarTOC);
+document.addEventListener("pjax:success", listennSidebarTOC);
+</script>
+
+<!-- more -->
+
+ 
+	   
+	    
+
+
+<script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.min.js"></script>
+
+
+<script>
+    var pjax;
+    document.addEventListener('DOMContentLoaded', function () {
+      pjax = new Pjax({
+        elements: 'a[href]:not([href^="#"]):not([href="javascript:void(0)"]):not([pjax-fancybox])',
+        selectors: [
+          "title",
+          
+          "#pjax-container",
+          "#pjax-header-nav-list"
+        ],
+        cacheBust: false,   // url 地址追加时间戳，用以避免浏览器缓存
+        timeout: 5000
+      });
+    });
+
+    document.addEventListener('pjax:send', function (e) {
+      //window.stop(); // 相当于点击了浏览器的停止按钮
+
+      try {
+        var currentUrl = window.location.pathname;
+        var targetUrl = e.triggerElement.href;
+        var banUrl = [""];
+        if (banUrl[0] != "") {
+          banUrl.forEach(item => {
+            if(currentUrl.indexOf(item) != -1 || targetUrl.indexOf(item) != -1) {
+              window.location.href = targetUrl;
+            }
+          });
+        }
+      } catch (error) {}
+
+      window.subData = null; // 移除标题（用于一二级导航栏切换处）
+
+      volantis.$switcher.removeClass('active'); // 关闭移动端激活的搜索框
+      volantis.$header.removeClass('z_search-open'); // 关闭移动端激活的搜索框
+      volantis.$wrapper.removeClass('sub'); // 跳转页面时关闭二级导航
+
+      // 解绑事件 避免重复监听
+      volantis.$topBtn.unbind('click');
+      $('.menu a').unbind('click');
+      $(window).unbind('resize');
+      $(window).unbind('scroll');
+      $(document).unbind('scroll');
+      $(document).unbind('click');
+      $('body').unbind('click');
+	  // 使用 volantis.pjax.send 方法传入pjax:send回调函数 参见layout/_partial/scripts/global.ejs
+	  volantis.pjax.method.send.start();
+    });
+
+    document.addEventListener('pjax:complete', function () {
+      $('.nav-main').find('.list-v').not('.menu-phone').removeAttr("style",""); // 移除小尾巴的移除
+      $('.menu-phone.list-v').removeAttr("style",""); // 移除小尾巴的移除
+      $('script[data-pjax], .pjax-reload script').each(function () {
+        $(this).parent().append($(this).remove());
+      });
+      try{
+		// 使用 volantis.pjax.push 方法传入重载函数 参见layout/_partial/scripts/global.ejs
+		volantis.pjax.method.complete.start();
+      } catch (e) {
+        console.log(e);
+      }
+    });
+
+    document.addEventListener('pjax:error', function (e) {
+	  // 使用 volantis.pjax.error 方法传入pjax:error回调函数 参见layout/_partial/scripts/global.ejs
+	  volantis.pjax.method.error.start();
+      window.location.href = e.triggerElement.href;
+    });
+</script>
+ 
+	  
+    </div>
+  </body>
+</html>

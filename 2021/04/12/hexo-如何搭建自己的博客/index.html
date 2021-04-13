@@ -1,0 +1,2099 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head hexo-theme='https://github.com/volantis-x/hexo-theme-volantis/tree/4.3.1'>
+  <meta charset="utf-8">
+  <!-- SEO相关 -->
+  
+    
+  
+  <!-- 渲染优化 -->
+  <meta http-equiv='x-dns-prefetch-control' content='on' />
+  <link rel='dns-prefetch' href='https://cdn.jsdelivr.net'>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <link rel="preload" href="/css/first.css" as="style">
+  
+
+  <!-- 页面元数据 -->
+  
+  <title>如何搭建博客 - Mr.wang&#39;blog</title>
+  
+    <meta name="keywords" content="hexo">
+  
+
+  
+    <meta name="description" content="
+讲述搭建博客的一切
+Hexo 是一个快速、简洁且高效的博客框架。
+
+
+作为一位前端开发者，我了解到的静态博客其实际是一份 html，hexo 使用 Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。
+前端开发者都知开发会使用到脚手架编译，而 hexo 就是将我们平时写的笔记进...">
+  
+
+  <!-- feed -->
+  
+
+  <!-- import meta -->
+  
+
+  <!-- link -->
+  
+
+  <!-- import link -->
+  
+
+  
+    
+<link rel="stylesheet" href="/css/first.css">
+
+  
+
+  
+  <link rel="stylesheet" href="/css/style.css" media="print" onload="this.media='all';this.onload=null">
+  <noscript><link rel="stylesheet" href="/css/style.css"></noscript>
+  
+
+  <script id="loadcss"></script>
+
+  
+<script>
+if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMode))
+    document.write(
+	'<style>'+
+		'html{'+
+			'overflow-x: hidden !important;'+
+			'overflow-y: hidden !important;'+
+		'}'+
+		'.kill-ie{'+
+			'text-align:center;'+
+			'height: 100%;'+
+			'margin-top: 15%;'+
+			'margin-bottom: 5500%;'+
+		'}'+
+	'</style>'+
+    '<div class="kill-ie">'+
+        '<h1><b>抱歉，您的浏览器无法访问本站</b></h1>'+
+        '<h3>微软已经于2016年终止了对 Internet Explorer (IE) 10 及更早版本的支持，<br/>'+
+        '继续使用存在极大的安全隐患，请使用当代主流的浏览器进行访问。</h3><br/>'+
+        '<a target="_blank" rel="noopener" href="https://www.microsoft.com/zh-cn/WindowsForBusiness/End-of-IE-support"><strong>了解详情 ></strong></a>'+
+    '</div>');
+</script>
+
+
+<noscript>
+	<style>
+		html{
+			overflow-x: hidden !important;
+			overflow-y: hidden !important;
+		}
+		.kill-noscript{
+			text-align:center;
+			height: 100%;
+			margin-top: 15%;
+			margin-bottom: 5500%;
+		}
+	</style>
+    <div class="kill-noscript">
+        <h1><b>抱歉，您的浏览器无法访问本站</b></h1>
+        <h3>本页面需要浏览器支持（启用）JavaScript</h3><br/>
+        <a target="_blank" rel="noopener" href="https://www.baidu.com/s?wd=启用JavaScript"><strong>了解详情 ></strong></a>
+    </div>
+</noscript>
+
+</head>
+
+  <body>
+    
+
+<header id="l_header" class="l_header auto shadow blur " style='opacity: 0' >
+  <div class='container'>
+  <div id='wrapper'>
+    <div class='nav-sub'>
+      <p class="title"></p>
+      <ul class='switcher nav-list-h m-phone' id="pjax-header-nav-list">
+        <li><a id="s-comment" class="fas fa-comments fa-fw" target="_self" href='javascript:void(0)'></a></li>
+        
+          <li><a id="s-toc" class="s-toc fas fa-list fa-fw" target="_self" href='javascript:void(0)'></a></li>
+        
+      </ul>
+    </div>
+		<div class="nav-main">
+      
+        
+        <a class="title flat-box" target="_self" href='/'>
+          
+          
+          
+            Mr.wang
+          
+        </a>
+      
+
+			<div class='menu navigation'>
+				<ul class='nav-list-h m-pc'>
+          
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/
+                  
+                  
+                  
+                    id="home"
+                  >
+                  <i class='fas fa-rss fa-fw'></i>博客
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/categories/
+                  
+                  
+                  
+                    id="categories"
+                  >
+                  <i class='fas fa-folder-open fa-fw'></i>分类
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/tags/
+                  
+                  
+                  
+                    id="tags"
+                  >
+                  <i class='fas fa-tags fa-fw'></i>标签
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/archives/
+                  
+                  
+                  
+                    id="archives"
+                  >
+                  <i class='fas fa-archive fa-fw'></i>归档
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/friends/
+                  
+                  
+                  
+                    id="friends"
+                  >
+                  <i class='fas fa-link fa-fw'></i>友链
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/about/
+                  
+                  
+                  
+                    id="about"
+                  >
+                  <i class='fas fa-info-circle fa-fw'></i>关于
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box header toggle-mode-btn">
+                  <i class='fas fa-moon fa-fw'></i>暗黑模式
+                </a>
+              <li>
+            
+          
+          
+            
+            
+              
+                <li>
+                  <a class="menuitem flat-box">
+                    <i class='fas fa-compact-disc fa-fw music'></i>背景音乐
+                  </a>
+                  <ul class="list-v">
+                    <li>
+                      <div class="aplayer-container">
+                        
+
+  
+    <meting-js
+      theme='#1BCDFC'
+      autoplay='false'
+      volume='0.4'
+      loop='all'
+      order='random'
+      fixed='false'
+      list-max-height='320px'
+      server='netease'
+      type='playlist'
+      id='5062959861'
+      list-folded='true'>
+    </meting-js>
+  
+
+
+                      </div>
+                    </li>
+                  </ul>
+                <li>
+              
+            
+          
+          
+				</ul>
+			</div>
+
+      <div class="m_search">
+        <form name="searchform" class="form u-search-form">
+          <i class="icon fas fa-search fa-fw"></i>
+          <input type="text" class="input u-search-input" placeholder="Search..." />
+        </form>
+      </div>
+
+			<ul class='switcher nav-list-h m-phone'>
+				
+					<li><a class="s-search fas fa-search fa-fw" target="_self" href='javascript:void(0)'></a></li>
+				
+				<li>
+          <a class="s-menu fas fa-bars fa-fw" target="_self" href='javascript:void(0)'></a>
+          <ul class="menu-phone list-v navigation white-box">
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/
+                  
+                  
+                  
+                    id="home"
+                  >
+                  <i class='fas fa-rss fa-fw'></i>博客
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/categories/
+                  
+                  
+                  
+                    id="categories"
+                  >
+                  <i class='fas fa-folder-open fa-fw'></i>分类
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/tags/
+                  
+                  
+                  
+                    id="tags"
+                  >
+                  <i class='fas fa-tags fa-fw'></i>标签
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/archives/
+                  
+                  
+                  
+                    id="archives"
+                  >
+                  <i class='fas fa-archive fa-fw'></i>归档
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/friends/
+                  
+                  
+                  
+                    id="friends"
+                  >
+                  <i class='fas fa-link fa-fw'></i>友链
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/about/
+                  
+                  
+                  
+                    id="about"
+                  >
+                  <i class='fas fa-info-circle fa-fw'></i>关于
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box header toggle-mode-btn">
+                  <i class='fas fa-moon fa-fw'></i>暗黑模式
+                </a>
+              <li>
+            
+          
+            
+              
+            
+              
+            
+          
+            
+          </ul>
+        </li>
+			</ul>
+		</div>
+	</div>
+  </div>
+</header>
+
+    <div id="l_body">
+      <div id="l_cover">
+  
+    
+        <div id="half" class='cover-wrapper post dock' style="display: ;">
+          
+            <div id='cover-backstretch'></div>
+          
+          <div class='cover-body'>
+  <div class='top'>
+    
+    
+      <p class="title">Mr.wang</p>
+    
+    
+      <p class="subtitle">Time flies and people come and go</p>
+    
+  </div>
+  <div class='bottom'>
+    <div class='menu navigation'>
+      <div class='list-h'>
+        
+          
+            <a href="/"
+              
+              
+              id="home">
+              <img src='https://cdn.jsdelivr.net/gh/twitter/twemoji@13.0/assets/svg/1f4f0.svg'><p>博客</p>
+            </a>
+          
+            <a href="/archives/"
+              
+              
+              id="archives">
+              <img src='https://cdn.jsdelivr.net/gh/twitter/twemoji@13.0/assets/svg/1f5c3.svg'><p>归档</p>
+            </a>
+          
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+          <div id="scroll-down" style="display: none;"><i class="fa fa-chevron-down scroll-down-effects"></i></div>
+        </div>
+    
+  
+  </div>
+
+      <div id="safearea">
+        <div class="body-wrapper" id="pjax-container">
+          
+
+<div class='l_main'>
+  <article class="article post white-box reveal md shadow article-type-post" id="post" itemscope itemprop="blogPost">
+  
+
+
+  
+  <div class="article-meta" id="top">
+    
+    
+    
+      <h1 class="title">
+        如何搭建博客
+      </h1>
+      <div class='new-meta-box'>
+        
+          
+            
+<div class='new-meta-item author'>
+  <a class='author' target="_blank" href="https://github.com/volantis-x/" rel="nofollow noopener">
+    <img no-lazy src="https://wang-z.gitee.io/img/author.jpg">
+    <p>Mr.wang</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+  <div class='new-meta-item category'>
+    <a class='notlink'>
+      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
+      <a class="category-link" href="/categories/hexo/">hexo</a>
+    </a>
+  </div>
+
+
+          
+        
+          
+            <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：2021年4月12日</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+  <div class="new-meta-item browse leancloud">
+    <a class='notlink'>
+      
+      <div id="lc-pv" data-title="如何搭建博客" data-path="/2021/04/12/hexo-%E5%A6%82%E4%BD%95%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2/">
+        <i class="fas fa-eye fa-fw" aria-hidden="true"></i>
+        <span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
+        次浏览
+      </div>
+    </a>
+  </div>
+
+
+          
+        
+      </div>
+    
+  </div>
+
+
+  
+  
+  <blockquote>
+<p>讲述搭建博客的一切</p>
+<p>Hexo 是一个快速、简洁且高效的博客框架。</p>
+</blockquote>
+<blockquote>
+<p>作为一位前端开发者，我了解到的静态博客其实际是一份 html，hexo 使用 <a target="_blank" rel="noopener" href="http://daringfireball.net/projects/markdown/">Markdown</a>（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。</p>
+<p>前端开发者都知开发会使用到脚手架编译，而 hexo 就是将我们平时写的笔记进行编译为 html，里面使用了主题可以优化编译效果，在此我将使用<a target="_blank" rel="noopener" href="https://volantis.js.org/">volantis</a>作为主题</p>
+</blockquote>
+<span id="more"></span>
+
+<h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><h3 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h3><blockquote>
+<p>想要使用 hexo 那么你将要拥有前端的开发环境</p>
+</blockquote>
+<p><a target="_blank" rel="noopener" href="https://nodejs.org/zh-cn/">Node</a> <a target="_blank" rel="noopener" href="https://git-scm.com/">Git</a></p>
+<h3 id="安装-Hexo"><a href="#安装-Hexo" class="headerlink" title="安装 Hexo"></a>安装 Hexo</h3><p>查看版本 hexo -v</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
+
+<h3 id="初始化-Hexo-脚手架"><a href="#初始化-Hexo-脚手架" class="headerlink" title="初始化 Hexo 脚手架"></a>初始化 Hexo 脚手架</h3><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo init &lt;blog<span class="literal">-name</span>&gt;</span><br><span class="line"><span class="built_in">cd</span> &lt;blog<span class="literal">-name</span>&gt;</span><br><span class="line">npm install</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>初始化的结构</p>
+<p>本地启动为 hexo server</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">├── _config.yml</span><br><span class="line">├── package.json</span><br><span class="line">├── node_modules</span><br><span class="line">├── scaffolds</span><br><span class="line">├── source</span><br><span class="line">|   ├── _drafts</span><br><span class="line">|   └── _posts</span><br><span class="line">└── themes</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>到此为止，如果你执行的命令没有报错，那么你的 hexo 已经初具规模，可以说是最初版，后续可以自定义主题的配置</p>
+</blockquote>
+<h3 id="自动部署"><a href="#自动部署" class="headerlink" title="自动部署"></a>自动部署</h3><blockquote>
+<p>使用 hexo 推荐的自动部署的库可以连接 github gitee gitlab</p>
+</blockquote>
+<p>安装<a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo-deployer-git">hexo-deployer-git</a></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//在个人_config.yml中修改</span></span><br><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repository: git@gitee.com:wang-z/wang-z.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
+
+<h3 id="注入脚本"><a href="#注入脚本" class="headerlink" title="注入脚本"></a>注入脚本</h3><blockquote>
+<p>可以在主题目录下 /scripts 编写 js 脚本在博客会自动注入进 html</p>
+</blockquote>
+<h3 id="网站图标"><a href="#网站图标" class="headerlink" title="网站图标"></a>网站图标</h3><blockquote>
+<p>在 source/文件下加入名 favicon.ico 的图标会自动显示</p>
+</blockquote>
+<h2 id="修改博客文件下-config-yml"><a href="#修改博客文件下-config-yml" class="headerlink" title="修改博客文件下_config.yml"></a>修改博客文件下_config.yml</h2><blockquote>
+<p>每个人想要部署的地方不同，这里提供 gitee 仓库的部署</p>
+</blockquote>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Hexo Configuration</span></span><br><span class="line"><span class="comment">## Docs: https://hexo.io/docs/configuration.html</span></span><br><span class="line"><span class="comment">## Source: https://github.com/hexojs/hexo/</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Site</span></span><br><span class="line"><span class="attr">title:</span> <span class="string">Mr.wang&#x27;blog</span></span><br><span class="line"><span class="attr">subtitle:</span> <span class="string">&quot;Time flies and people come and go&quot;</span></span><br><span class="line"><span class="attr">description:</span> <span class="string">&quot;一个人的自述&quot;</span></span><br><span class="line"><span class="attr">keywords:</span> <span class="string">gitee</span> <span class="string">blog</span> <span class="string">wang</span> <span class="string">js</span></span><br><span class="line"><span class="attr">author:</span> <span class="string">wangzhibiao</span></span><br><span class="line"><span class="attr">language:</span> <span class="string">zh-CN</span></span><br><span class="line"><span class="attr">timezone:</span> <span class="string">&quot;&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># URL</span></span><br><span class="line"><span class="comment">## If your site is put in a subdirectory, set url as &#x27;http://yoursite.com/child&#x27; and root as &#x27;/child/&#x27;</span></span><br><span class="line"><span class="attr">url:</span> <span class="string">http://wang-z.gitee.io/</span></span><br><span class="line"><span class="attr">root:</span> <span class="string">/</span></span><br><span class="line"><span class="attr">permalink:</span> <span class="string">:year/:month/:day/:title/</span></span><br><span class="line"><span class="attr">permalink_defaults:</span></span><br><span class="line"><span class="attr">pretty_urls:</span></span><br><span class="line">  <span class="attr">trailing_index:</span> <span class="literal">true</span> <span class="comment"># Set to false to remove trailing &#x27;index.html&#x27; from permalinks</span></span><br><span class="line">  <span class="attr">trailing_html:</span> <span class="literal">true</span> <span class="comment"># Set to false to remove trailing &#x27;.html&#x27; from permalinks</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Directory</span></span><br><span class="line"><span class="attr">source_dir:</span> <span class="string">source</span></span><br><span class="line"><span class="attr">public_dir:</span> <span class="string">public</span></span><br><span class="line"><span class="attr">tag_dir:</span> <span class="string">tags</span></span><br><span class="line"><span class="attr">archive_dir:</span> <span class="string">archives</span></span><br><span class="line"><span class="attr">category_dir:</span> <span class="string">categories</span></span><br><span class="line"><span class="attr">code_dir:</span> <span class="string">downloads/code</span></span><br><span class="line"><span class="attr">i18n_dir:</span> <span class="string">:lang</span></span><br><span class="line"><span class="attr">skip_render:</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Writing</span></span><br><span class="line"><span class="attr">new_post_name:</span> <span class="string">:title.md</span> <span class="comment"># File name of new posts</span></span><br><span class="line"><span class="attr">default_layout:</span> <span class="string">post</span></span><br><span class="line"><span class="attr">titlecase:</span> <span class="literal">false</span> <span class="comment"># Transform title into titlecase</span></span><br><span class="line"><span class="attr">external_link:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span> <span class="comment"># Open external links in new tab</span></span><br><span class="line">  <span class="attr">field:</span> <span class="string">site</span> <span class="comment"># Apply to the whole site</span></span><br><span class="line">  <span class="attr">exclude:</span> <span class="string">&quot;&quot;</span></span><br><span class="line"><span class="attr">filename_case:</span> <span class="number">0</span></span><br><span class="line"><span class="attr">render_drafts:</span> <span class="literal">false</span></span><br><span class="line"><span class="attr">post_asset_folder:</span> <span class="literal">false</span></span><br><span class="line"><span class="attr">relative_link:</span> <span class="literal">false</span></span><br><span class="line"><span class="attr">future:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">highlight:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">line_number:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">auto_detect:</span> <span class="literal">false</span></span><br><span class="line">  <span class="attr">tab_replace:</span> <span class="string">&quot;&quot;</span></span><br><span class="line">  <span class="attr">wrap:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">hljs:</span> <span class="literal">false</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Home page setting</span></span><br><span class="line"><span class="comment"># path: Root path for your blogs index page. (default = &#x27;&#x27;)</span></span><br><span class="line"><span class="comment"># per_page: Posts displayed per page. (0 = disable pagination)</span></span><br><span class="line"><span class="comment"># order_by: Posts order. (Order by date descending by default)</span></span><br><span class="line"><span class="attr">index_generator:</span></span><br><span class="line">  <span class="attr">path:</span> <span class="string">&quot;&quot;</span></span><br><span class="line">  <span class="attr">per_page:</span> <span class="number">10</span></span><br><span class="line">  <span class="attr">order_by:</span> <span class="string">-date</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Category &amp; Tag</span></span><br><span class="line"><span class="attr">default_category:</span> <span class="string">uncategorized</span></span><br><span class="line"><span class="attr">category_map:</span></span><br><span class="line"><span class="attr">tag_map:</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Metadata elements</span></span><br><span class="line"><span class="comment">## https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta</span></span><br><span class="line"><span class="attr">meta_generator:</span> <span class="literal">true</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Date / Time format</span></span><br><span class="line"><span class="comment">## Hexo uses Moment.js to parse and display date</span></span><br><span class="line"><span class="comment">## You can customize the date format as defined in</span></span><br><span class="line"><span class="comment">## http://momentjs.com/docs/#/displaying/format/</span></span><br><span class="line"><span class="attr">date_format:</span> <span class="string">YYYY-MM-DD</span></span><br><span class="line"><span class="attr">time_format:</span> <span class="string">HH:mm:ss</span></span><br><span class="line"><span class="comment">## Use post&#x27;s date for updated date unless set in front-matter</span></span><br><span class="line"><span class="attr">use_date_for_updated:</span> <span class="literal">false</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Pagination</span></span><br><span class="line"><span class="comment">## Set per_page to 0 to disable pagination</span></span><br><span class="line"><span class="attr">per_page:</span> <span class="number">10</span></span><br><span class="line"><span class="attr">pagination_dir:</span> <span class="string">page</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Include / Exclude file(s)</span></span><br><span class="line"><span class="comment">## include:/exclude: options only apply to the &#x27;source/&#x27; folder</span></span><br><span class="line"><span class="attr">include:</span></span><br><span class="line"><span class="attr">exclude:</span></span><br><span class="line"><span class="attr">ignore:</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Extensions</span></span><br><span class="line"><span class="comment">## Plugins: https://hexo.io/plugins/</span></span><br><span class="line"><span class="comment">## Themes: https://hexo.io/themes/</span></span><br><span class="line"><span class="attr">theme:</span> <span class="string">volantis</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Deployment</span></span><br><span class="line"><span class="comment">## Docs: https://hexo.io/docs/deployment.html</span></span><br><span class="line"><span class="attr">deploy:</span></span><br><span class="line">  <span class="attr">type:</span> <span class="string">git</span></span><br><span class="line">  <span class="attr">repository:</span> <span class="string">git@gitee.com:wang-z/wang-z.git</span></span><br><span class="line">  <span class="attr">branch:</span> <span class="string">master</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="主题"><a href="#主题" class="headerlink" title="主题"></a>主题</h2><blockquote>
+<p>博客的多样化，可以使用别人写好的主题模板进行编译，好看又好用</p>
+</blockquote>
+<h3 id="主题替换"><a href="#主题替换" class="headerlink" title="主题替换"></a>主题替换</h3><blockquote>
+<p>在 blog 中 themes 添加博客文件，并修改个人_config.yml</p>
+<p>在 hexo-V5 版本只需要安装主题包 npm i &lt;主题包&gt; 旧版本仍需 git clone URL themes/{主题名}</p>
+<p>独立主题 yml 只需要在 blog 文件下创建_config.主题.yml 即可在这文件下配置主题的设置</p>
+<p>根据每个主题的不同，请到主题网站内修改主题_config.yml</p>
+<p>这里提供<a target="_blank" rel="noopener" href="https://volantis.js.org/v4/site-settings/">volantis</a></p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># Extensions</span><br><span class="line">## Plugins: https://hexo.io/plugins/</span><br><span class="line">## Themes: https://hexo.io/themes/</span><br><span class="line">theme: volantis</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>友链不在 index.md 中定义–》在 blog/source/_data/friends.yml 写入友链</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">- group: 个人博客 # 分组标题</span><br><span class="line">  description: # 分组描述</span><br><span class="line">  icon: fas fa-user-tie</span><br><span class="line">  items:</span><br><span class="line">    - title: wang’blog # 名称</span><br><span class="line">      avatar: http:<span class="comment">//www.gx8899.com/uploads/allimg/2018010408/w0pewqfx4dz.jpg # 头像</span></span><br><span class="line">      url: https:<span class="comment">//wang-zhibiao.github.io/ # 链接</span></span><br><span class="line">      screenshot: # 截图</span><br><span class="line">      keywords: [js, vue] # 关键词</span><br><span class="line">      description: 一个人的博客 # 描述</span><br><span class="line">    - title: gauhar’blog # 名称</span><br><span class="line">      avatar: https:<span class="comment">//gauhar.gitee.io/css/images/logo.jpg # 头像</span></span><br><span class="line">      url: https:<span class="comment">//gauhar.gitee.io/ # 链接</span></span><br><span class="line">      screenshot: # 截图</span><br><span class="line">      keywords: [js, vue，jQuery] # 关键词</span><br><span class="line">      description: 华仔的博客 # 描述</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="修改博客主题-config-yml-config-valantis-yml"><a href="#修改博客主题-config-yml-config-valantis-yml" class="headerlink" title="修改博客主题 _config.yml / _config.valantis.yml"></a>修改博客主题 _config.yml / _config.valantis.yml</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br><span class="line">242</span><br><span class="line">243</span><br><span class="line">244</span><br><span class="line">245</span><br><span class="line">246</span><br><span class="line">247</span><br><span class="line">248</span><br><span class="line">249</span><br><span class="line">250</span><br><span class="line">251</span><br><span class="line">252</span><br><span class="line">253</span><br><span class="line">254</span><br><span class="line">255</span><br><span class="line">256</span><br><span class="line">257</span><br><span class="line">258</span><br><span class="line">259</span><br><span class="line">260</span><br><span class="line">261</span><br><span class="line">262</span><br><span class="line">263</span><br><span class="line">264</span><br><span class="line">265</span><br><span class="line">266</span><br><span class="line">267</span><br><span class="line">268</span><br><span class="line">269</span><br><span class="line">270</span><br><span class="line">271</span><br><span class="line">272</span><br><span class="line">273</span><br><span class="line">274</span><br><span class="line">275</span><br><span class="line">276</span><br><span class="line">277</span><br><span class="line">278</span><br><span class="line">279</span><br><span class="line">280</span><br><span class="line">281</span><br><span class="line">282</span><br><span class="line">283</span><br><span class="line">284</span><br><span class="line">285</span><br><span class="line">286</span><br><span class="line">287</span><br><span class="line">288</span><br><span class="line">289</span><br><span class="line">290</span><br><span class="line">291</span><br><span class="line">292</span><br><span class="line">293</span><br><span class="line">294</span><br><span class="line">295</span><br><span class="line">296</span><br><span class="line">297</span><br><span class="line">298</span><br><span class="line">299</span><br><span class="line">300</span><br><span class="line">301</span><br><span class="line">302</span><br><span class="line">303</span><br><span class="line">304</span><br><span class="line">305</span><br><span class="line">306</span><br></pre></td><td class="code"><pre><span class="line">use_cdn: <span class="literal">false</span></span><br><span class="line">navbar:</span><br><span class="line">  logo: # choose [img] or [icon + title]</span><br><span class="line">    img: #https:<span class="comment">//cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/Logo-NavBar@3x.png</span></span><br><span class="line">    icon:</span><br><span class="line">    title: <span class="string">&quot;Mr.wang&quot;</span></span><br><span class="line">  menu:</span><br><span class="line">    - name: 博客</span><br><span class="line">      icon: fas fa-rss</span><br><span class="line">      url: /</span><br><span class="line">    - name: 分类</span><br><span class="line">      icon: fas fa-folder-open</span><br><span class="line">      url: categories/</span><br><span class="line">    - name: 标签</span><br><span class="line">      icon: fas fa-tags</span><br><span class="line">      url: tags/</span><br><span class="line">    - name: 归档</span><br><span class="line">      icon: fas fa-archive</span><br><span class="line">      url: archives/</span><br><span class="line">    - name: 友链</span><br><span class="line">      icon: fas fa-link</span><br><span class="line">      url: friends/</span><br><span class="line">    - name: 关于</span><br><span class="line">      icon: fas fa-info-circle</span><br><span class="line">      url: about/</span><br><span class="line">    - name: 暗黑模式</span><br><span class="line">      icon: fas fa-moon</span><br><span class="line">      toggle: darkmode</span><br><span class="line">    - name: 背景音乐</span><br><span class="line">      icon: fas fa-compact-disc</span><br><span class="line">cover:</span><br><span class="line">  height_scheme: full # full, half</span><br><span class="line">  title: <span class="string">&quot;Mr.wang&quot;</span></span><br><span class="line">  subtitle: <span class="string">&quot;Time flies and people come and go&quot;</span></span><br><span class="line">  display:</span><br><span class="line">    home: <span class="literal">true</span></span><br><span class="line">    archive: <span class="literal">true</span></span><br><span class="line">    others: <span class="literal">true</span></span><br><span class="line">  background: # https://bing.ioliu.cn/v1/rand?w=1920&amp;h=1200</span><br><span class="line">  features:</span><br><span class="line">    - name: 博客</span><br><span class="line">      img: https:<span class="comment">//cdn.jsdelivr.net/gh/twitter/twemoji@13.0/assets/svg/1f4f0.svg</span></span><br><span class="line">      url: /</span><br><span class="line"></span><br><span class="line">    # - name: 文档</span><br><span class="line">    #   img: https://cdn.jsdelivr.net/gh/twitter/twemoji@13.0/assets/svg/1f516.svg</span><br><span class="line">    #   url: /v5/getting-started/</span><br><span class="line">    #   target: _self</span><br><span class="line">    # - name: 示例</span><br><span class="line">    #   img: https://cdn.jsdelivr.net/gh/twitter/twemoji@13.0/assets/svg/1f4af.svg</span><br><span class="line">    #   url: /examples/</span><br><span class="line">    # - name: 帮助</span><br><span class="line">    #   img: https://cdn.jsdelivr.net/gh/twitter/twemoji@13.0/assets/svg/1f4ac.svg</span><br><span class="line">    #   url: /faqs/</span><br><span class="line">    # - name: 鸣谢</span><br><span class="line">    #   img: https://cdn.jsdelivr.net/gh/twitter/twemoji@13.0/assets/svg/1f497.svg</span><br><span class="line">    #   url: /contributors/</span><br><span class="line">    - name: 归档</span><br><span class="line">      img: https:<span class="comment">//cdn.jsdelivr.net/gh/twitter/twemoji@13.0/assets/svg/1f5c3.svg</span></span><br><span class="line">      url: <span class="regexp">/archives/</span></span><br><span class="line">    # - name: 源码</span><br><span class="line">    #   img: https://cdn.jsdelivr.net/gh/twitter/twemoji@13.0/assets/svg/1f9ec.svg</span><br><span class="line">    #   url: https://github.com/volantis-x/hexo-theme-volantis/</span><br><span class="line">    #   target: _self</span><br><span class="line">article:</span><br><span class="line">  preview:</span><br><span class="line">    scheme: landscape # landscape</span><br><span class="line">    # pin icon for post</span><br><span class="line">    pin_icon: # https://cdn.jsdelivr.net/gh/twitter/twemoji@13.0/assets/svg/1f4cc.svg</span><br><span class="line">    # auto generate title if not exist</span><br><span class="line">    auto_title: false # false, true</span><br><span class="line">    # auto generate excerpt if not exist</span><br><span class="line">    auto_excerpt: false # false, true</span><br><span class="line">    author: <span class="literal">true</span></span><br><span class="line">    # show readmore button</span><br><span class="line">    readmore: auto # auto, always</span><br><span class="line">  body:</span><br><span class="line">    meta_library:</span><br><span class="line">      author:</span><br><span class="line">        avatar: https:<span class="comment">//cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/favicon/apple-touch-icon.png</span></span><br><span class="line">        name: Volantis Team</span><br><span class="line">        url: https:<span class="comment">//github.com/volantis-x/</span></span><br><span class="line">      updated:</span><br><span class="line">        title: <span class="string">&quot;本页文档最后更新于：&quot;</span></span><br><span class="line"></span><br><span class="line">comments:</span><br><span class="line">  title: <span class="xml"><span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">&#x27;fas fa-comments&#x27;</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span></span> 评论</span><br><span class="line">  subtitle:</span><br><span class="line">  service: valine</span><br><span class="line"></span><br><span class="line">pages:</span><br><span class="line">  # 友链页面配置</span><br><span class="line">  friends:</span><br><span class="line">    layout_scheme: traditional</span><br><span class="line"></span><br><span class="line">sidebar:</span><br><span class="line">  # 主页、分类、归档等独立页面</span><br><span class="line">  for_page: [blogger, category, tagcloud, qrcode]</span><br><span class="line">  # layout: docs/post 这类文章页面</span><br><span class="line">  for_post: [toc]</span><br><span class="line">  # 侧边栏组件库</span><br><span class="line">  widget_library:</span><br><span class="line">    # ---------------------------------------</span><br><span class="line">    # blogger info widget</span><br><span class="line">    blogger:</span><br><span class="line">      class: blogger</span><br><span class="line">      display: [desktop, mobile] # [desktop, mobile]</span><br><span class="line">      avatar: https:<span class="comment">//wang-z.gitee.io/img/author.jpg</span></span><br><span class="line">      shape: rectangle # circle, rectangle</span><br><span class="line">      url: <span class="regexp">/about/</span></span><br><span class="line">      title:</span><br><span class="line">      subtitle:</span><br><span class="line">      jinrishici: true # Poetry Today. You can set a string, and it will be displayed when loading fails.</span><br><span class="line">      social: <span class="literal">true</span></span><br><span class="line">    # ---------------------------------------</span><br><span class="line">    # toc widget (valid only in articles)</span><br><span class="line">    toc:</span><br><span class="line">      class: toc</span><br><span class="line">      display: [desktop, mobile] # [desktop, mobile]</span><br><span class="line">      header:</span><br><span class="line">        icon: fas fa-list</span><br><span class="line">        title: 本文目录</span><br><span class="line">      list_number: <span class="literal">false</span></span><br><span class="line">      min_depth: <span class="number">2</span></span><br><span class="line">      max_depth: <span class="number">5</span></span><br><span class="line">    # ---------------------------------------</span><br><span class="line">    # category widget</span><br><span class="line">    category:</span><br><span class="line">      class: category</span><br><span class="line">      display: [desktop] # [desktop, mobile]</span><br><span class="line">      header:</span><br><span class="line">        icon: fas fa-folder-open</span><br><span class="line">        title: 文章分类</span><br><span class="line">        url: <span class="regexp">/blog/</span>categories/</span><br><span class="line">    # ---------------------------------------</span><br><span class="line">    # tagcloud widget</span><br><span class="line">    tagcloud:</span><br><span class="line">      class: tagcloud</span><br><span class="line">      display: [desktop, mobile] # [desktop, mobile]</span><br><span class="line">      header:</span><br><span class="line">        icon: fas fa-tags</span><br><span class="line">        title: 热门标签</span><br><span class="line">        url: <span class="regexp">/blog/</span>tags/</span><br><span class="line">      min_font: <span class="number">14</span></span><br><span class="line">      max_font: <span class="number">24</span></span><br><span class="line">      color: <span class="literal">true</span></span><br><span class="line">      start_color: <span class="string">&quot;#999&quot;</span></span><br><span class="line">      end_color: <span class="string">&quot;#555&quot;</span></span><br><span class="line"></span><br><span class="line">    # ---------------------------------------</span><br><span class="line">    # qrcode widget</span><br><span class="line">    donate:</span><br><span class="line">      class: qrcode</span><br><span class="line">      display: [desktop, mobile] # [desktop, mobile]</span><br><span class="line">      height: 64px # Automatic height if not set</span><br><span class="line">      images:</span><br><span class="line">        - https:<span class="comment">//cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/qrcode/github@volantis.png</span></span><br><span class="line">        - https:<span class="comment">//cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/qrcode/github@volantis.png</span></span><br><span class="line">    # ---------------------------------------</span><br><span class="line">    # webinfo widget</span><br><span class="line">    webinfo:</span><br><span class="line">      class: webinfo</span><br><span class="line">      display: [desktop]</span><br><span class="line">      header:</span><br><span class="line">        icon: fas fa-award</span><br><span class="line">        title: 站点信息</span><br><span class="line">      type:</span><br><span class="line">        article:</span><br><span class="line">          enable: <span class="literal">true</span></span><br><span class="line">          text: <span class="string">&quot;文章数目：&quot;</span></span><br><span class="line">          unit: <span class="string">&quot;篇&quot;</span></span><br><span class="line">        runtime:</span><br><span class="line">          enable: <span class="literal">true</span></span><br><span class="line">          data: &quot;2020/01/01&quot; # 填写建站日期</span><br><span class="line">          text: <span class="string">&quot;已运行时间：&quot;</span></span><br><span class="line">          unit: <span class="string">&quot;天&quot;</span></span><br><span class="line">        wordcount:</span><br><span class="line">          enable: <span class="literal">true</span></span><br><span class="line">          text: &quot;本站总字数：&quot; # 需要启用 wordcount</span><br><span class="line">          unit: <span class="string">&quot;字&quot;</span></span><br><span class="line">        siteuv:</span><br><span class="line">          enable: <span class="literal">true</span></span><br><span class="line">          text: &quot;本站访客数：&quot; # 需要启用 busuanzi</span><br><span class="line">          unit: <span class="string">&quot;人&quot;</span></span><br><span class="line">        sitepv:</span><br><span class="line">          enable: <span class="literal">true</span></span><br><span class="line">          text: &quot;本站总访问量：&quot; # 需要启用 busuanzi</span><br><span class="line">          unit: <span class="string">&quot;次&quot;</span></span><br><span class="line">        lastupd:</span><br><span class="line">          enable: <span class="literal">true</span></span><br><span class="line">          friendlyShow: true # 更友好的时间显示</span><br><span class="line">          text: <span class="string">&quot;最后活动时间：&quot;</span></span><br><span class="line">          unit: <span class="string">&quot;日&quot;</span></span><br><span class="line"></span><br><span class="line">site_footer:</span><br><span class="line">  layout: [aplayer, social, source, analytics, copyright]</span><br><span class="line">  copyright: <span class="string">&quot;[Copyright © 2017-2021 Volantis Team](https://github.com/volantis-x/)&quot;</span></span><br><span class="line">  social:</span><br><span class="line">    - img: https:<span class="comment">//cdn.jsdelivr.net/gh/volantis-x/cdn-org@1.1/icon/1322024-social-media/020-rss.svg</span></span><br><span class="line">      url: atom.xml</span><br><span class="line">    - img: https:<span class="comment">//cdn.jsdelivr.net/gh/volantis-x/cdn-org@1.1/icon/1322024-social-media/029-github.svg</span></span><br><span class="line">      url: https:<span class="comment">//github.com/volantis-x/</span></span><br><span class="line">    - img: https:<span class="comment">//cdn.jsdelivr.net/gh/volantis-x/cdn-org@1.1/icon/1322024-social-media/010-facebook.svg</span></span><br><span class="line">      url: /</span><br><span class="line">    - img: https:<span class="comment">//cdn.jsdelivr.net/gh/volantis-x/cdn-org@1.1/icon/1322024-social-media/018-twitter.svg</span></span><br><span class="line">      url: /</span><br><span class="line">    - img: https:<span class="comment">//cdn.jsdelivr.net/gh/volantis-x/cdn-org@1.1/icon/1322024-social-media/045-telegram.svg</span></span><br><span class="line">      url: /</span><br><span class="line">    - img: https:<span class="comment">//cdn.jsdelivr.net/gh/volantis-x/cdn-org@1.1/icon/1322024-social-media/006-youtube.svg</span></span><br><span class="line">      url: /</span><br><span class="line"></span><br><span class="line">tag_plugins:</span><br><span class="line">  # &#123;% note text %&#125;</span><br><span class="line">  note: # style for default note:</span><br><span class="line">    iconfont: <span class="string">&quot;Font Awesome 5 Pro&quot;</span></span><br><span class="line"></span><br><span class="line">plugins:</span><br><span class="line">  clipboard:</span><br><span class="line">    enable: <span class="literal">true</span></span><br><span class="line">  fontawesome: https:<span class="comment">//cdn.jsdelivr.net/gh/volantis-x/cdn-fontawesome-pro@master/css/all.min.css</span></span><br><span class="line">  highlightjs:</span><br><span class="line">    enable: true # Please set hexo.config.highlight.enable = false !!!</span><br><span class="line">    js: https:<span class="comment">//cdn.jsdelivr.net/gh/highlightjs/cdn-release@10/build/highlight.min.js</span></span><br><span class="line">    css: https:<span class="comment">//cdn.jsdelivr.net/gh/highlightjs/cdn-release@10/build/styles/solarized-light.min.css</span></span><br><span class="line">  lazyload:</span><br><span class="line">    enable: <span class="literal">true</span></span><br><span class="line">    js: https:<span class="comment">//cdn.jsdelivr.net/npm/vanilla-lazyload@17.1.0/dist/lazyload.min.js</span></span><br><span class="line">    onlypost: <span class="literal">false</span></span><br><span class="line">    loadingImg: # https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@3/img/placeholder/c617bfd2497fcea598e621413e315c368f8d8e.svg</span><br><span class="line">    blurIn: true # 模糊加载效果 （loadingImg为空时有效）</span><br><span class="line">  backstretch:</span><br><span class="line">    enable: <span class="literal">true</span></span><br><span class="line">    # position: cover # cover: sticky on the cover.   fixed: Fixed as background for the site.</span><br><span class="line">    duration: 20000 # Duration (ms)</span><br><span class="line">    fade: 1500 # fade duration (ms) (Not more than 1500)</span><br><span class="line">    images: # For personal use only. At your own risk if used for commercial purposes !!!</span><br><span class="line">      - https:<span class="comment">//cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/001.jpg</span></span><br><span class="line">      - https:<span class="comment">//cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/002.jpg</span></span><br><span class="line">      - https:<span class="comment">//cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/003.jpg</span></span><br><span class="line">      - https:<span class="comment">//cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/004.jpg</span></span><br><span class="line">      - https:<span class="comment">//cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/005.jpg</span></span><br><span class="line">      - https:<span class="comment">//cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/006.jpg</span></span><br><span class="line">      - https:<span class="comment">//cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/012.jpg</span></span><br><span class="line">      - https:<span class="comment">//cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/016.jpg</span></span><br><span class="line">      - https:<span class="comment">//cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/019.jpg</span></span><br><span class="line">      - https:<span class="comment">//cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/025.jpg</span></span><br><span class="line">      - https:<span class="comment">//cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/033.jpg</span></span><br><span class="line">      - https:<span class="comment">//cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/034.jpg</span></span><br><span class="line">      - https:<span class="comment">//cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/035.jpg</span></span><br><span class="line">      - https:<span class="comment">//cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/038.jpg</span></span><br><span class="line">      - https:<span class="comment">//cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/039.jpg</span></span><br><span class="line">      - https:<span class="comment">//cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/042.jpg</span></span><br><span class="line">      - https:<span class="comment">//cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/046.jpg</span></span><br><span class="line">      - https:<span class="comment">//cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/051.jpg</span></span><br><span class="line">      - https:<span class="comment">//cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/052.jpg</span></span><br><span class="line">      - https:<span class="comment">//cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/054.jpg</span></span><br><span class="line">      - https:<span class="comment">//cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/056.jpg</span></span><br><span class="line">  parallax:</span><br><span class="line">    enable: <span class="literal">true</span></span><br><span class="line">    images:</span><br><span class="line">      - https:<span class="comment">//cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/042.jpg</span></span><br><span class="line">  aplayer:</span><br><span class="line">    enable: <span class="literal">true</span></span><br><span class="line">    autoplay: <span class="literal">false</span></span><br><span class="line">    volume: <span class="number">0.4</span></span><br><span class="line">    order: random</span><br><span class="line">    # id: 4917530132 # vol red</span><br><span class="line">    # id: 4917524698 # vol blue</span><br><span class="line">    # id: 76244489 # vol white</span><br><span class="line">    # id: 5135845906 # for Volantis 3.0</span><br><span class="line">    id: 5062959861 # TOP 30</span><br><span class="line">  darkmodejs:</span><br><span class="line">    enable: <span class="literal">true</span></span><br><span class="line"></span><br><span class="line">analytics:</span><br><span class="line">  busuanzi: #https:<span class="comment">//cdn.jsdelivr.net/gh/volantis-x/cdn-busuanzi@2.3/js/busuanzi.pure.mini.js</span></span><br><span class="line">  leancloud:</span><br><span class="line">    app_id: GCYDRKI6XRkyC7EuEhJv90ia-MdYXbMMI</span><br><span class="line">    app_key: 4xKBXGBj6BgecU62vff5rJHs</span><br><span class="line">    custom_api_server: # 一般不需要写，除非自定义了 API Server</span><br><span class="line"></span><br><span class="line">custom_css:</span><br><span class="line">  font_smoothing: <span class="literal">true</span></span><br><span class="line">  sidebar:</span><br><span class="line">    effect: [shadow] # [shadow, floatable, blur]</span><br><span class="line">  body:</span><br><span class="line">    effect: [shadow] # [shadow, floatable, blur]</span><br><span class="line">  fontfamily:</span><br><span class="line">    logofont:</span><br><span class="line">      fontfamily: <span class="string">&#x27;Dosis, &quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;, Helvetica, Arial&#x27;</span></span><br><span class="line">      name: <span class="string">&quot;Dosis&quot;</span></span><br><span class="line">      url: https:<span class="comment">//cdn.jsdelivr.net/gh/volantis-x/cdn-fonts@20.5.30/Dosis/Dosis-Medium.ttf</span></span><br><span class="line">      weight: normal</span><br><span class="line">      style: normal</span><br><span class="line">    bodyfont:</span><br><span class="line">      fontfamily: <span class="string">&#x27;Dosis, &quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;, Helvetica, Arial&#x27;</span></span><br><span class="line">      name: <span class="string">&quot;Dosis&quot;</span></span><br><span class="line">      url: https:<span class="comment">//cdn.jsdelivr.net/gh/volantis-x/cdn-fonts@20.5.30/Dosis/Dosis-Medium.ttf</span></span><br><span class="line">      weight: normal</span><br><span class="line">      style: normal</span><br><span class="line"># # 自定义右键菜单</span><br><span class="line"># rightmenu:</span><br><span class="line">#   enable: true</span><br><span class="line">#   # hr: 分割线, music: 音乐控制器</span><br><span class="line">#   layout: [home, hr, dark_mode, hr, music]</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>记录当前主题的一些页面常用参数</p>
+</blockquote>
+<h2 id="front-matter"><a href="#front-matter" class="headerlink" title="front-matter"></a>front-matter</h2><p>front-matter 是文件最上方以 <code>---</code> 分隔的区域，用于指定个别文件的变量。更多请见 Hexo 官方文档：<a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/front-matter">#front-matter</a></p>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>含义</th>
+<th>值类型</th>
+<th>默认值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>layout</td>
+<td>布局模版</td>
+<td>String</td>
+<td>-</td>
+</tr>
+<tr>
+<td>title</td>
+<td>页面标题</td>
+<td>String</td>
+<td>-</td>
+</tr>
+<tr>
+<td>seo_title</td>
+<td>网页标题</td>
+<td>String</td>
+<td>page.title</td>
+</tr>
+<tr>
+<td>short_title</td>
+<td>页面标题（在 group 列表中显示）</td>
+<td>String</td>
+<td>page.title</td>
+</tr>
+<tr>
+<td>date</td>
+<td>创建时间</td>
+<td>Date</td>
+<td>文件创建时间</td>
+</tr>
+<tr>
+<td>updated</td>
+<td>更新日期</td>
+<td>Date</td>
+<td>文件修改时间</td>
+</tr>
+<tr>
+<td>link</td>
+<td>外部文章网址</td>
+<td>String</td>
+<td>-</td>
+</tr>
+<tr>
+<td>music</td>
+<td>内部音乐控件</td>
+<td>[Object]</td>
+<td>-</td>
+</tr>
+<tr>
+<td>robots</td>
+<td>robots</td>
+<td>String</td>
+<td>-</td>
+</tr>
+<tr>
+<td>keywords</td>
+<td>页面关键词</td>
+<td>String</td>
+<td>-</td>
+</tr>
+<tr>
+<td>description</td>
+<td>页面描述、摘要</td>
+<td>String</td>
+<td>-</td>
+</tr>
+<tr>
+<td>cover</td>
+<td>是否显示封面</td>
+<td>Bool</td>
+<td>true</td>
+</tr>
+<tr>
+<td>top_meta</td>
+<td>是否显示文章或页面顶部的 meta 信息</td>
+<td>Bool</td>
+<td>true</td>
+</tr>
+<tr>
+<td>bottom_meta</td>
+<td>是否显示文章或页面底部的 meta 信息</td>
+<td>Bool</td>
+<td>true</td>
+</tr>
+<tr>
+<td>sidebar</td>
+<td>页面侧边栏</td>
+<td>Bool, Array</td>
+<td>theme.layout.*.sidebar</td>
+</tr>
+<tr>
+<td>body</td>
+<td>页面主体元素</td>
+<td>Array</td>
+<td>theme.layout.on_page.body</td>
+</tr>
+<tr>
+<td>mathjax</td>
+<td>是否渲染公式</td>
+<td>Bool, String</td>
+<td>false</td>
+</tr>
+<tr>
+<td>thumbnail</td>
+<td>缩略图</td>
+<td>String</td>
+<td>false</td>
+</tr>
+<tr>
+<td>icons</td>
+<td>图标</td>
+<td>Array</td>
+<td>[]</td>
+</tr>
+<tr>
+<td>pin</td>
+<td>是否置顶</td>
+<td>Bool</td>
+<td>false</td>
+</tr>
+<tr>
+<td>headimg</td>
+<td>文章头图</td>
+<td>url</td>
+<td>-</td>
+</tr>
+</tbody></table>
+<p><code>layout:post</code> 时特有的字段：</p>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>含义</th>
+<th>值类型</th>
+<th>默认值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>author</td>
+<td>文章作者</td>
+<td>[Object]</td>
+<td>config.author</td>
+</tr>
+<tr>
+<td>categories</td>
+<td>分类</td>
+<td>String, Array</td>
+<td>-</td>
+</tr>
+<tr>
+<td>tags</td>
+<td>标签</td>
+<td>String, Array</td>
+<td>-</td>
+</tr>
+<tr>
+<td>toc</td>
+<td>是否生成目录</td>
+<td>Bool</td>
+<td>true</td>
+</tr>
+</tbody></table>
+<h3 id="文章摘要"><a href="#文章摘要" class="headerlink" title="文章摘要"></a>文章摘要</h3><p>在文章中插入 <code>&lt;!-- more --&gt;</code>，前面的部分即为摘要。</p>
+
+  
+  
+    
+    <div class='footer'>
+      
+      
+      
+        <div class='copyright'>
+          <blockquote>
+            
+              
+                <p>博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</p>
+
+              
+            
+              
+                <p>本文永久链接是：<a href=http://wang-z.gitee.io/2021/04/12/hexo-%E5%A6%82%E4%BD%95%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2/>http://wang-z.gitee.io/2021/04/12/hexo-%E5%A6%82%E4%BD%95%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2/</a></p>
+              
+            
+          </blockquote>
+        </div>
+      
+      
+    </div>
+  
+  
+    
+
+
+  <div class='article-meta' id="bottom">
+    <div class='new-meta-box'>
+      
+        
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-04-13T18:23:53+08:00">
+  <a class='notlink'>
+    <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
+    <p>本页文档最后更新于：2021年4月13日</p>
+  </a>
+</div>
+
+        
+      
+        
+          
+  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/hexo/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>hexo</p></a></div>
+
+
+        
+      
+        
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
+    
+      
+        <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://wang-z.gitee.io/2021/04/12/hexo-%E5%A6%82%E4%BD%95%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2/&title=如何搭建博客 - Mr.wang'blog&summary=
+讲述搭建博客的一切
+Hexo 是一个快速、简洁且高效的博客框架。
+
+
+作为一位前端开发者，我了解到的静态博客其实际是一份 html，hexo 使用 Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。
+前端开发者都知开发会使用到脚手架编译，而 hexo 就是将我们平时写的笔记进行编译为 html，里面使用了主题可以优化编译效果，在此我将使用volantis作为主题
+"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://wang-z.gitee.io/2021/04/12/hexo-%E5%A6%82%E4%BD%95%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2/&title=如何搭建博客 - Mr.wang'blog&summary=
+讲述搭建博客的一切
+Hexo 是一个快速、简洁且高效的博客框架。
+
+
+作为一位前端开发者，我了解到的静态博客其实际是一份 html，hexo 使用 Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。
+前端开发者都知开发会使用到脚手架编译，而 hexo 就是将我们平时写的笔记进行编译为 html，里面使用了主题可以优化编译效果，在此我将使用volantis作为主题
+"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="http://service.weibo.com/share/share.php?url=http://wang-z.gitee.io/2021/04/12/hexo-%E5%A6%82%E4%BD%95%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2/&title=如何搭建博客 - Mr.wang'blog&summary=
+讲述搭建博客的一切
+Hexo 是一个快速、简洁且高效的博客框架。
+
+
+作为一位前端开发者，我了解到的静态博客其实际是一份 html，hexo 使用 Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。
+前端开发者都知开发会使用到脚手架编译，而 hexo 就是将我们平时写的笔记进行编译为 html，里面使用了主题可以优化编译效果，在此我将使用volantis作为主题
+"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+          
+        </a>
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+
+
+        
+      
+    </div>
+  </div>
+
+
+  
+  
+
+  
+    <div class="prev-next">
+      
+      
+        <a class='next' href='/2021/04/01/vue-%E8%84%9A%E6%89%8B%E6%9E%B6%E9%85%8D%E7%BD%AE/'>
+          <p class='title'>vue-脚手架配置<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+          <p class='content'>
+vue-cli 的配置，由于脚手架的 vue-cli 版本不一致可能导致不适，请注意版本问题
+
+
+
+SVG 的显示配置
+需要 npm i svg-sprite-loader
+在 vue.con...</p>
+        </a>
+      
+    </div>
+  
+</article>
+
+
+  
+
+  <article class="post white-box reveal shadow" id="comments">
+    <p ct><i class='fas fa-comments'></i> 评论</p>
+    
+    <div id="valine_container" class="valine_thread">
+  <i class="fas fa-cog fa-spin fa-fw fa-2x"></i>
+</div>
+
+  </article>
+
+
+
+
+
+
+</div>
+<aside class='l_side'>
+  
+  
+
+  
+    
+    
+
+
+
+  <section class="widget toc-wrapper shadow desktop mobile" id="toc-div" >
+    
+  <header>
+    
+      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
+    
+  </header>
+
+
+    <div class='content'>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE"><span class="toc-text">配置</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%8E%AF%E5%A2%83"><span class="toc-text">环境</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85-Hexo"><span class="toc-text">安装 Hexo</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%9D%E5%A7%8B%E5%8C%96-Hexo-%E8%84%9A%E6%89%8B%E6%9E%B6"><span class="toc-text">初始化 Hexo 脚手架</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%87%AA%E5%8A%A8%E9%83%A8%E7%BD%B2"><span class="toc-text">自动部署</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B3%A8%E5%85%A5%E8%84%9A%E6%9C%AC"><span class="toc-text">注入脚本</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BD%91%E7%AB%99%E5%9B%BE%E6%A0%87"><span class="toc-text">网站图标</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9%E5%8D%9A%E5%AE%A2%E6%96%87%E4%BB%B6%E4%B8%8B-config-yml"><span class="toc-text">修改博客文件下_config.yml</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%BB%E9%A2%98"><span class="toc-text">主题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%BB%E9%A2%98%E6%9B%BF%E6%8D%A2"><span class="toc-text">主题替换</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9%E5%8D%9A%E5%AE%A2%E4%B8%BB%E9%A2%98-config-yml-config-valantis-yml"><span class="toc-text">修改博客主题 _config.yml &#x2F; _config.valantis.yml</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#front-matter"><span class="toc-text">front-matter</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%87%E7%AB%A0%E6%91%98%E8%A6%81"><span class="toc-text">文章摘要</span></a></li></ol></li></ol>
+    </div>
+  </section>
+
+
+  
+
+  
+
+
+</aside>
+
+
+
+		  
+		  <!--此文件用来存放一些不方便取值的变量-->
+<!--思路大概是将值藏到重加载的区域内-->
+
+<script>
+  window.pdata={}
+  pdata.ispage=true;
+  pdata.postTitle="如何搭建博客";
+  pdata.commentPath="";
+  pdata.commentPlaceholder="";
+  // header 这里无论是否开启pjax都需要
+  var l_header=document.getElementById("l_header");
+  
+  l_header.classList.remove("show");
+  
+  
+    // cover
+    var cover_wrapper=document.querySelector('.cover-wrapper');
+    
+    cover_wrapper.id="half";
+    cover_wrapper.style.display="";
+    
+  
+</script>
+
+        </div>
+        
+  
+  <footer class="footer clearfix">
+    <br><br>
+    
+      
+        <div class="aplayer-container">
+          
+
+  
+    <meting-js
+      theme='#1BCDFC'
+      autoplay='false'
+      volume='0.4'
+      loop='all'
+      order='random'
+      fixed='false'
+      list-max-height='320px'
+      server='netease'
+      type='playlist'
+      id='5062959861'
+      list-folded='true'>
+    </meting-js>
+  
+
+
+        </div>
+      
+    
+      
+        <br>
+        <div class="social-wrapper">
+          
+            
+              <a href="/atom.xml"
+                class="social  flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer">
+                
+                  <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org@1.1/icon/1322024-social-media/020-rss.svg" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org@1.1/icon/1322024-social-media/020-rss.svg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="/>
+                
+              </a>
+            
+          
+            
+              <a href="https://github.com/volantis-x/"
+                class="social  flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer">
+                
+                  <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org@1.1/icon/1322024-social-media/029-github.svg" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org@1.1/icon/1322024-social-media/029-github.svg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="/>
+                
+              </a>
+            
+          
+            
+              <a href="/"
+                class="social  flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer">
+                
+                  <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org@1.1/icon/1322024-social-media/010-facebook.svg" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org@1.1/icon/1322024-social-media/010-facebook.svg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="/>
+                
+              </a>
+            
+          
+            
+              <a href="/"
+                class="social  flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer">
+                
+                  <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org@1.1/icon/1322024-social-media/018-twitter.svg" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org@1.1/icon/1322024-social-media/018-twitter.svg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="/>
+                
+              </a>
+            
+          
+            
+              <a href="/"
+                class="social  flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer">
+                
+                  <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org@1.1/icon/1322024-social-media/045-telegram.svg" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org@1.1/icon/1322024-social-media/045-telegram.svg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="/>
+                
+              </a>
+            
+          
+            
+              <a href="/"
+                class="social  flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer">
+                
+                  <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org@1.1/icon/1322024-social-media/006-youtube.svg" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org@1.1/icon/1322024-social-media/006-youtube.svg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="/>
+                
+              </a>
+            
+          
+        </div>
+      
+    
+      
+        <p>本站使用 <a target="_blank" rel="noopener" href="https://github.com/volantis-x/hexo-theme-volantis/tree/4.3.1">Volantis</a> 作为主题，您可以在 GitHub 找到<a target="_blank" rel="noopener" href="https://github.com/volantis-x/volantis-docs">本站源码</a>。</p>
+
+      
+    
+      
+        
+          <div><p><span id="lc-sv">本站总访问量为 <span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span> 次</span> <span id="lc-uv">访客数为 <span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span> 人</span></p>
+</div>
+        
+      
+    
+      
+        <div class='copyright'>
+        <p><a target="_blank" rel="noopener" href="https://github.com/volantis-x/">Copyright © 2017-2021 Volantis Team</a></p>
+
+        </div>
+      
+    
+  </footer>
+
+
+        <a id="s-top" class="fas fa-arrow-up fa-fw" href="javascript:void(0)"></a>
+      </div>
+    </div>
+    <div>
+      <script>
+/************这个文件存放不需要重载的全局变量和全局函数*********/
+window.volantis={};
+window.volantis.loadcss=document.getElementById("loadcss");
+/******************** Pjax ********************************/
+function VPjax(){
+	this.list=[] // 存放回调函数
+	this.start=()=>{
+	  for(var i=0;i<this.list.length;i++){
+		this.list[i].run();
+	  }
+	}
+	this.push=(fn,name)=>{
+		var f=new PjaxItem(fn,name);
+		this.list.push(f);
+	}
+	// 构造一个可以run的对象
+	function PjaxItem(fn,name){
+		// 函数名称
+		this.name = name || fn.name
+		// run方法
+		this.run=()=>{
+			fn()
+		}
+	}
+}
+volantis.pjax={}
+volantis.pjax.method={
+	complete: new VPjax(),
+	error: new VPjax(),
+	send: new VPjax()
+}
+volantis.pjax={
+	...volantis.pjax,
+	push: volantis.pjax.method.complete.push,
+	error: volantis.pjax.method.error.push,
+	send: volantis.pjax.method.send.push
+}
+/********************脚本懒加载函数********************************/
+// 已经加入了setTimeout
+function loadScript(src, cb) {
+	setTimeout(function() {
+		var HEAD = document.getElementsByTagName('head')[0] || document.documentElement;
+		var script = document.createElement('script');
+		script.setAttribute('type','text/javascript');
+		if (cb) script.onload = cb;
+		script.setAttribute('src', src);
+		HEAD.appendChild(script);
+	});
+}
+//https://github.com/filamentgroup/loadCSS
+var loadCSS = function( href, before, media, attributes ){
+	var doc = window.document;
+	var ss = doc.createElement( "link" );
+	var ref;
+	if( before ){
+		ref = before;
+	}
+	else {
+		var refs = ( doc.body || doc.getElementsByTagName( "head" )[ 0 ] ).childNodes;
+		ref = refs[ refs.length - 1];
+	}
+	var sheets = doc.styleSheets;
+	if( attributes ){
+		for( var attributeName in attributes ){
+			if( attributes.hasOwnProperty( attributeName ) ){
+				ss.setAttribute( attributeName, attributes[attributeName] );
+			}
+		}
+	}
+	ss.rel = "stylesheet";
+	ss.href = href;
+	ss.media = "only x";
+	function ready( cb ){
+		if( doc.body ){
+			return cb();
+		}
+		setTimeout(function(){
+			ready( cb );
+		});
+	}
+	ready( function(){
+		ref.parentNode.insertBefore( ss, ( before ? ref : ref.nextSibling ) );
+	});
+	var onloadcssdefined = function( cb ){
+		var resolvedHref = ss.href;
+		var i = sheets.length;
+		while( i-- ){
+			if( sheets[ i ].href === resolvedHref ){
+				return cb();
+			}
+		}
+		setTimeout(function() {
+			onloadcssdefined( cb );
+		});
+	};
+	function loadCB(){
+		if( ss.addEventListener ){
+			ss.removeEventListener( "load", loadCB );
+		}
+		ss.media = media || "all";
+	}
+	if( ss.addEventListener ){
+		ss.addEventListener( "load", loadCB);
+	}
+	ss.onloadcssdefined = onloadcssdefined;
+	onloadcssdefined( loadCB );
+	return ss;
+};
+</script>
+<script>
+  
+  loadCSS("https://cdn.jsdelivr.net/gh/volantis-x/cdn-fontawesome-pro@master/css/all.min.css", window.volantis.loadcss);
+  
+  
+  
+  
+  loadCSS("https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10/build/styles/solarized-light.min.css", window.volantis.loadcss);
+  
+</script>
+<!-- required -->
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5/dist/jquery.min.js"></script>
+
+<script>
+  function pjax_fancybox() {
+    $(".md .gallery").find("img").each(function () { //渲染 fancybox
+      var element = document.createElement("a"); // a 标签
+      $(element).attr("class", "fancybox");
+      $(element).attr("pjax-fancybox", "");  // 过滤 pjax
+      $(element).attr("href", $(this).attr("src"));
+      if ($(this).attr("data-original")) {
+        $(element).attr("href", $(this).attr("data-original"));
+      }
+      $(element).attr("data-fancybox", "images");
+      var caption = "";   // 描述信息
+      if ($(this).attr('alt')) {  // 判断当前页面是否存在描述信息
+        $(element).attr('data-caption', $(this).attr('alt'));
+        caption = $(this).attr('alt');
+      }
+      var div = document.createElement("div");
+      $(div).addClass("fancybox");
+      $(this).wrap(div); // 最外层套 div ，其实主要作用还是 class 样式
+      var span = document.createElement("span");
+      $(span).addClass("image-caption");
+      $(span).text(caption); // 加描述
+      $(this).after(span);  // 再套一层描述
+      $(this).wrap(element);  // 最后套 a 标签
+    })
+    $(".md .gallery").find("img").fancybox({
+      selector: '[data-fancybox="images"]',
+      hash: false,
+      loop: false,
+      closeClick: true,
+      helpers: {
+        overlay: {closeClick: true}
+      },
+      buttons: [
+        "zoom",
+        "close"
+      ]
+    });
+  };
+  function SCload_fancybox() {
+    if ($(".md .gallery").find("img").length == 0) return;
+    loadCSS("https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css", document.getElementById("loadcss"));
+    loadScript('https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js', pjax_fancybox)
+  };
+  $(function () {
+    SCload_fancybox();
+  });
+  function Pjax_SCload_fancybox(){
+	if (typeof $.fancybox == "undefined") {
+	 SCload_fancybox();
+    } else {
+	 pjax_fancybox();
+    }
+  }
+  volantis.pjax.push(Pjax_SCload_fancybox)
+  volantis.pjax.send(()=>{
+      if (typeof $.fancybox != "undefined") {
+        $.fancybox.close();    // 关闭弹窗
+      }
+  },'fancybox')
+</script>
+
+
+<!-- internal -->
+
+  
+  
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/jquery-backstretch@2.1.18/jquery.backstretch.min.js"></script>
+
+    <script type="text/javascript">
+        var imgs=["https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/001.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/002.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/003.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/004.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/005.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/006.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/012.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/016.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/019.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/025.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/033.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/034.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/035.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/038.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/039.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/042.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/046.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/051.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/052.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/054.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/056.jpg"];
+        if ('true' == 'true') {
+          function shuffle(arr){
+            /*From countercurrent-time*/
+            var n = arr.length;
+            while(n--) {
+              var index = Math.floor(Math.random() * n);
+              var temp = arr[index];
+              arr[index] = arr[n];
+              arr[n] = temp;
+            }
+          }
+          shuffle(imgs);
+        }
+	  function Pjax_backstretch(){
+        
+          $('#cover-backstretch').backstretch(
+            imgs,
+          {
+            duration: "20000",
+            fade: "1500"
+          });
+        
+	  }
+	  loadScript("https://cdn.jsdelivr.net/npm/jquery-backstretch@2.1.18/jquery.backstretch.min.js",Pjax_backstretch)
+    </script>
+  
+
+
+
+
+<script>
+  function loadIssuesJS() {
+    if ($(".md").find(".issues-api").length == 0) return;
+	
+	  loadScript('/js/issues.js');
+	
+  };
+  $(function () {
+    loadIssuesJS();
+  });
+  volantis.pjax.push(()=>{
+	if (typeof IssuesAPI == "undefined") {
+	  loadIssuesJS();
+	}
+  },"IssuesJS")
+</script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.1.0/dist/lazyload.min.js"></script>
+<script>
+  // https://www.npmjs.com/package/vanilla-lazyload
+  // Set the options globally
+  // to make LazyLoad self-initialize
+  window.lazyLoadOptions = {
+    elements_selector: ".lazyload",
+    threshold: 0
+  };
+  // Listen to the initialization event
+  // and get the instance of LazyLoad
+  window.addEventListener(
+    "LazyLoad::Initialized",
+    function (event) {
+      window.lazyLoadInstance = event.detail.instance;
+    },
+    false
+  );
+  document.addEventListener('DOMContentLoaded', function () {
+    lazyLoadInstance.update();
+  });
+  document.addEventListener('pjax:complete', function () {
+    lazyLoadInstance.update();
+  });
+</script>
+
+
+
+
+  
+
+<script>
+  window.FPConfig = {
+	delay: 0,
+	ignoreKeywords: [],
+	maxRPS: 5,
+	hoverDelay: 25
+  };
+</script>
+<script defer src="https://cdn.jsdelivr.net/gh/gijo-varghese/flying-pages@2.1.2/flying-pages.min.js"></script>
+
+
+
+
+
+  <script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+<script>
+    var clipboard = new ClipboardJS('.btn-copy', {
+        target: function (trigger) {
+            return trigger.nextElementSibling
+        }
+    });
+    function wait(callback, seconds) {
+        var timelag = null;
+        timelag = window.setTimeout(callback, seconds)
+    }
+    function pjax_initCopyCode() {
+		if($(".highlight .code pre").length+$(".article pre code").length==0)return;
+        var copyHtml = '';
+        copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+        copyHtml += '<i class="fas fa-copy"></i><span>COPY</span>';
+        copyHtml += '</button>';
+        $(".highlight .code pre").before(copyHtml);
+        $(".article pre code").before(copyHtml);
+        clipboard.off('success').on('success', function (e) {
+            let $btn = $(e.trigger);
+            $btn.addClass('copied');
+            let $icon = $($btn.find('i'));
+            $icon.removeClass('fa-copy');
+            $icon.addClass('fa-check-circle');
+            let $span = $($btn.find('span'));
+            $span[0].innerText = 'COPIED';
+            wait(function () {
+                $icon.removeClass('fa-check-circle');
+                $icon.addClass('fa-copy');
+                $span[0].innerText = 'COPY'
+            }, 2000)
+        });
+        clipboard.off('error').on('error', function (e) {
+            e.clearSelection();
+            let $btn = $(e.trigger);
+            $btn.addClass('copy-failed');
+            let $icon = $($btn.find('i'));
+            $icon.removeClass('fa-copy');
+            $icon.addClass('fa-times-circle');
+            let $span = $($btn.find('span'));
+            $span[0].innerText = 'COPY FAILED';
+            wait(function () {
+                $icon.removeClass('fa-times-circle');
+                $icon.addClass('fa-copy');
+                $span[0].innerText = 'COPY'
+            }, 2000)
+        })
+    }
+    $(function () {
+        pjax_initCopyCode()
+    });
+	volantis.pjax.push(pjax_initCopyCode)
+</script>
+
+
+
+
+
+
+  <script>
+  let APlayerController = new Object();
+  APlayerController.id = '5062959861';  // 设定全局音乐播放ID
+  APlayerController.volume = '0.4';
+  loadCSS("https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.css", window.volantis.loadcss);
+  // APlayer 需要在  MetingJS 之前加载
+  loadScript("https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.js")
+  window.volantis.APlayerLoaded=0 // APlayer加载完成状态
+  var checkAPlayer = setInterval(function () {
+    if (!window.APlayer) return // APlayer加载完成？
+	  if ($("#safearea").css("display")!="block") return // 文章内容加载完成？ see: source/css/first.styl
+    clearInterval(checkAPlayer)
+	  if (!window.volantis.APlayerLoaded&&!window.MetingJSElement){ // APlayer只能加载一次
+      window.volantis.APlayerLoaded=1 // APlayer加载完成
+      loadScript("https://cdn.jsdelivr.net/npm/meting@2.0/dist/Meting.min.js") // 加载 MetingJS
+	  }
+  }, 2500) // 按照网速调节差分2.5s
+  // rightmenu see: layout/_partial/rightmenu.ejs
+
+</script>
+
+
+
+
+  
+  
+<script src="/js/valine.js"></script>
+
+
+<script>
+  function emoji(path, idx, ext) {
+    return path + "/" + path + "-" + idx + "." + ext;
+  }
+  var emojiMaps = {};
+  for (var i = 1; i <= 54; i++) {
+    emojiMaps['tieba-' + i] = emoji('tieba', i, 'png');
+  }
+  for (var i = 1; i <= 101; i++) {
+    emojiMaps['qq-' + i] = emoji('qq', i, 'gif');
+  }
+  for (var i = 1; i <= 116; i++) {
+    emojiMaps['aru-' + i] = emoji('aru', i, 'gif');
+  }
+  for (var i = 1; i <= 125; i++) {
+    emojiMaps['twemoji-' + i] = emoji('twemoji', i, 'png');
+  }
+  for (var i = 1; i <= 4; i++) {
+    emojiMaps['weibo-' + i] = emoji('weibo', i, 'png');
+  }
+  function pjax_valine() {
+    if(!document.querySelectorAll("#valine_container")[0])return;
+    let pagePlaceholder = pdata.commentPlaceholder || "快来评论吧~";
+    let path = pdata.commentPath;
+    if (path.length == 0) {
+      let defaultPath = '';
+      path = defaultPath || decodeURI(window.location.pathname);
+    }
+    var valine = new Valine();
+    valine.init(Object.assign({"path":null,"placeholder":"快来评论吧~","appId":null,"appKey":null,"meta":["nick","mail","link"],"requiredFields":["nick","mail"],"enableQQ":true,"recordIP":false,"avatar":"robohash","pageSize":10,"lang":"zh-cn","highlight":true,"mathJax":false}, {
+      el: '#valine_container',
+      path: path,
+      placeholder: pagePlaceholder,
+      emojiCDN: 'https://cdn.jsdelivr.net/gh/volantis-x/cdn-emoji/valine/',
+      emojiMaps: emojiMaps,
+    }))
+  }
+  $(function () {
+    pjax_valine();
+  });
+  volantis.pjax.push(pjax_valine);
+</script>
+
+
+
+
+
+
+  
+<script src="/js/app.js"></script>
+
+
+
+<!-- optional -->
+
+  <script>
+const SearchServiceimagePath="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@master/img/";
+const ROOT =  ("/" || "/").endsWith('/') ? ("/" || "/") : ("//" || "/" );
+
+$('.input.u-search-input').one('focus',function(){
+	
+		loadScript('/js/search/hexo.js',setSearchService);
+	
+})
+
+function listenSearch(){
+  
+    customSearch = new HexoSearch({
+      imagePath: SearchServiceimagePath
+    });
+  
+}
+function setSearchService() {
+	listenSearch();
+	
+}
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10/build/highlight.min.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+
+<script>
+volantis.pjax.push(()=>{
+	document.querySelectorAll('pre code').forEach((block) => {
+	  hljs.highlightBlock(block);
+	});
+},"highlightjs")
+</script>
+
+
+
+  <script defer>
+
+  const LCCounter = {
+    app_id: 'GCYDRKI6XRkyC7EuEhJv90ia-MdYXbMMI',
+    app_key: '4xKBXGBj6BgecU62vff5rJHs',
+    custom_api_server: '',
+
+    // 查询存储的记录
+    getRecord(Counter, url, title) {
+      return new Promise(function (resolve, reject) {
+        Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({url})))
+          .then(resp => resp.json())
+          .then(({results, code, error}) => {
+            if (code === 401) {
+              throw error;
+            }
+            if (results && results.length > 0) {
+              var record = results[0];
+              resolve(record);
+            } else {
+              Counter('post', '/classes/Counter', {url, title: title, times: 0})
+                .then(resp => resp.json())
+                .then((record, error) => {
+                  if (error) {
+                    throw error;
+                  }
+                  resolve(record);
+                }).catch(error => {
+                console.error('Failed to create', error);
+                reject(error);
+              });
+            }
+          }).catch((error) => {
+          console.error('LeanCloud Counter Error:', error);
+          reject(error);
+        });
+      })
+    },
+
+    // 发起自增请求
+    increment(Counter, incrArr) {
+      return new Promise(function (resolve, reject) {
+        Counter('post', '/batch', {
+          "requests": incrArr
+        }).then((res) => {
+          res = res.json();
+          if (res.error) {
+            throw res.error;
+          }
+          resolve(res);
+        }).catch((error) => {
+          console.error('Failed to save visitor count', error);
+          reject(error);
+        });
+      });
+    },
+
+    // 构建自增请求体
+    buildIncrement(objectId) {
+      return {
+        "method": "PUT",
+        "path": `/1.1/classes/Counter/${ objectId }`,
+        "body": {
+          "times": {
+            '__op': 'Increment',
+            'amount': 1
+          }
+        }
+      }
+    },
+
+    // 校验是否为有效的 UV
+    validUV() {
+      var key = 'LeanCloudUVTimestamp';
+      var flag = localStorage.getItem(key);
+      if (flag) {
+        // 距离标记小于 24 小时则不计为 UV
+        if (new Date().getTime() - parseInt(flag) <= 86400000) {
+          return false;
+        }
+      }
+      localStorage.setItem(key, new Date().getTime().toString());
+      return true;
+    },
+
+    addCount(Counter) {
+      var enableIncr = '' === 'true' && window.location.hostname !== 'localhost';
+      enableIncr = true;
+      var getterArr = [];
+      var incrArr = [];
+      // 请求 PV 并自增
+      var pvCtn = document.querySelector('#lc-sv');
+      if (pvCtn || enableIncr) {
+        var pvGetter = this.getRecord(Counter, 'http://wang-z.gitee.io' + '/#lc-sv', 'Visits').then((record) => {
+          incrArr.push(this.buildIncrement(record.objectId))
+          var eles = document.querySelectorAll('#lc-sv #number');
+          if (eles.length > 0) {
+            eles.forEach((el,index,array)=>{
+              el.innerText = record.times + 1;
+              if (pvCtn) {
+                pvCtn.style.display = 'inline';
+              }
+            })
+          }
+        });
+        getterArr.push(pvGetter);
+      }
+
+      // 请求 UV 并自增
+      var uvCtn = document.querySelector('#lc-uv');
+      if (uvCtn || enableIncr) {
+        var uvGetter = this.getRecord(Counter, 'http://wang-z.gitee.io' + '/#lc-uv', 'Visitors').then((record) => {
+          var vuv = this.validUV();
+          vuv && incrArr.push(this.buildIncrement(record.objectId))
+          var eles = document.querySelectorAll('#lc-uv #number');
+          if (eles.length > 0) {
+            eles.forEach((el,index,array)=>{
+              el.innerText = record.times + (vuv ? 1 : 0);
+              if (uvCtn) {
+                uvCtn.style.display = 'inline';
+              }
+            })
+          }
+        });
+        getterArr.push(uvGetter);
+      }
+
+      // 请求文章的浏览数，如果是当前页面就自增
+      var allPV = document.querySelectorAll('#lc-pv');
+      if (allPV.length > 0 || enableIncr) {
+        for (i = 0; i < allPV.length; i++) {
+          let pv = allPV[i];
+          let title = pv.getAttribute('data-title');
+          var url = 'http://wang-z.gitee.io' + pv.getAttribute('data-path');
+          if (url) {
+            var viewGetter = this.getRecord(Counter, url, title).then((record) => {
+              // 是当前页面就自增
+              let curPath = window.location.pathname;
+              if (curPath.includes('index.html')) {
+                curPath = curPath.substring(0, curPath.lastIndexOf('index.html'));
+              }
+              if (pv.getAttribute('data-path') == curPath) {
+                incrArr.push(this.buildIncrement(record.objectId));
+              }
+              if (pv) {
+                var ele = pv.querySelector('#lc-pv #number');
+                if (ele) {
+                  if (pv.getAttribute('data-path') == curPath) {
+                    ele.innerText = (record.times || 0) + 1;
+                  } else {
+                    ele.innerText = record.times || 0;
+                  }
+                  pv.style.display = 'inline';
+                }
+              }
+            });
+            getterArr.push(viewGetter);
+          }
+        }
+      }
+
+      // 如果启动计数自增，批量发起自增请求
+      if (enableIncr) {
+        Promise.all(getterArr).then(() => {
+          incrArr.length > 0 && this.increment(Counter, incrArr);
+        })
+      }
+
+    },
+
+
+    fetchData(api_server) {
+      var Counter = (method, url, data) => {
+        return fetch(`${ api_server }/1.1${ url }`, {
+          method,
+          headers: {
+            'X-LC-Id': this.app_id,
+            'X-LC-Key': this.app_key,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data)
+        });
+      };
+      this.addCount(Counter);
+    },
+
+    refreshCounter() {
+      var api_server = this.app_id.slice(-9) !== '-MdYXbMMI' ? this.custom_api_server : `https://${ this.app_id.slice(0, 8).toLowerCase() }.api.lncldglobal.com`;
+      if (api_server) {
+        this.fetchData(api_server);
+      } else {
+        fetch('https://app-router.leancloud.cn/2/route?appId=' + this.app_id)
+          .then(resp => resp.json())
+          .then(({api_server}) => {
+            this.fetchData('https://' + api_server);
+          });
+      }
+    }
+
+  };
+
+  LCCounter.refreshCounter();
+
+  document.addEventListener('pjax:complete', function () {
+    LCCounter.refreshCounter();
+  });
+</script>
+
+
+
+
+  <script>
+const rootElement = document.documentElement;
+const darkModeStorageKey = "user-color-scheme";
+const rootElementDarkModeAttributeName = "data-user-color-scheme";
+
+const setLS = (k, v) => {
+    localStorage.setItem(k, v);
+};
+
+const removeLS = (k) => {
+    localStorage.removeItem(k);
+};
+
+const getLS = (k) => {
+    return localStorage.getItem(k);
+};
+
+const getModeFromCSSMediaQuery = () => {
+  return window.matchMedia("(prefers-color-scheme: dark)").matches
+    ? "dark"
+    : "light";
+};
+
+const resetRootDarkModeAttributeAndLS = () => {
+  rootElement.removeAttribute(rootElementDarkModeAttributeName);
+  removeLS(darkModeStorageKey);
+};
+
+const validColorModeKeys = {
+  dark: true,
+  light: true,
+};
+
+const applyCustomDarkModeSettings = (mode) => {
+  const currentSetting = mode || getLS(darkModeStorageKey);
+
+  if (currentSetting === getModeFromCSSMediaQuery()) {
+    resetRootDarkModeAttributeAndLS();
+  } else if (validColorModeKeys[currentSetting]) {
+    rootElement.setAttribute(rootElementDarkModeAttributeName, currentSetting);
+  } else {
+    resetRootDarkModeAttributeAndLS();
+  }
+};
+
+const invertDarkModeObj = {
+  dark: "light",
+  light: "dark",
+};
+
+/**
+ * get target mode
+ */
+const toggleCustomDarkMode = () => {
+  let currentSetting = getLS(darkModeStorageKey);
+
+  if (validColorModeKeys[currentSetting]) {
+    currentSetting = invertDarkModeObj[currentSetting];
+  } else if (currentSetting === null) {
+    currentSetting = invertDarkModeObj[getModeFromCSSMediaQuery()];
+  } else {
+    return;
+  }
+  setLS(darkModeStorageKey, currentSetting);
+  return currentSetting;
+};
+
+/**
+ * bind click event for toggle button
+ */
+var btn=$("#wrapper .toggle-mode-btn,#rightmenu-wrapper .toggle-mode-btn");
+function bindToggleButton() {
+    btn.on('click',(e) => {
+      const mode = toggleCustomDarkMode();
+      applyCustomDarkModeSettings(mode);
+    });
+}
+
+applyCustomDarkModeSettings();
+document.addEventListener("DOMContentLoaded", bindToggleButton);
+volantis.pjax.push(bindToggleButton);
+volantis.pjax.send(()=>{
+	btn.unbind('click');
+},'toggle-mode-btn-unbind');
+</script>
+
+
+
+
+
+
+
+
+<script>
+function listennSidebarTOC() {
+  const navItems = document.querySelectorAll(".toc li");
+  if (!navItems.length) return;
+  const sections = [...navItems].map((element) => {
+    const link = element.querySelector(".toc-link");
+    const target = document.getElementById(
+      decodeURI(link.getAttribute("href")).replace("#", "")
+    );
+    link.addEventListener("click", (event) => {
+      event.preventDefault();
+      window.scrollTo({
+		top: target.offsetTop + 100,
+		
+		behavior: "smooth"
+		
+	  });
+    });
+    return target;
+  });
+
+  function activateNavByIndex(target) {
+    if (target.classList.contains("active-current")) return;
+
+    document.querySelectorAll(".toc .active").forEach((element) => {
+      element.classList.remove("active", "active-current");
+    });
+    target.classList.add("active", "active-current");
+    let parent = target.parentNode;
+    while (!parent.matches(".toc")) {
+      if (parent.matches("li")) parent.classList.add("active");
+      parent = parent.parentNode;
+    }
+  }
+
+  function findIndex(entries) {
+    let index = 0;
+    let entry = entries[index];
+    if (entry.boundingClientRect.top > 0) {
+      index = sections.indexOf(entry.target);
+      return index === 0 ? 0 : index - 1;
+    }
+    for (; index < entries.length; index++) {
+      if (entries[index].boundingClientRect.top <= 0) {
+        entry = entries[index];
+      } else {
+        return sections.indexOf(entry.target);
+      }
+    }
+    return sections.indexOf(entry.target);
+  }
+
+  function createIntersectionObserver(marginTop) {
+    marginTop = Math.floor(marginTop + 10000);
+    let intersectionObserver = new IntersectionObserver(
+      (entries, observe) => {
+        let scrollHeight = document.documentElement.scrollHeight + 100;
+        if (scrollHeight > marginTop) {
+          observe.disconnect();
+          createIntersectionObserver(scrollHeight);
+          return;
+        }
+        let index = findIndex(entries);
+        activateNavByIndex(navItems[index]);
+      },
+      {
+        rootMargin: marginTop + "px 0px -100% 0px",
+        threshold: 0,
+      }
+    );
+    sections.forEach((element) => {
+      element && intersectionObserver.observe(element);
+    });
+  }
+  createIntersectionObserver(document.documentElement.scrollHeight);
+}
+
+document.addEventListener("DOMContentLoaded", listennSidebarTOC);
+document.addEventListener("pjax:success", listennSidebarTOC);
+</script>
+
+<!-- more -->
+
+ 
+	   
+	    
+
+
+<script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.min.js"></script>
+
+
+<script>
+    var pjax;
+    document.addEventListener('DOMContentLoaded', function () {
+      pjax = new Pjax({
+        elements: 'a[href]:not([href^="#"]):not([href="javascript:void(0)"]):not([pjax-fancybox])',
+        selectors: [
+          "title",
+          
+          "#pjax-container",
+          "#pjax-header-nav-list"
+        ],
+        cacheBust: false,   // url 地址追加时间戳，用以避免浏览器缓存
+        timeout: 5000
+      });
+    });
+
+    document.addEventListener('pjax:send', function (e) {
+      //window.stop(); // 相当于点击了浏览器的停止按钮
+
+      try {
+        var currentUrl = window.location.pathname;
+        var targetUrl = e.triggerElement.href;
+        var banUrl = [""];
+        if (banUrl[0] != "") {
+          banUrl.forEach(item => {
+            if(currentUrl.indexOf(item) != -1 || targetUrl.indexOf(item) != -1) {
+              window.location.href = targetUrl;
+            }
+          });
+        }
+      } catch (error) {}
+
+      window.subData = null; // 移除标题（用于一二级导航栏切换处）
+
+      volantis.$switcher.removeClass('active'); // 关闭移动端激活的搜索框
+      volantis.$header.removeClass('z_search-open'); // 关闭移动端激活的搜索框
+      volantis.$wrapper.removeClass('sub'); // 跳转页面时关闭二级导航
+
+      // 解绑事件 避免重复监听
+      volantis.$topBtn.unbind('click');
+      $('.menu a').unbind('click');
+      $(window).unbind('resize');
+      $(window).unbind('scroll');
+      $(document).unbind('scroll');
+      $(document).unbind('click');
+      $('body').unbind('click');
+	  // 使用 volantis.pjax.send 方法传入pjax:send回调函数 参见layout/_partial/scripts/global.ejs
+	  volantis.pjax.method.send.start();
+    });
+
+    document.addEventListener('pjax:complete', function () {
+      $('.nav-main').find('.list-v').not('.menu-phone').removeAttr("style",""); // 移除小尾巴的移除
+      $('.menu-phone.list-v').removeAttr("style",""); // 移除小尾巴的移除
+      $('script[data-pjax], .pjax-reload script').each(function () {
+        $(this).parent().append($(this).remove());
+      });
+      try{
+		// 使用 volantis.pjax.push 方法传入重载函数 参见layout/_partial/scripts/global.ejs
+		volantis.pjax.method.complete.start();
+      } catch (e) {
+        console.log(e);
+      }
+    });
+
+    document.addEventListener('pjax:error', function (e) {
+	  // 使用 volantis.pjax.error 方法传入pjax:error回调函数 参见layout/_partial/scripts/global.ejs
+	  volantis.pjax.method.error.start();
+      window.location.href = e.triggerElement.href;
+    });
+</script>
+ 
+	  
+    </div>
+  </body>
+</html>

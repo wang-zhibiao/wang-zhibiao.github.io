@@ -1,0 +1,1965 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head hexo-theme='https://github.com/volantis-x/hexo-theme-volantis/tree/4.3.1'>
+  <meta charset="utf-8">
+  <!-- SEO相关 -->
+  
+    
+  
+  <!-- 渲染优化 -->
+  <meta http-equiv='x-dns-prefetch-control' content='on' />
+  <link rel='dns-prefetch' href='https://cdn.jsdelivr.net'>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <link rel="preload" href="/css/first.css" as="style">
+  
+
+  <!-- 页面元数据 -->
+  
+  <title>实用css笔记 - Mr.wang&#39;blog</title>
+  
+    <meta name="keywords" content="javascript,css">
+  
+
+  
+    <meta name="description" content="
+记录开发过程中的css,less使用
+">
+  
+
+  <!-- feed -->
+  
+
+  <!-- import meta -->
+  
+
+  <!-- link -->
+  
+
+  <!-- import link -->
+  
+
+  
+    
+<link rel="stylesheet" href="/css/first.css">
+
+  
+
+  
+  <link rel="stylesheet" href="/css/style.css" media="print" onload="this.media='all';this.onload=null">
+  <noscript><link rel="stylesheet" href="/css/style.css"></noscript>
+  
+
+  <script id="loadcss"></script>
+
+  
+<script>
+if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMode))
+    document.write(
+	'<style>'+
+		'html{'+
+			'overflow-x: hidden !important;'+
+			'overflow-y: hidden !important;'+
+		'}'+
+		'.kill-ie{'+
+			'text-align:center;'+
+			'height: 100%;'+
+			'margin-top: 15%;'+
+			'margin-bottom: 5500%;'+
+		'}'+
+	'</style>'+
+    '<div class="kill-ie">'+
+        '<h1><b>抱歉，您的浏览器无法访问本站</b></h1>'+
+        '<h3>微软已经于2016年终止了对 Internet Explorer (IE) 10 及更早版本的支持，<br/>'+
+        '继续使用存在极大的安全隐患，请使用当代主流的浏览器进行访问。</h3><br/>'+
+        '<a target="_blank" rel="noopener" href="https://www.microsoft.com/zh-cn/WindowsForBusiness/End-of-IE-support"><strong>了解详情 ></strong></a>'+
+    '</div>');
+</script>
+
+
+<noscript>
+	<style>
+		html{
+			overflow-x: hidden !important;
+			overflow-y: hidden !important;
+		}
+		.kill-noscript{
+			text-align:center;
+			height: 100%;
+			margin-top: 15%;
+			margin-bottom: 5500%;
+		}
+	</style>
+    <div class="kill-noscript">
+        <h1><b>抱歉，您的浏览器无法访问本站</b></h1>
+        <h3>本页面需要浏览器支持（启用）JavaScript</h3><br/>
+        <a target="_blank" rel="noopener" href="https://www.baidu.com/s?wd=启用JavaScript"><strong>了解详情 ></strong></a>
+    </div>
+</noscript>
+
+</head>
+
+  <body>
+    
+
+<header id="l_header" class="l_header auto shadow blur " style='opacity: 0' >
+  <div class='container'>
+  <div id='wrapper'>
+    <div class='nav-sub'>
+      <p class="title"></p>
+      <ul class='switcher nav-list-h m-phone' id="pjax-header-nav-list">
+        <li><a id="s-comment" class="fas fa-comments fa-fw" target="_self" href='javascript:void(0)'></a></li>
+        
+          <li><a id="s-toc" class="s-toc fas fa-list fa-fw" target="_self" href='javascript:void(0)'></a></li>
+        
+      </ul>
+    </div>
+		<div class="nav-main">
+      
+        
+        <a class="title flat-box" target="_self" href='/'>
+          
+          
+          
+            Mr.wang
+          
+        </a>
+      
+
+			<div class='menu navigation'>
+				<ul class='nav-list-h m-pc'>
+          
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/
+                  
+                  
+                  
+                    id="home"
+                  >
+                  <i class='fas fa-rss fa-fw'></i>博客
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/categories/
+                  
+                  
+                  
+                    id="categories"
+                  >
+                  <i class='fas fa-folder-open fa-fw'></i>分类
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/tags/
+                  
+                  
+                  
+                    id="tags"
+                  >
+                  <i class='fas fa-tags fa-fw'></i>标签
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/archives/
+                  
+                  
+                  
+                    id="archives"
+                  >
+                  <i class='fas fa-archive fa-fw'></i>归档
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/friends/
+                  
+                  
+                  
+                    id="friends"
+                  >
+                  <i class='fas fa-link fa-fw'></i>友链
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/about/
+                  
+                  
+                  
+                    id="about"
+                  >
+                  <i class='fas fa-info-circle fa-fw'></i>关于
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box header toggle-mode-btn">
+                  <i class='fas fa-moon fa-fw'></i>暗黑模式
+                </a>
+              <li>
+            
+          
+          
+            
+            
+              
+                <li>
+                  <a class="menuitem flat-box">
+                    <i class='fas fa-compact-disc fa-fw music'></i>背景音乐
+                  </a>
+                  <ul class="list-v">
+                    <li>
+                      <div class="aplayer-container">
+                        
+
+  
+    <meting-js
+      theme='#1BCDFC'
+      autoplay='false'
+      volume='0.4'
+      loop='all'
+      order='random'
+      fixed='false'
+      list-max-height='320px'
+      server='netease'
+      type='playlist'
+      id='5062959861'
+      list-folded='true'>
+    </meting-js>
+  
+
+
+                      </div>
+                    </li>
+                  </ul>
+                <li>
+              
+            
+          
+          
+				</ul>
+			</div>
+
+      <div class="m_search">
+        <form name="searchform" class="form u-search-form">
+          <i class="icon fas fa-search fa-fw"></i>
+          <input type="text" class="input u-search-input" placeholder="Search..." />
+        </form>
+      </div>
+
+			<ul class='switcher nav-list-h m-phone'>
+				
+					<li><a class="s-search fas fa-search fa-fw" target="_self" href='javascript:void(0)'></a></li>
+				
+				<li>
+          <a class="s-menu fas fa-bars fa-fw" target="_self" href='javascript:void(0)'></a>
+          <ul class="menu-phone list-v navigation white-box">
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/
+                  
+                  
+                  
+                    id="home"
+                  >
+                  <i class='fas fa-rss fa-fw'></i>博客
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/categories/
+                  
+                  
+                  
+                    id="categories"
+                  >
+                  <i class='fas fa-folder-open fa-fw'></i>分类
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/tags/
+                  
+                  
+                  
+                    id="tags"
+                  >
+                  <i class='fas fa-tags fa-fw'></i>标签
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/archives/
+                  
+                  
+                  
+                    id="archives"
+                  >
+                  <i class='fas fa-archive fa-fw'></i>归档
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/friends/
+                  
+                  
+                  
+                    id="friends"
+                  >
+                  <i class='fas fa-link fa-fw'></i>友链
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/about/
+                  
+                  
+                  
+                    id="about"
+                  >
+                  <i class='fas fa-info-circle fa-fw'></i>关于
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box header toggle-mode-btn">
+                  <i class='fas fa-moon fa-fw'></i>暗黑模式
+                </a>
+              <li>
+            
+          
+            
+              
+            
+              
+            
+          
+            
+          </ul>
+        </li>
+			</ul>
+		</div>
+	</div>
+  </div>
+</header>
+
+    <div id="l_body">
+      <div id="l_cover">
+  
+    
+        <div id="half" class='cover-wrapper post dock' style="display: ;">
+          
+            <div id='cover-backstretch'></div>
+          
+          <div class='cover-body'>
+  <div class='top'>
+    
+    
+      <p class="title">Mr.wang</p>
+    
+    
+      <p class="subtitle">Time flies and people come and go</p>
+    
+  </div>
+  <div class='bottom'>
+    <div class='menu navigation'>
+      <div class='list-h'>
+        
+          
+            <a href="/"
+              
+              
+              id="home">
+              <img src='https://cdn.jsdelivr.net/gh/twitter/twemoji@13.0/assets/svg/1f4f0.svg'><p>博客</p>
+            </a>
+          
+            <a href="/archives/"
+              
+              
+              id="archives">
+              <img src='https://cdn.jsdelivr.net/gh/twitter/twemoji@13.0/assets/svg/1f5c3.svg'><p>归档</p>
+            </a>
+          
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+          <div id="scroll-down" style="display: none;"><i class="fa fa-chevron-down scroll-down-effects"></i></div>
+        </div>
+    
+  
+  </div>
+
+      <div id="safearea">
+        <div class="body-wrapper" id="pjax-container">
+          
+
+<div class='l_main'>
+  <article class="article post white-box reveal md shadow article-type-post" id="post" itemscope itemprop="blogPost">
+  
+
+
+  
+  <div class="article-meta" id="top">
+    
+    
+    
+      <h1 class="title">
+        实用css笔记
+      </h1>
+      <div class='new-meta-box'>
+        
+          
+            
+<div class='new-meta-item author'>
+  <a class='author' target="_blank" href="https://github.com/volantis-x/" rel="nofollow noopener">
+    <img no-lazy src="https://wang-z.gitee.io/img/author.jpg">
+    <p>Mr.wang</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+  <div class='new-meta-item category'>
+    <a class='notlink'>
+      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
+      <a class="category-link" href="/categories/css/">css</a>
+    </a>
+  </div>
+
+
+          
+        
+          
+            <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：2020年1月1日</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+  <div class="new-meta-item browse leancloud">
+    <a class='notlink'>
+      
+      <div id="lc-pv" data-title="实用css笔记" data-path="/2020/01/01/css-%E5%AE%9E%E7%94%A8css%E7%AC%94%E8%AE%B0/">
+        <i class="fas fa-eye fa-fw" aria-hidden="true"></i>
+        <span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
+        次浏览
+      </div>
+    </a>
+  </div>
+
+
+          
+        
+      </div>
+    
+  </div>
+
+
+  
+  
+  <blockquote>
+<p>记录开发过程中的css,less使用</p>
+</blockquote>
+<span id="more"></span>
+
+<h2 id="如何清除浮动"><a href="#如何清除浮动" class="headerlink" title="如何清除浮动"></a>如何清除浮动</h2><p>清除浮动主要为了解决父级元素因为子级浮动引起内部高度为0 的问题。</p>
+<h3 id="父级添加overflow属性方法"><a href="#父级添加overflow属性方法" class="headerlink" title="父级添加overflow属性方法"></a>父级添加overflow属性方法</h3><p>可以通过触发BFC的方式，可以实现清除浮动效果。</p>
+<h3 id="使用after伪元素清除浮动"><a href="#使用after伪元素清除浮动" class="headerlink" title="使用after伪元素清除浮动"></a>使用after伪元素清除浮动</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.clearfix</span>:after &#123;</span><br><span class="line">  content: <span class="string">&quot;&quot;</span>; </span><br><span class="line">  <span class="attribute">display</span>: block;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">clear</span>: both;</span><br><span class="line">  <span class="attribute">visibility</span>: hidden;</span><br><span class="line">&#125;   </span><br><span class="line"><span class="selector-class">.clearfix</span> &#123;*zoom: <span class="number">1</span>;&#125;   <span class="comment">/* IE6、7 专有 */</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="使用before和after双伪元素清除浮动"><a href="#使用before和after双伪元素清除浮动" class="headerlink" title="使用before和after双伪元素清除浮动"></a>使用before和after双伪元素清除浮动</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.clearfix</span>:before,.clearfix:after &#123; </span><br><span class="line">  content:<span class="string">&quot;&quot;</span>;</span><br><span class="line">  <span class="attribute">display</span>:table;  <span class="comment">/* 这句话可以触发BFC BFC可以清除浮动 */</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.clearfix</span>:after &#123;</span><br><span class="line"> clear:both;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.clearfix</span> &#123;</span><br><span class="line">  *zoom:<span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="移动端-100vh-问题"><a href="#移动端-100vh-问题" class="headerlink" title="移动端 100vh 问题"></a>移动端 100vh 问题</h2><blockquote>
+<p>在移动端使用 100vh 时，发现在 Chrome、Safari 浏览器中，因为浏览器栏和一些导航栏、链接栏导致不一样的呈现：</p>
+<p>你以为的 100vh === 视口高度</p>
+<p>实际上 100vh === 视口高度 + 浏览器工具栏（地址栏等等）的高度</p>
+</blockquote>
+<h4 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h4><blockquote>
+<p>安装 vh-check <code>npm install vh-check --save</code></p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> vhCheck <span class="keyword">from</span> <span class="string">&#x27;vh-check&#x27;</span>;</span><br><span class="line">vhCheck(<span class="string">&#x27;browser-address-bar&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<p>定义一个 LESS Mixin</p>
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.vh</span>(@height: <span class="number">100vh</span>) &#123;</span><br><span class="line">  <span class="attribute">height</span>: @height;</span><br><span class="line">  <span class="attribute">height</span>: calc(@height - var(--browser-address-bar, <span class="number">0px</span>));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="媒体查询"><a href="#媒体查询" class="headerlink" title="媒体查询"></a>媒体查询</h2><blockquote>
+<p>区分设备类型</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">all (所有的设备)</span><br><span class="line">print (打印设备)</span><br><span class="line">screen (电脑屏幕,平板电脑,智能手机)</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>特性</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">width网页显示区域完全等于设置的宽度</span><br><span class="line">height网页显示区域完全等于设置的高度</span><br><span class="line">max-width / max-height网页显示区域小于等于设置的宽度</span><br><span class="line">min-width / min-width网页显示区域大于等于设置的宽度</span><br><span class="line">orientation: portrait (竖屏模式)  | landscape (横屏模式)</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>关键字</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">and 可以将多个媒体特性链接到一块,相当于且</span><br><span class="line">not 排除某个媒体特性 相当于非,可以省略</span><br><span class="line">only 指定某个特定的媒体类型, 可以省略</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>语法</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//外联样式</span></span><br><span class="line">&lt;link rel=<span class="string">&quot;stylesheet&quot;</span> type=<span class="string">&quot;text/css&quot;</span> href=<span class="string">&quot;01.css&quot;</span> media=<span class="string">&quot;only screen and (max-width: 420px)&quot;</span>&gt;</span><br><span class="line"><span class="comment">//内联样式</span></span><br><span class="line">    - 内嵌式语法</span><br><span class="line">      @media only screen  and (max-width: 420px) &#123;</span><br><span class="line">      	body &#123;</span><br><span class="line">      		background-color: red;</span><br><span class="line">      	&#125;</span><br><span class="line">      &#125;</span><br><span class="line"><span class="comment">//多个条件联写</span></span><br><span class="line">@media only screen and (width: 320px) and (height: 568px) &#123;&#125;</span><br><span class="line">@media only screen and (min-width:400px) and (max-width:600px)&#123;&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="浏览器查询Unicode编码"><a href="#浏览器查询Unicode编码" class="headerlink" title="浏览器查询Unicode编码"></a>浏览器查询Unicode编码</h2><p> 浏览器控制台输出   escape(‘查询字符串’)</p>
+<h2 id="less"><a href="#less" class="headerlink" title="less"></a>less</h2><h3 id="less中的变量"><a href="#less中的变量" class="headerlink" title="less中的变量"></a>less中的变量</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*如何定义</span></span><br><span class="line"><span class="comment">@变量名=变量值</span></span><br><span class="line"><span class="comment">如何使用</span></span><br><span class="line"><span class="comment">在样式中</span></span><br><span class="line"><span class="comment">属性:变量名</span></span><br><span class="line"><span class="comment">例子</span></span><br><span class="line"><span class="comment">定义*/</span></span><br><span class="line"><span class="keyword">@color</span>=#f00；</span><br><span class="line">/*使用*/</span><br><span class="line">a&#123;</span><br><span class="line"><span class="attribute">color</span>:color;</span><br><span class="line"><span class="attribute">background</span>:color;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="less的循环-，使用递归"><a href="#less的循环-，使用递归" class="headerlink" title="less的循环 ，使用递归"></a>less的循环 ，使用递归</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.box1</span>&#123;</span><br><span class="line">    <span class="attribute">border-bottom</span>:<span class="number">10px</span> solid <span class="number">#ccc</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.box2</span>&#123;</span><br><span class="line">    <span class="attribute">border-bottom</span>:<span class="number">20px</span> solid <span class="number">#ccc</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.box3</span>&#123;</span><br><span class="line">    <span class="attribute">border-bottom</span>:<span class="number">30px</span> solid <span class="number">#ccc</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.box4</span>&#123;</span><br><span class="line">    <span class="attribute">border-bottom</span>:<span class="number">40px</span> solid <span class="number">#ccc</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.loop</span>(<span class="variable">@cout</span>)<span class="keyword">when</span>(<span class="variable">@cout</span>&gt;<span class="number">0</span>)&#123;</span><br><span class="line">    <span class="selector-class">.loop</span>((<span class="variable">@cout-1</span>))</span><br><span class="line">    <span class="selector-class">.box</span><span class="variable">@&#123;cout&#125;</span>&#123;</span><br><span class="line">        <span class="attribute">border-bottom</span>:<span class="variable">@cout</span>+<span class="number">0px</span> solid <span class="number">#ccc</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.loop</span>(<span class="number">3</span>)</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="原生css的声明变量"><a href="#原生css的声明变量" class="headerlink" title="原生css的声明变量"></a>原生css的声明变量</h2><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*声明变量 使用 -- 关键字</span></span><br><span class="line"><span class="comment">调用变量 使用 var() 函数*/</span></span><br><span class="line"><span class="selector-tag">a</span>&#123;</span><br><span class="line">	--<span class="attribute">color</span>: red;</span><br><span class="line">      <span class="comment">/* 使用变量 必须放在var函数内 */</span></span><br><span class="line">    <span class="attribute">background-color</span>: <span class="built_in">var</span>(--color);</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">var</span>(--变量名,参数)</span><br><span class="line"> <span class="selector-tag">div</span> &#123;</span><br><span class="line">      <span class="attribute">height</span>: <span class="number">500px</span>;</span><br><span class="line">      <span class="comment">/* 默认参数  200px */</span></span><br><span class="line">      <span class="attribute">padding-top</span>: <span class="built_in">var</span>(--padding-top,<span class="number">200px</span>);</span><br><span class="line">      <span class="comment">/* 默认参数 10px solid red */</span></span><br><span class="line">      <span class="attribute">border</span>: <span class="built_in">var</span>(--border, <span class="number">10px</span> solid red);</span><br><span class="line">      <span class="comment">/* 默认参数  linear-gradient(yellow,red) */</span></span><br><span class="line">      <span class="attribute">background-image</span>: <span class="built_in">var</span>(--img,<span class="built_in">linear-gradient</span>(yellow,red));</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="css的计算（calc）"><a href="#css的计算（calc）" class="headerlink" title="css的计算（calc）"></a>css的计算（calc）</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">div</span>&#123;</span><br><span class="line">	<span class="attribute">height</span>:<span class="built_in">calc</span>(<span class="number">100px</span>*<span class="number">90</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="将超出的文本以…的方式缩减"><a href="#将超出的文本以…的方式缩减" class="headerlink" title="将超出的文本以…的方式缩减"></a>将超出的文本以…的方式缩减</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.line2</span> &#123;</span><br><span class="line">    <span class="attribute">display</span>: -webkit-box;</span><br><span class="line">    <span class="attribute">overflow</span>: hidden;</span><br><span class="line">    <span class="attribute">white-space</span>: normal<span class="meta">!important</span>;</span><br><span class="line">    <span class="attribute">text-overflow</span>: ellipsis;</span><br><span class="line">    <span class="attribute">word-wrap</span>: break-word;</span><br><span class="line">    -webkit-line-clamp: <span class="number">2</span>;</span><br><span class="line">    -webkit-box-orient: vertical</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="flex弹性布局子元素居中"><a href="#flex弹性布局子元素居中" class="headerlink" title="flex弹性布局子元素居中"></a>flex弹性布局子元素居中</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">div</span>&#123;</span><br><span class="line">    <span class="attribute">display</span>:flex;</span><br><span class="line">    <span class="attribute">justify-content</span>:center;</span><br><span class="line">    <span class="attribute">align-content</span>:center;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="使用-not-选择器"><a href="#使用-not-选择器" class="headerlink" title="使用:not()选择器"></a>使用:not()选择器</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">ul</span>&gt;<span class="selector-tag">li</span><span class="selector-pseudo">:not</span>(last-child)&#123;</span><br><span class="line">    <span class="attribute">border-right</span>: <span class="number">1px</span> solid <span class="number">#666</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>not()是可以令最后一项li不加右边框，表示否定</p>
+<p>使用伪类+content+position+transform实现文字或者图形的样式</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*文字实现 ° 度数单位*/</span></span><br><span class="line"> <span class="selector-tag">div</span> &#123;</span><br><span class="line">         <span class="attribute">width</span>: <span class="number">150px</span>;</span><br><span class="line">         <span class="attribute">height</span>: <span class="number">30px</span>;</span><br><span class="line">         <span class="attribute">border</span>: <span class="number">1px</span> solid <span class="number">#000</span>;</span><br><span class="line">         <span class="attribute">position</span>: relative;</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">div</span><span class="selector-pseudo">::after</span> &#123;</span><br><span class="line">         <span class="attribute">content</span>: <span class="string">&#x27;°&#x27;</span>;</span><br><span class="line">         <span class="attribute">position</span>: absolute;</span><br><span class="line">         <span class="attribute">top</span>: <span class="number">0</span>;</span><br><span class="line">         <span class="attribute">right</span>: <span class="number">10px</span>;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="bing-com搜索的国际版按钮的布局"><a href="#bing-com搜索的国际版按钮的布局" class="headerlink" title="bing.com搜索的国际版按钮的布局"></a>bing.com搜索的国际版按钮的布局</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="css"><span class="selector-tag">span</span> &#123;</span></span><br><span class="line"><span class="css">    <span class="attribute">width</span>: <span class="number">82px</span>;</span></span><br><span class="line"><span class="css">    <span class="attribute">height</span>: <span class="number">36px</span>;</span></span><br><span class="line"><span class="css">    <span class="attribute">display</span>: block;</span></span><br><span class="line"><span class="css">    <span class="attribute">position</span>: relative;</span></span><br><span class="line"><span class="css">    <span class="attribute">margin-right</span>: <span class="number">8px</span>;</span></span><br><span class="line"><span class="css">    <span class="attribute">cursor</span>: pointer;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="css"><span class="selector-tag">span</span> <span class="selector-tag">i</span> &#123;</span></span><br><span class="line"><span class="css">    <span class="attribute">position</span>: absolute;</span></span><br><span class="line"><span class="css">    <span class="attribute">z-index</span>: <span class="number">2</span>;</span></span><br><span class="line"><span class="css">    <span class="attribute">display</span>: block;</span></span><br><span class="line"><span class="css">    <span class="attribute">width</span>: <span class="number">100%</span>;</span></span><br><span class="line"><span class="css">    <span class="attribute">height</span>: <span class="number">100%</span>;</span></span><br><span class="line"><span class="css">    <span class="attribute">line-height</span>: <span class="number">30px</span>;</span></span><br><span class="line"><span class="css">    <span class="attribute">text-align</span>: center;</span></span><br><span class="line"><span class="css">    <span class="attribute">color</span>: <span class="number">#fff</span>;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="css"><span class="selector-tag">span</span><span class="selector-pseudo">::after</span> &#123;</span></span><br><span class="line"><span class="css">    <span class="attribute">position</span>: absolute;</span></span><br><span class="line"><span class="css">    <span class="attribute">left</span>: <span class="number">0</span>;</span></span><br><span class="line"><span class="css">    <span class="attribute">top</span>: <span class="number">0</span>;</span></span><br><span class="line"><span class="css">    <span class="attribute">display</span>: block;</span></span><br><span class="line"><span class="css">    <span class="attribute">content</span>: <span class="string">&quot;&quot;</span>;</span></span><br><span class="line"><span class="css">    <span class="attribute">width</span>: <span class="number">100%</span>;</span></span><br><span class="line"><span class="css">    <span class="attribute">height</span>: <span class="number">100%</span>;</span></span><br><span class="line"><span class="css">    <span class="attribute">border</span>: <span class="number">1px</span> <span class="built_in">rgba</span>(<span class="number">255</span>, <span class="number">255</span>, <span class="number">255</span>, <span class="number">0.2</span>) solid;</span></span><br><span class="line"><span class="css">    <span class="attribute">border-bottom</span>: none;</span></span><br><span class="line"><span class="css">    <span class="attribute">transform</span>: <span class="built_in">scale</span>(<span class="number">1.1</span>, <span class="number">1.3</span>) <span class="built_in">perspective</span>(<span class="number">0.7em</span>) <span class="built_in">rotateX</span>(<span class="number">2.2deg</span>);  <span class="comment">/*重点*/</span></span></span><br><span class="line"><span class="css">    <span class="attribute">transform-origin</span>: bottom left;</span></span><br><span class="line"><span class="css">    <span class="attribute">background</span>: <span class="built_in">rgba</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0.5</span>);</span></span><br><span class="line"><span class="css">    <span class="attribute">border-radius</span>: <span class="number">1px</span> <span class="number">2px</span> <span class="number">0</span> <span class="number">0</span>;</span></span><br><span class="line"><span class="css">    <span class="attribute">box-sizing</span>: border-box;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">span</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">i</span>&gt;</span>国际版<span class="tag">&lt;/<span class="name">i</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="使用overflow-x排版横向列表"><a href="#使用overflow-x排版横向列表" class="headerlink" title="使用overflow-x排版横向列表"></a>使用overflow-x排版横向列表</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">overflow-x</span>:auto</span><br></pre></td></tr></table></figure>
+
+<p>说明：通过<code>flexbox</code>或<code>inline-block</code>的形式横向排列子元素，对父元素设置<code>overflow-x:auto</code>横向滚动查看，或者设置<code>overflow-x:auto</code> 纵向滚动条一般用于商品分类</p>
+<h3 id="使用letter-spacing排版倒序文本"><a href="#使用letter-spacing排版倒序文本" class="headerlink" title="使用letter-spacing排版倒序文本"></a>使用letter-spacing排版倒序文本</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">letter-spacing</span>:-<span class="number">10px</span></span><br></pre></td></tr></table></figure>
+
+<p>说明：通过<code>letter-spacing</code>设置负值字体间距将文本倒序</p>
+<h3 id="使用-selection改变文本选择颜色"><a href="#使用-selection改变文本选择颜色" class="headerlink" title="使用::selection改变文本选择颜色"></a>使用::selection改变文本选择颜色</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.demo</span><span class="selector-pseudo">::selection</span>&#123;</span><br><span class="line">    <span class="attribute">background-color</span>: green;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>说明：可以让你选择的文字设置单独的css样式</p>
+<h3 id="css禁用鼠标事件"><a href="#css禁用鼠标事件" class="headerlink" title="css禁用鼠标事件"></a>css禁用鼠标事件</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.disabled</span> &#123;</span><br><span class="line">    <span class="attribute">pointer-events</span>: none;</span><br><span class="line">    <span class="attribute">cursor</span>: default;</span><br><span class="line">    <span class="attribute">opacity</span>: <span class="number">0.6</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="css字体不让选中"><a href="#css字体不让选中" class="headerlink" title="css字体不让选中"></a>css字体不让选中</h3><blockquote>
+<p>class样式添加以下：</p>
+</blockquote>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">div</span>&#123;</span><br><span class="line">-webkit-user-select:none;</span><br><span class="line"></span><br><span class="line">   -moz-user-select:none;</span><br><span class="line"></span><br><span class="line">   -ms-user-select:none;</span><br><span class="line"></span><br><span class="line">   user-select:none;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="css之滚动条"><a href="#css之滚动条" class="headerlink" title="css之滚动条"></a>css之滚动条</h3><p>当设置这两个属性时，只允许Y轴滚动（纵向）</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">overflow</span>: scroll;</span><br><span class="line"><span class="attribute">overflow-x</span>: hidden;</span><br></pre></td></tr></table></figure>
+
+<h3 id="自定义滚动条的css"><a href="#自定义滚动条的css" class="headerlink" title="自定义滚动条的css"></a>自定义滚动条的css</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*定义滚动条高宽及背景 高宽分别对应横竖滚动条的尺寸*/</span>  </span><br><span class="line"><span class="selector-tag">html</span>::-webkit-scrollbar &#123;</span><br><span class="line">    width: <span class="number">10px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">5px</span>;</span><br><span class="line">    <span class="attribute">background</span>:<span class="number">#ccc</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*定义滑块 内阴影+圆角*/</span>  </span><br><span class="line"><span class="selector-tag">html</span>::-webkit-scrollbar-thumb &#123;</span><br><span class="line">    background: <span class="number">#ccc</span>;</span><br><span class="line">    <span class="attribute">border-radius</span>: <span class="number">30px</span>;</span><br><span class="line">    <span class="attribute">box-shadow</span>: inset <span class="number">2px</span> <span class="number">2px</span> <span class="number">2px</span> <span class="built_in">hsla</span>(<span class="number">0</span>,<span class="number">0%</span>,<span class="number">100%</span>,.<span class="number">25</span>), inset -<span class="number">2px</span> -<span class="number">2px</span> <span class="number">2px</span> <span class="built_in">rgba</span>(<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,.<span class="number">25</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*定义滚动条轨道 内阴影+圆角*/</span>  </span><br><span class="line"><span class="selector-tag">html</span>::-webkit-scrollbar-track &#123;</span><br><span class="line">    background: <span class="number">#fff</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Flexible的使用"><a href="#Flexible的使用" class="headerlink" title="Flexible的使用"></a>Flexible的使用</h2><p>目前Flexible会将视觉稿分成**<code>100份</code>**（主要为了以后能更好的兼容<code>vh</code>和<code>vw</code>），而每一份被称为一个单位<code>a</code>。同时<code>1rem</code>单位被认定为<code>10a</code>。针对我们这份视觉稿可以计算出：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">1a   = 7.5px</span><br><span class="line">1rem = 75p</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://wang-z.gitee.io/img/cssrem.png" class="lazyload" data-srcset="https://wang-z.gitee.io/img/cssrem.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="cssrem"></p>
+<p>所有的下载插件都可以在文件-&gt;首选项-&gt;设置进行修改</p>
+<p>某些插件需要重启才能进行使用</p>
+<h2 id="sroll-snap-type"><a href="#sroll-snap-type" class="headerlink" title="sroll-snap-type"></a>sroll-snap-type</h2><p>这个属性规定了一个容器是否对内部滚动动作进行捕捉，并且规定了如何去处理滚动结束状态。</p>
+<blockquote>
+<h3 id="mandatory：强制性"><a href="#mandatory：强制性" class="headerlink" title="mandatory：强制性"></a>mandatory：强制性</h3><p>强制使滚动条停止在scroll-snap-align:设定的位置 </p>
+<p>scroll-snap-type: x mandatory;对于X轴的捕捉控制，scroll-snap-align: center;强制使li回到中间</p>
+<p><code>proximity</code> <strong>接近、临近、大约</strong></p>
+<p>滚动结束后可能还在原来的地方，也可能额外滚动</p>
+<p><code>scroll-snap-margin</code>/<code>scroll-snap-padding</code></p>
+<p>可以设定margin padding 进行控制，滚动条的盒子属性</p>
+<p>scroll-snap-type: both mandatory</p>
+<p>对于X和Y轴同时可进行滚动</p>
+<p>scroll-snap-align: start | center | end;</p>
+<p>子元素相对于父元素的对其方式</p>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span>1<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span>2<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span>3<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">ul</span> &#123;</span><br><span class="line">    scroll-snap-type: x mandatory;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">li</span> &#123;</span><br><span class="line">    scroll-snap-align: center;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id=""><a href="#" class="headerlink" title=""></a></h4>
+  
+  
+    
+    <div class='footer'>
+      
+      
+      
+        <div class='copyright'>
+          <blockquote>
+            
+              
+                <p>博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</p>
+
+              
+            
+              
+                <p>本文永久链接是：<a href=http://wang-z.gitee.io/2020/01/01/css-%E5%AE%9E%E7%94%A8css%E7%AC%94%E8%AE%B0/>http://wang-z.gitee.io/2020/01/01/css-%E5%AE%9E%E7%94%A8css%E7%AC%94%E8%AE%B0/</a></p>
+              
+            
+          </blockquote>
+        </div>
+      
+      
+    </div>
+  
+  
+    
+
+
+  <div class='article-meta' id="bottom">
+    <div class='new-meta-box'>
+      
+        
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-04-13T11:51:00+08:00">
+  <a class='notlink'>
+    <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
+    <p>本页文档最后更新于：2021年4月13日</p>
+  </a>
+</div>
+
+        
+      
+        
+          
+  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/javascript/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>javascript</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/css/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>css</p></a></div>
+
+
+        
+      
+        
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
+    
+      
+        <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://wang-z.gitee.io/2020/01/01/css-%E5%AE%9E%E7%94%A8css%E7%AC%94%E8%AE%B0/&title=实用css笔记 - Mr.wang'blog&summary=
+记录开发过程中的css,less使用
+"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://wang-z.gitee.io/2020/01/01/css-%E5%AE%9E%E7%94%A8css%E7%AC%94%E8%AE%B0/&title=实用css笔记 - Mr.wang'blog&summary=
+记录开发过程中的css,less使用
+"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="http://service.weibo.com/share/share.php?url=http://wang-z.gitee.io/2020/01/01/css-%E5%AE%9E%E7%94%A8css%E7%AC%94%E8%AE%B0/&title=实用css笔记 - Mr.wang'blog&summary=
+记录开发过程中的css,less使用
+"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+          
+        </a>
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+
+
+        
+      
+    </div>
+  </div>
+
+
+  
+  
+
+  
+    <div class="prev-next">
+      
+        <a class='prev' href='/2020/01/01/base-%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%E5%BF%85%E5%A4%87%E6%8F%92%E4%BB%B6/'>
+          <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>前端开发必备插件</p>
+          <p class='content'>
+前端开发vscode的必备插件配置
+
+
+
+vscode插件
+Ide中文界面
+
+1Chinese (Simplified) Language Pack for Visual Studio Cod...</p>
+        </a>
+      
+      
+        <a class='next' href='/2019/12/11/js-%E9%98%B2%E6%8A%96%E5%92%8C%E8%8A%82%E6%B5%81/'>
+          <p class='title'>防抖和节流的使用<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+          <p class='content'>
+js的防抖和节流函数的介绍和使用
+
+
+
+函数防抖（debounce）
+所谓防抖，就是指触发事件后在 n 秒内函数只能执行一次，如果在 n 秒内又触发了事件，则会重新计算函数执行时间。
+
+123...</p>
+        </a>
+      
+    </div>
+  
+</article>
+
+
+  
+
+  <article class="post white-box reveal shadow" id="comments">
+    <p ct><i class='fas fa-comments'></i> 评论</p>
+    
+    <div id="valine_container" class="valine_thread">
+  <i class="fas fa-cog fa-spin fa-fw fa-2x"></i>
+</div>
+
+  </article>
+
+
+
+
+
+
+</div>
+<aside class='l_side'>
+  
+  
+
+  
+    
+    
+
+
+
+  <section class="widget toc-wrapper shadow desktop mobile" id="toc-div" >
+    
+  <header>
+    
+      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
+    
+  </header>
+
+
+    <div class='content'>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E6%B8%85%E9%99%A4%E6%B5%AE%E5%8A%A8"><span class="toc-text">如何清除浮动</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%88%B6%E7%BA%A7%E6%B7%BB%E5%8A%A0overflow%E5%B1%9E%E6%80%A7%E6%96%B9%E6%B3%95"><span class="toc-text">父级添加overflow属性方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8after%E4%BC%AA%E5%85%83%E7%B4%A0%E6%B8%85%E9%99%A4%E6%B5%AE%E5%8A%A8"><span class="toc-text">使用after伪元素清除浮动</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8before%E5%92%8Cafter%E5%8F%8C%E4%BC%AA%E5%85%83%E7%B4%A0%E6%B8%85%E9%99%A4%E6%B5%AE%E5%8A%A8"><span class="toc-text">使用before和after双伪元素清除浮动</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A7%BB%E5%8A%A8%E7%AB%AF-100vh-%E9%97%AE%E9%A2%98"><span class="toc-text">移动端 100vh 问题</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="toc-text">解决方案</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AA%92%E4%BD%93%E6%9F%A5%E8%AF%A2"><span class="toc-text">媒体查询</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B5%8F%E8%A7%88%E5%99%A8%E6%9F%A5%E8%AF%A2Unicode%E7%BC%96%E7%A0%81"><span class="toc-text">浏览器查询Unicode编码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#less"><span class="toc-text">less</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#less%E4%B8%AD%E7%9A%84%E5%8F%98%E9%87%8F"><span class="toc-text">less中的变量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#less%E7%9A%84%E5%BE%AA%E7%8E%AF-%EF%BC%8C%E4%BD%BF%E7%94%A8%E9%80%92%E5%BD%92"><span class="toc-text">less的循环 ，使用递归</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8E%9F%E7%94%9Fcss%E7%9A%84%E5%A3%B0%E6%98%8E%E5%8F%98%E9%87%8F"><span class="toc-text">原生css的声明变量</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#css%E7%9A%84%E8%AE%A1%E7%AE%97%EF%BC%88calc%EF%BC%89"><span class="toc-text">css的计算（calc）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B0%86%E8%B6%85%E5%87%BA%E7%9A%84%E6%96%87%E6%9C%AC%E4%BB%A5%E2%80%A6%E7%9A%84%E6%96%B9%E5%BC%8F%E7%BC%A9%E5%87%8F"><span class="toc-text">将超出的文本以…的方式缩减</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#flex%E5%BC%B9%E6%80%A7%E5%B8%83%E5%B1%80%E5%AD%90%E5%85%83%E7%B4%A0%E5%B1%85%E4%B8%AD"><span class="toc-text">flex弹性布局子元素居中</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8-not-%E9%80%89%E6%8B%A9%E5%99%A8"><span class="toc-text">使用:not()选择器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#bing-com%E6%90%9C%E7%B4%A2%E7%9A%84%E5%9B%BD%E9%99%85%E7%89%88%E6%8C%89%E9%92%AE%E7%9A%84%E5%B8%83%E5%B1%80"><span class="toc-text">bing.com搜索的国际版按钮的布局</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8overflow-x%E6%8E%92%E7%89%88%E6%A8%AA%E5%90%91%E5%88%97%E8%A1%A8"><span class="toc-text">使用overflow-x排版横向列表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8letter-spacing%E6%8E%92%E7%89%88%E5%80%92%E5%BA%8F%E6%96%87%E6%9C%AC"><span class="toc-text">使用letter-spacing排版倒序文本</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8-selection%E6%94%B9%E5%8F%98%E6%96%87%E6%9C%AC%E9%80%89%E6%8B%A9%E9%A2%9C%E8%89%B2"><span class="toc-text">使用::selection改变文本选择颜色</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#css%E7%A6%81%E7%94%A8%E9%BC%A0%E6%A0%87%E4%BA%8B%E4%BB%B6"><span class="toc-text">css禁用鼠标事件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#css%E5%AD%97%E4%BD%93%E4%B8%8D%E8%AE%A9%E9%80%89%E4%B8%AD"><span class="toc-text">css字体不让选中</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#css%E4%B9%8B%E6%BB%9A%E5%8A%A8%E6%9D%A1"><span class="toc-text">css之滚动条</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E6%BB%9A%E5%8A%A8%E6%9D%A1%E7%9A%84css"><span class="toc-text">自定义滚动条的css</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Flexible%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="toc-text">Flexible的使用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#sroll-snap-type"><span class="toc-text">sroll-snap-type</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#mandatory%EF%BC%9A%E5%BC%BA%E5%88%B6%E6%80%A7"><span class="toc-text">mandatory：强制性</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link"><span class="toc-text"></span></a></li></ol></li></ol></li></ol>
+    </div>
+  </section>
+
+
+  
+
+  
+
+
+</aside>
+
+
+
+		  
+		  <!--此文件用来存放一些不方便取值的变量-->
+<!--思路大概是将值藏到重加载的区域内-->
+
+<script>
+  window.pdata={}
+  pdata.ispage=true;
+  pdata.postTitle="实用css笔记";
+  pdata.commentPath="";
+  pdata.commentPlaceholder="";
+  // header 这里无论是否开启pjax都需要
+  var l_header=document.getElementById("l_header");
+  
+  l_header.classList.remove("show");
+  
+  
+    // cover
+    var cover_wrapper=document.querySelector('.cover-wrapper');
+    
+    cover_wrapper.id="half";
+    cover_wrapper.style.display="";
+    
+  
+</script>
+
+        </div>
+        
+  
+  <footer class="footer clearfix">
+    <br><br>
+    
+      
+        <div class="aplayer-container">
+          
+
+  
+    <meting-js
+      theme='#1BCDFC'
+      autoplay='false'
+      volume='0.4'
+      loop='all'
+      order='random'
+      fixed='false'
+      list-max-height='320px'
+      server='netease'
+      type='playlist'
+      id='5062959861'
+      list-folded='true'>
+    </meting-js>
+  
+
+
+        </div>
+      
+    
+      
+        <br>
+        <div class="social-wrapper">
+          
+            
+              <a href="/atom.xml"
+                class="social  flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer">
+                
+                  <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org@1.1/icon/1322024-social-media/020-rss.svg" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org@1.1/icon/1322024-social-media/020-rss.svg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="/>
+                
+              </a>
+            
+          
+            
+              <a href="https://github.com/volantis-x/"
+                class="social  flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer">
+                
+                  <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org@1.1/icon/1322024-social-media/029-github.svg" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org@1.1/icon/1322024-social-media/029-github.svg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="/>
+                
+              </a>
+            
+          
+            
+              <a href="/"
+                class="social  flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer">
+                
+                  <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org@1.1/icon/1322024-social-media/010-facebook.svg" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org@1.1/icon/1322024-social-media/010-facebook.svg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="/>
+                
+              </a>
+            
+          
+            
+              <a href="/"
+                class="social  flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer">
+                
+                  <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org@1.1/icon/1322024-social-media/018-twitter.svg" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org@1.1/icon/1322024-social-media/018-twitter.svg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="/>
+                
+              </a>
+            
+          
+            
+              <a href="/"
+                class="social  flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer">
+                
+                  <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org@1.1/icon/1322024-social-media/045-telegram.svg" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org@1.1/icon/1322024-social-media/045-telegram.svg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="/>
+                
+              </a>
+            
+          
+            
+              <a href="/"
+                class="social  flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer">
+                
+                  <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org@1.1/icon/1322024-social-media/006-youtube.svg" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org@1.1/icon/1322024-social-media/006-youtube.svg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="/>
+                
+              </a>
+            
+          
+        </div>
+      
+    
+      
+        <p>本站使用 <a target="_blank" rel="noopener" href="https://github.com/volantis-x/hexo-theme-volantis/tree/4.3.1">Volantis</a> 作为主题，您可以在 GitHub 找到<a target="_blank" rel="noopener" href="https://github.com/volantis-x/volantis-docs">本站源码</a>。</p>
+
+      
+    
+      
+        
+          <div><p><span id="lc-sv">本站总访问量为 <span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span> 次</span> <span id="lc-uv">访客数为 <span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span> 人</span></p>
+</div>
+        
+      
+    
+      
+        <div class='copyright'>
+        <p><a target="_blank" rel="noopener" href="https://github.com/volantis-x/">Copyright © 2017-2021 Volantis Team</a></p>
+
+        </div>
+      
+    
+  </footer>
+
+
+        <a id="s-top" class="fas fa-arrow-up fa-fw" href="javascript:void(0)"></a>
+      </div>
+    </div>
+    <div>
+      <script>
+/************这个文件存放不需要重载的全局变量和全局函数*********/
+window.volantis={};
+window.volantis.loadcss=document.getElementById("loadcss");
+/******************** Pjax ********************************/
+function VPjax(){
+	this.list=[] // 存放回调函数
+	this.start=()=>{
+	  for(var i=0;i<this.list.length;i++){
+		this.list[i].run();
+	  }
+	}
+	this.push=(fn,name)=>{
+		var f=new PjaxItem(fn,name);
+		this.list.push(f);
+	}
+	// 构造一个可以run的对象
+	function PjaxItem(fn,name){
+		// 函数名称
+		this.name = name || fn.name
+		// run方法
+		this.run=()=>{
+			fn()
+		}
+	}
+}
+volantis.pjax={}
+volantis.pjax.method={
+	complete: new VPjax(),
+	error: new VPjax(),
+	send: new VPjax()
+}
+volantis.pjax={
+	...volantis.pjax,
+	push: volantis.pjax.method.complete.push,
+	error: volantis.pjax.method.error.push,
+	send: volantis.pjax.method.send.push
+}
+/********************脚本懒加载函数********************************/
+// 已经加入了setTimeout
+function loadScript(src, cb) {
+	setTimeout(function() {
+		var HEAD = document.getElementsByTagName('head')[0] || document.documentElement;
+		var script = document.createElement('script');
+		script.setAttribute('type','text/javascript');
+		if (cb) script.onload = cb;
+		script.setAttribute('src', src);
+		HEAD.appendChild(script);
+	});
+}
+//https://github.com/filamentgroup/loadCSS
+var loadCSS = function( href, before, media, attributes ){
+	var doc = window.document;
+	var ss = doc.createElement( "link" );
+	var ref;
+	if( before ){
+		ref = before;
+	}
+	else {
+		var refs = ( doc.body || doc.getElementsByTagName( "head" )[ 0 ] ).childNodes;
+		ref = refs[ refs.length - 1];
+	}
+	var sheets = doc.styleSheets;
+	if( attributes ){
+		for( var attributeName in attributes ){
+			if( attributes.hasOwnProperty( attributeName ) ){
+				ss.setAttribute( attributeName, attributes[attributeName] );
+			}
+		}
+	}
+	ss.rel = "stylesheet";
+	ss.href = href;
+	ss.media = "only x";
+	function ready( cb ){
+		if( doc.body ){
+			return cb();
+		}
+		setTimeout(function(){
+			ready( cb );
+		});
+	}
+	ready( function(){
+		ref.parentNode.insertBefore( ss, ( before ? ref : ref.nextSibling ) );
+	});
+	var onloadcssdefined = function( cb ){
+		var resolvedHref = ss.href;
+		var i = sheets.length;
+		while( i-- ){
+			if( sheets[ i ].href === resolvedHref ){
+				return cb();
+			}
+		}
+		setTimeout(function() {
+			onloadcssdefined( cb );
+		});
+	};
+	function loadCB(){
+		if( ss.addEventListener ){
+			ss.removeEventListener( "load", loadCB );
+		}
+		ss.media = media || "all";
+	}
+	if( ss.addEventListener ){
+		ss.addEventListener( "load", loadCB);
+	}
+	ss.onloadcssdefined = onloadcssdefined;
+	onloadcssdefined( loadCB );
+	return ss;
+};
+</script>
+<script>
+  
+  loadCSS("https://cdn.jsdelivr.net/gh/volantis-x/cdn-fontawesome-pro@master/css/all.min.css", window.volantis.loadcss);
+  
+  
+  
+  
+  loadCSS("https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10/build/styles/solarized-light.min.css", window.volantis.loadcss);
+  
+</script>
+<!-- required -->
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5/dist/jquery.min.js"></script>
+
+<script>
+  function pjax_fancybox() {
+    $(".md .gallery").find("img").each(function () { //渲染 fancybox
+      var element = document.createElement("a"); // a 标签
+      $(element).attr("class", "fancybox");
+      $(element).attr("pjax-fancybox", "");  // 过滤 pjax
+      $(element).attr("href", $(this).attr("src"));
+      if ($(this).attr("data-original")) {
+        $(element).attr("href", $(this).attr("data-original"));
+      }
+      $(element).attr("data-fancybox", "images");
+      var caption = "";   // 描述信息
+      if ($(this).attr('alt')) {  // 判断当前页面是否存在描述信息
+        $(element).attr('data-caption', $(this).attr('alt'));
+        caption = $(this).attr('alt');
+      }
+      var div = document.createElement("div");
+      $(div).addClass("fancybox");
+      $(this).wrap(div); // 最外层套 div ，其实主要作用还是 class 样式
+      var span = document.createElement("span");
+      $(span).addClass("image-caption");
+      $(span).text(caption); // 加描述
+      $(this).after(span);  // 再套一层描述
+      $(this).wrap(element);  // 最后套 a 标签
+    })
+    $(".md .gallery").find("img").fancybox({
+      selector: '[data-fancybox="images"]',
+      hash: false,
+      loop: false,
+      closeClick: true,
+      helpers: {
+        overlay: {closeClick: true}
+      },
+      buttons: [
+        "zoom",
+        "close"
+      ]
+    });
+  };
+  function SCload_fancybox() {
+    if ($(".md .gallery").find("img").length == 0) return;
+    loadCSS("https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css", document.getElementById("loadcss"));
+    loadScript('https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js', pjax_fancybox)
+  };
+  $(function () {
+    SCload_fancybox();
+  });
+  function Pjax_SCload_fancybox(){
+	if (typeof $.fancybox == "undefined") {
+	 SCload_fancybox();
+    } else {
+	 pjax_fancybox();
+    }
+  }
+  volantis.pjax.push(Pjax_SCload_fancybox)
+  volantis.pjax.send(()=>{
+      if (typeof $.fancybox != "undefined") {
+        $.fancybox.close();    // 关闭弹窗
+      }
+  },'fancybox')
+</script>
+
+
+<!-- internal -->
+
+  
+  
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/jquery-backstretch@2.1.18/jquery.backstretch.min.js"></script>
+
+    <script type="text/javascript">
+        var imgs=["https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/001.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/002.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/003.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/004.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/005.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/006.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/012.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/016.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/019.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/025.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/033.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/034.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/035.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/038.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/039.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/042.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/046.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/051.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/052.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/054.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/056.jpg"];
+        if ('true' == 'true') {
+          function shuffle(arr){
+            /*From countercurrent-time*/
+            var n = arr.length;
+            while(n--) {
+              var index = Math.floor(Math.random() * n);
+              var temp = arr[index];
+              arr[index] = arr[n];
+              arr[n] = temp;
+            }
+          }
+          shuffle(imgs);
+        }
+	  function Pjax_backstretch(){
+        
+          $('#cover-backstretch').backstretch(
+            imgs,
+          {
+            duration: "20000",
+            fade: "1500"
+          });
+        
+	  }
+	  loadScript("https://cdn.jsdelivr.net/npm/jquery-backstretch@2.1.18/jquery.backstretch.min.js",Pjax_backstretch)
+    </script>
+  
+
+
+
+
+<script>
+  function loadIssuesJS() {
+    if ($(".md").find(".issues-api").length == 0) return;
+	
+	  loadScript('/js/issues.js');
+	
+  };
+  $(function () {
+    loadIssuesJS();
+  });
+  volantis.pjax.push(()=>{
+	if (typeof IssuesAPI == "undefined") {
+	  loadIssuesJS();
+	}
+  },"IssuesJS")
+</script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.1.0/dist/lazyload.min.js"></script>
+<script>
+  // https://www.npmjs.com/package/vanilla-lazyload
+  // Set the options globally
+  // to make LazyLoad self-initialize
+  window.lazyLoadOptions = {
+    elements_selector: ".lazyload",
+    threshold: 0
+  };
+  // Listen to the initialization event
+  // and get the instance of LazyLoad
+  window.addEventListener(
+    "LazyLoad::Initialized",
+    function (event) {
+      window.lazyLoadInstance = event.detail.instance;
+    },
+    false
+  );
+  document.addEventListener('DOMContentLoaded', function () {
+    lazyLoadInstance.update();
+  });
+  document.addEventListener('pjax:complete', function () {
+    lazyLoadInstance.update();
+  });
+</script>
+
+
+
+
+  
+
+<script>
+  window.FPConfig = {
+	delay: 0,
+	ignoreKeywords: [],
+	maxRPS: 5,
+	hoverDelay: 25
+  };
+</script>
+<script defer src="https://cdn.jsdelivr.net/gh/gijo-varghese/flying-pages@2.1.2/flying-pages.min.js"></script>
+
+
+
+
+
+  <script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+<script>
+    var clipboard = new ClipboardJS('.btn-copy', {
+        target: function (trigger) {
+            return trigger.nextElementSibling
+        }
+    });
+    function wait(callback, seconds) {
+        var timelag = null;
+        timelag = window.setTimeout(callback, seconds)
+    }
+    function pjax_initCopyCode() {
+		if($(".highlight .code pre").length+$(".article pre code").length==0)return;
+        var copyHtml = '';
+        copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+        copyHtml += '<i class="fas fa-copy"></i><span>COPY</span>';
+        copyHtml += '</button>';
+        $(".highlight .code pre").before(copyHtml);
+        $(".article pre code").before(copyHtml);
+        clipboard.off('success').on('success', function (e) {
+            let $btn = $(e.trigger);
+            $btn.addClass('copied');
+            let $icon = $($btn.find('i'));
+            $icon.removeClass('fa-copy');
+            $icon.addClass('fa-check-circle');
+            let $span = $($btn.find('span'));
+            $span[0].innerText = 'COPIED';
+            wait(function () {
+                $icon.removeClass('fa-check-circle');
+                $icon.addClass('fa-copy');
+                $span[0].innerText = 'COPY'
+            }, 2000)
+        });
+        clipboard.off('error').on('error', function (e) {
+            e.clearSelection();
+            let $btn = $(e.trigger);
+            $btn.addClass('copy-failed');
+            let $icon = $($btn.find('i'));
+            $icon.removeClass('fa-copy');
+            $icon.addClass('fa-times-circle');
+            let $span = $($btn.find('span'));
+            $span[0].innerText = 'COPY FAILED';
+            wait(function () {
+                $icon.removeClass('fa-times-circle');
+                $icon.addClass('fa-copy');
+                $span[0].innerText = 'COPY'
+            }, 2000)
+        })
+    }
+    $(function () {
+        pjax_initCopyCode()
+    });
+	volantis.pjax.push(pjax_initCopyCode)
+</script>
+
+
+
+
+
+
+  <script>
+  let APlayerController = new Object();
+  APlayerController.id = '5062959861';  // 设定全局音乐播放ID
+  APlayerController.volume = '0.4';
+  loadCSS("https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.css", window.volantis.loadcss);
+  // APlayer 需要在  MetingJS 之前加载
+  loadScript("https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.js")
+  window.volantis.APlayerLoaded=0 // APlayer加载完成状态
+  var checkAPlayer = setInterval(function () {
+    if (!window.APlayer) return // APlayer加载完成？
+	  if ($("#safearea").css("display")!="block") return // 文章内容加载完成？ see: source/css/first.styl
+    clearInterval(checkAPlayer)
+	  if (!window.volantis.APlayerLoaded&&!window.MetingJSElement){ // APlayer只能加载一次
+      window.volantis.APlayerLoaded=1 // APlayer加载完成
+      loadScript("https://cdn.jsdelivr.net/npm/meting@2.0/dist/Meting.min.js") // 加载 MetingJS
+	  }
+  }, 2500) // 按照网速调节差分2.5s
+  // rightmenu see: layout/_partial/rightmenu.ejs
+
+</script>
+
+
+
+
+  
+  
+<script src="/js/valine.js"></script>
+
+
+<script>
+  function emoji(path, idx, ext) {
+    return path + "/" + path + "-" + idx + "." + ext;
+  }
+  var emojiMaps = {};
+  for (var i = 1; i <= 54; i++) {
+    emojiMaps['tieba-' + i] = emoji('tieba', i, 'png');
+  }
+  for (var i = 1; i <= 101; i++) {
+    emojiMaps['qq-' + i] = emoji('qq', i, 'gif');
+  }
+  for (var i = 1; i <= 116; i++) {
+    emojiMaps['aru-' + i] = emoji('aru', i, 'gif');
+  }
+  for (var i = 1; i <= 125; i++) {
+    emojiMaps['twemoji-' + i] = emoji('twemoji', i, 'png');
+  }
+  for (var i = 1; i <= 4; i++) {
+    emojiMaps['weibo-' + i] = emoji('weibo', i, 'png');
+  }
+  function pjax_valine() {
+    if(!document.querySelectorAll("#valine_container")[0])return;
+    let pagePlaceholder = pdata.commentPlaceholder || "快来评论吧~";
+    let path = pdata.commentPath;
+    if (path.length == 0) {
+      let defaultPath = '';
+      path = defaultPath || decodeURI(window.location.pathname);
+    }
+    var valine = new Valine();
+    valine.init(Object.assign({"path":null,"placeholder":"快来评论吧~","appId":null,"appKey":null,"meta":["nick","mail","link"],"requiredFields":["nick","mail"],"enableQQ":true,"recordIP":false,"avatar":"robohash","pageSize":10,"lang":"zh-cn","highlight":true,"mathJax":false}, {
+      el: '#valine_container',
+      path: path,
+      placeholder: pagePlaceholder,
+      emojiCDN: 'https://cdn.jsdelivr.net/gh/volantis-x/cdn-emoji/valine/',
+      emojiMaps: emojiMaps,
+    }))
+  }
+  $(function () {
+    pjax_valine();
+  });
+  volantis.pjax.push(pjax_valine);
+</script>
+
+
+
+
+
+
+  
+<script src="/js/app.js"></script>
+
+
+
+<!-- optional -->
+
+  <script>
+const SearchServiceimagePath="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@master/img/";
+const ROOT =  ("/" || "/").endsWith('/') ? ("/" || "/") : ("//" || "/" );
+
+$('.input.u-search-input').one('focus',function(){
+	
+		loadScript('/js/search/hexo.js',setSearchService);
+	
+})
+
+function listenSearch(){
+  
+    customSearch = new HexoSearch({
+      imagePath: SearchServiceimagePath
+    });
+  
+}
+function setSearchService() {
+	listenSearch();
+	
+}
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10/build/highlight.min.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+
+<script>
+volantis.pjax.push(()=>{
+	document.querySelectorAll('pre code').forEach((block) => {
+	  hljs.highlightBlock(block);
+	});
+},"highlightjs")
+</script>
+
+
+
+  <script defer>
+
+  const LCCounter = {
+    app_id: 'GCYDRKI6XRkyC7EuEhJv90ia-MdYXbMMI',
+    app_key: '4xKBXGBj6BgecU62vff5rJHs',
+    custom_api_server: '',
+
+    // 查询存储的记录
+    getRecord(Counter, url, title) {
+      return new Promise(function (resolve, reject) {
+        Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({url})))
+          .then(resp => resp.json())
+          .then(({results, code, error}) => {
+            if (code === 401) {
+              throw error;
+            }
+            if (results && results.length > 0) {
+              var record = results[0];
+              resolve(record);
+            } else {
+              Counter('post', '/classes/Counter', {url, title: title, times: 0})
+                .then(resp => resp.json())
+                .then((record, error) => {
+                  if (error) {
+                    throw error;
+                  }
+                  resolve(record);
+                }).catch(error => {
+                console.error('Failed to create', error);
+                reject(error);
+              });
+            }
+          }).catch((error) => {
+          console.error('LeanCloud Counter Error:', error);
+          reject(error);
+        });
+      })
+    },
+
+    // 发起自增请求
+    increment(Counter, incrArr) {
+      return new Promise(function (resolve, reject) {
+        Counter('post', '/batch', {
+          "requests": incrArr
+        }).then((res) => {
+          res = res.json();
+          if (res.error) {
+            throw res.error;
+          }
+          resolve(res);
+        }).catch((error) => {
+          console.error('Failed to save visitor count', error);
+          reject(error);
+        });
+      });
+    },
+
+    // 构建自增请求体
+    buildIncrement(objectId) {
+      return {
+        "method": "PUT",
+        "path": `/1.1/classes/Counter/${ objectId }`,
+        "body": {
+          "times": {
+            '__op': 'Increment',
+            'amount': 1
+          }
+        }
+      }
+    },
+
+    // 校验是否为有效的 UV
+    validUV() {
+      var key = 'LeanCloudUVTimestamp';
+      var flag = localStorage.getItem(key);
+      if (flag) {
+        // 距离标记小于 24 小时则不计为 UV
+        if (new Date().getTime() - parseInt(flag) <= 86400000) {
+          return false;
+        }
+      }
+      localStorage.setItem(key, new Date().getTime().toString());
+      return true;
+    },
+
+    addCount(Counter) {
+      var enableIncr = '' === 'true' && window.location.hostname !== 'localhost';
+      enableIncr = true;
+      var getterArr = [];
+      var incrArr = [];
+      // 请求 PV 并自增
+      var pvCtn = document.querySelector('#lc-sv');
+      if (pvCtn || enableIncr) {
+        var pvGetter = this.getRecord(Counter, 'http://wang-z.gitee.io' + '/#lc-sv', 'Visits').then((record) => {
+          incrArr.push(this.buildIncrement(record.objectId))
+          var eles = document.querySelectorAll('#lc-sv #number');
+          if (eles.length > 0) {
+            eles.forEach((el,index,array)=>{
+              el.innerText = record.times + 1;
+              if (pvCtn) {
+                pvCtn.style.display = 'inline';
+              }
+            })
+          }
+        });
+        getterArr.push(pvGetter);
+      }
+
+      // 请求 UV 并自增
+      var uvCtn = document.querySelector('#lc-uv');
+      if (uvCtn || enableIncr) {
+        var uvGetter = this.getRecord(Counter, 'http://wang-z.gitee.io' + '/#lc-uv', 'Visitors').then((record) => {
+          var vuv = this.validUV();
+          vuv && incrArr.push(this.buildIncrement(record.objectId))
+          var eles = document.querySelectorAll('#lc-uv #number');
+          if (eles.length > 0) {
+            eles.forEach((el,index,array)=>{
+              el.innerText = record.times + (vuv ? 1 : 0);
+              if (uvCtn) {
+                uvCtn.style.display = 'inline';
+              }
+            })
+          }
+        });
+        getterArr.push(uvGetter);
+      }
+
+      // 请求文章的浏览数，如果是当前页面就自增
+      var allPV = document.querySelectorAll('#lc-pv');
+      if (allPV.length > 0 || enableIncr) {
+        for (i = 0; i < allPV.length; i++) {
+          let pv = allPV[i];
+          let title = pv.getAttribute('data-title');
+          var url = 'http://wang-z.gitee.io' + pv.getAttribute('data-path');
+          if (url) {
+            var viewGetter = this.getRecord(Counter, url, title).then((record) => {
+              // 是当前页面就自增
+              let curPath = window.location.pathname;
+              if (curPath.includes('index.html')) {
+                curPath = curPath.substring(0, curPath.lastIndexOf('index.html'));
+              }
+              if (pv.getAttribute('data-path') == curPath) {
+                incrArr.push(this.buildIncrement(record.objectId));
+              }
+              if (pv) {
+                var ele = pv.querySelector('#lc-pv #number');
+                if (ele) {
+                  if (pv.getAttribute('data-path') == curPath) {
+                    ele.innerText = (record.times || 0) + 1;
+                  } else {
+                    ele.innerText = record.times || 0;
+                  }
+                  pv.style.display = 'inline';
+                }
+              }
+            });
+            getterArr.push(viewGetter);
+          }
+        }
+      }
+
+      // 如果启动计数自增，批量发起自增请求
+      if (enableIncr) {
+        Promise.all(getterArr).then(() => {
+          incrArr.length > 0 && this.increment(Counter, incrArr);
+        })
+      }
+
+    },
+
+
+    fetchData(api_server) {
+      var Counter = (method, url, data) => {
+        return fetch(`${ api_server }/1.1${ url }`, {
+          method,
+          headers: {
+            'X-LC-Id': this.app_id,
+            'X-LC-Key': this.app_key,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data)
+        });
+      };
+      this.addCount(Counter);
+    },
+
+    refreshCounter() {
+      var api_server = this.app_id.slice(-9) !== '-MdYXbMMI' ? this.custom_api_server : `https://${ this.app_id.slice(0, 8).toLowerCase() }.api.lncldglobal.com`;
+      if (api_server) {
+        this.fetchData(api_server);
+      } else {
+        fetch('https://app-router.leancloud.cn/2/route?appId=' + this.app_id)
+          .then(resp => resp.json())
+          .then(({api_server}) => {
+            this.fetchData('https://' + api_server);
+          });
+      }
+    }
+
+  };
+
+  LCCounter.refreshCounter();
+
+  document.addEventListener('pjax:complete', function () {
+    LCCounter.refreshCounter();
+  });
+</script>
+
+
+
+
+  <script>
+const rootElement = document.documentElement;
+const darkModeStorageKey = "user-color-scheme";
+const rootElementDarkModeAttributeName = "data-user-color-scheme";
+
+const setLS = (k, v) => {
+    localStorage.setItem(k, v);
+};
+
+const removeLS = (k) => {
+    localStorage.removeItem(k);
+};
+
+const getLS = (k) => {
+    return localStorage.getItem(k);
+};
+
+const getModeFromCSSMediaQuery = () => {
+  return window.matchMedia("(prefers-color-scheme: dark)").matches
+    ? "dark"
+    : "light";
+};
+
+const resetRootDarkModeAttributeAndLS = () => {
+  rootElement.removeAttribute(rootElementDarkModeAttributeName);
+  removeLS(darkModeStorageKey);
+};
+
+const validColorModeKeys = {
+  dark: true,
+  light: true,
+};
+
+const applyCustomDarkModeSettings = (mode) => {
+  const currentSetting = mode || getLS(darkModeStorageKey);
+
+  if (currentSetting === getModeFromCSSMediaQuery()) {
+    resetRootDarkModeAttributeAndLS();
+  } else if (validColorModeKeys[currentSetting]) {
+    rootElement.setAttribute(rootElementDarkModeAttributeName, currentSetting);
+  } else {
+    resetRootDarkModeAttributeAndLS();
+  }
+};
+
+const invertDarkModeObj = {
+  dark: "light",
+  light: "dark",
+};
+
+/**
+ * get target mode
+ */
+const toggleCustomDarkMode = () => {
+  let currentSetting = getLS(darkModeStorageKey);
+
+  if (validColorModeKeys[currentSetting]) {
+    currentSetting = invertDarkModeObj[currentSetting];
+  } else if (currentSetting === null) {
+    currentSetting = invertDarkModeObj[getModeFromCSSMediaQuery()];
+  } else {
+    return;
+  }
+  setLS(darkModeStorageKey, currentSetting);
+  return currentSetting;
+};
+
+/**
+ * bind click event for toggle button
+ */
+var btn=$("#wrapper .toggle-mode-btn,#rightmenu-wrapper .toggle-mode-btn");
+function bindToggleButton() {
+    btn.on('click',(e) => {
+      const mode = toggleCustomDarkMode();
+      applyCustomDarkModeSettings(mode);
+    });
+}
+
+applyCustomDarkModeSettings();
+document.addEventListener("DOMContentLoaded", bindToggleButton);
+volantis.pjax.push(bindToggleButton);
+volantis.pjax.send(()=>{
+	btn.unbind('click');
+},'toggle-mode-btn-unbind');
+</script>
+
+
+
+
+
+
+
+
+<script>
+function listennSidebarTOC() {
+  const navItems = document.querySelectorAll(".toc li");
+  if (!navItems.length) return;
+  const sections = [...navItems].map((element) => {
+    const link = element.querySelector(".toc-link");
+    const target = document.getElementById(
+      decodeURI(link.getAttribute("href")).replace("#", "")
+    );
+    link.addEventListener("click", (event) => {
+      event.preventDefault();
+      window.scrollTo({
+		top: target.offsetTop + 100,
+		
+		behavior: "smooth"
+		
+	  });
+    });
+    return target;
+  });
+
+  function activateNavByIndex(target) {
+    if (target.classList.contains("active-current")) return;
+
+    document.querySelectorAll(".toc .active").forEach((element) => {
+      element.classList.remove("active", "active-current");
+    });
+    target.classList.add("active", "active-current");
+    let parent = target.parentNode;
+    while (!parent.matches(".toc")) {
+      if (parent.matches("li")) parent.classList.add("active");
+      parent = parent.parentNode;
+    }
+  }
+
+  function findIndex(entries) {
+    let index = 0;
+    let entry = entries[index];
+    if (entry.boundingClientRect.top > 0) {
+      index = sections.indexOf(entry.target);
+      return index === 0 ? 0 : index - 1;
+    }
+    for (; index < entries.length; index++) {
+      if (entries[index].boundingClientRect.top <= 0) {
+        entry = entries[index];
+      } else {
+        return sections.indexOf(entry.target);
+      }
+    }
+    return sections.indexOf(entry.target);
+  }
+
+  function createIntersectionObserver(marginTop) {
+    marginTop = Math.floor(marginTop + 10000);
+    let intersectionObserver = new IntersectionObserver(
+      (entries, observe) => {
+        let scrollHeight = document.documentElement.scrollHeight + 100;
+        if (scrollHeight > marginTop) {
+          observe.disconnect();
+          createIntersectionObserver(scrollHeight);
+          return;
+        }
+        let index = findIndex(entries);
+        activateNavByIndex(navItems[index]);
+      },
+      {
+        rootMargin: marginTop + "px 0px -100% 0px",
+        threshold: 0,
+      }
+    );
+    sections.forEach((element) => {
+      element && intersectionObserver.observe(element);
+    });
+  }
+  createIntersectionObserver(document.documentElement.scrollHeight);
+}
+
+document.addEventListener("DOMContentLoaded", listennSidebarTOC);
+document.addEventListener("pjax:success", listennSidebarTOC);
+</script>
+
+<!-- more -->
+
+ 
+	   
+	    
+
+
+<script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.min.js"></script>
+
+
+<script>
+    var pjax;
+    document.addEventListener('DOMContentLoaded', function () {
+      pjax = new Pjax({
+        elements: 'a[href]:not([href^="#"]):not([href="javascript:void(0)"]):not([pjax-fancybox])',
+        selectors: [
+          "title",
+          
+          "#pjax-container",
+          "#pjax-header-nav-list"
+        ],
+        cacheBust: false,   // url 地址追加时间戳，用以避免浏览器缓存
+        timeout: 5000
+      });
+    });
+
+    document.addEventListener('pjax:send', function (e) {
+      //window.stop(); // 相当于点击了浏览器的停止按钮
+
+      try {
+        var currentUrl = window.location.pathname;
+        var targetUrl = e.triggerElement.href;
+        var banUrl = [""];
+        if (banUrl[0] != "") {
+          banUrl.forEach(item => {
+            if(currentUrl.indexOf(item) != -1 || targetUrl.indexOf(item) != -1) {
+              window.location.href = targetUrl;
+            }
+          });
+        }
+      } catch (error) {}
+
+      window.subData = null; // 移除标题（用于一二级导航栏切换处）
+
+      volantis.$switcher.removeClass('active'); // 关闭移动端激活的搜索框
+      volantis.$header.removeClass('z_search-open'); // 关闭移动端激活的搜索框
+      volantis.$wrapper.removeClass('sub'); // 跳转页面时关闭二级导航
+
+      // 解绑事件 避免重复监听
+      volantis.$topBtn.unbind('click');
+      $('.menu a').unbind('click');
+      $(window).unbind('resize');
+      $(window).unbind('scroll');
+      $(document).unbind('scroll');
+      $(document).unbind('click');
+      $('body').unbind('click');
+	  // 使用 volantis.pjax.send 方法传入pjax:send回调函数 参见layout/_partial/scripts/global.ejs
+	  volantis.pjax.method.send.start();
+    });
+
+    document.addEventListener('pjax:complete', function () {
+      $('.nav-main').find('.list-v').not('.menu-phone').removeAttr("style",""); // 移除小尾巴的移除
+      $('.menu-phone.list-v').removeAttr("style",""); // 移除小尾巴的移除
+      $('script[data-pjax], .pjax-reload script').each(function () {
+        $(this).parent().append($(this).remove());
+      });
+      try{
+		// 使用 volantis.pjax.push 方法传入重载函数 参见layout/_partial/scripts/global.ejs
+		volantis.pjax.method.complete.start();
+      } catch (e) {
+        console.log(e);
+      }
+    });
+
+    document.addEventListener('pjax:error', function (e) {
+	  // 使用 volantis.pjax.error 方法传入pjax:error回调函数 参见layout/_partial/scripts/global.ejs
+	  volantis.pjax.method.error.start();
+      window.location.href = e.triggerElement.href;
+    });
+</script>
+ 
+	  
+    </div>
+  </body>
+</html>

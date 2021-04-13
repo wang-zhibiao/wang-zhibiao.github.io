@@ -1,0 +1,2004 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head hexo-theme='https://github.com/volantis-x/hexo-theme-volantis/tree/4.3.1'>
+  <meta charset="utf-8">
+  <!-- SEO相关 -->
+  
+    
+  
+  <!-- 渲染优化 -->
+  <meta http-equiv='x-dns-prefetch-control' content='on' />
+  <link rel='dns-prefetch' href='https://cdn.jsdelivr.net'>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <link rel="preload" href="/css/first.css" as="style">
+  
+
+  <!-- 页面元数据 -->
+  
+  <title>JavaScript的变量以及数据类型 - Mr.wang&#39;blog</title>
+  
+    <meta name="keywords" content="javascript">
+  
+
+  
+    <meta name="description" content="
+JavaScript数据类型的区别，转换，隐藏bug
+">
+  
+
+  <!-- feed -->
+  
+
+  <!-- import meta -->
+  
+
+  <!-- link -->
+  
+
+  <!-- import link -->
+  
+
+  
+    
+<link rel="stylesheet" href="/css/first.css">
+
+  
+
+  
+  <link rel="stylesheet" href="/css/style.css" media="print" onload="this.media='all';this.onload=null">
+  <noscript><link rel="stylesheet" href="/css/style.css"></noscript>
+  
+
+  <script id="loadcss"></script>
+
+  
+<script>
+if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMode))
+    document.write(
+	'<style>'+
+		'html{'+
+			'overflow-x: hidden !important;'+
+			'overflow-y: hidden !important;'+
+		'}'+
+		'.kill-ie{'+
+			'text-align:center;'+
+			'height: 100%;'+
+			'margin-top: 15%;'+
+			'margin-bottom: 5500%;'+
+		'}'+
+	'</style>'+
+    '<div class="kill-ie">'+
+        '<h1><b>抱歉，您的浏览器无法访问本站</b></h1>'+
+        '<h3>微软已经于2016年终止了对 Internet Explorer (IE) 10 及更早版本的支持，<br/>'+
+        '继续使用存在极大的安全隐患，请使用当代主流的浏览器进行访问。</h3><br/>'+
+        '<a target="_blank" rel="noopener" href="https://www.microsoft.com/zh-cn/WindowsForBusiness/End-of-IE-support"><strong>了解详情 ></strong></a>'+
+    '</div>');
+</script>
+
+
+<noscript>
+	<style>
+		html{
+			overflow-x: hidden !important;
+			overflow-y: hidden !important;
+		}
+		.kill-noscript{
+			text-align:center;
+			height: 100%;
+			margin-top: 15%;
+			margin-bottom: 5500%;
+		}
+	</style>
+    <div class="kill-noscript">
+        <h1><b>抱歉，您的浏览器无法访问本站</b></h1>
+        <h3>本页面需要浏览器支持（启用）JavaScript</h3><br/>
+        <a target="_blank" rel="noopener" href="https://www.baidu.com/s?wd=启用JavaScript"><strong>了解详情 ></strong></a>
+    </div>
+</noscript>
+
+</head>
+
+  <body>
+    
+
+<header id="l_header" class="l_header auto shadow blur " style='opacity: 0' >
+  <div class='container'>
+  <div id='wrapper'>
+    <div class='nav-sub'>
+      <p class="title"></p>
+      <ul class='switcher nav-list-h m-phone' id="pjax-header-nav-list">
+        <li><a id="s-comment" class="fas fa-comments fa-fw" target="_self" href='javascript:void(0)'></a></li>
+        
+          <li><a id="s-toc" class="s-toc fas fa-list fa-fw" target="_self" href='javascript:void(0)'></a></li>
+        
+      </ul>
+    </div>
+		<div class="nav-main">
+      
+        
+        <a class="title flat-box" target="_self" href='/'>
+          
+          
+          
+            Mr.wang
+          
+        </a>
+      
+
+			<div class='menu navigation'>
+				<ul class='nav-list-h m-pc'>
+          
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/
+                  
+                  
+                  
+                    id="home"
+                  >
+                  <i class='fas fa-rss fa-fw'></i>博客
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/categories/
+                  
+                  
+                  
+                    id="categories"
+                  >
+                  <i class='fas fa-folder-open fa-fw'></i>分类
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/tags/
+                  
+                  
+                  
+                    id="tags"
+                  >
+                  <i class='fas fa-tags fa-fw'></i>标签
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/archives/
+                  
+                  
+                  
+                    id="archives"
+                  >
+                  <i class='fas fa-archive fa-fw'></i>归档
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/friends/
+                  
+                  
+                  
+                    id="friends"
+                  >
+                  <i class='fas fa-link fa-fw'></i>友链
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/about/
+                  
+                  
+                  
+                    id="about"
+                  >
+                  <i class='fas fa-info-circle fa-fw'></i>关于
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box header toggle-mode-btn">
+                  <i class='fas fa-moon fa-fw'></i>暗黑模式
+                </a>
+              <li>
+            
+          
+          
+            
+            
+              
+                <li>
+                  <a class="menuitem flat-box">
+                    <i class='fas fa-compact-disc fa-fw music'></i>背景音乐
+                  </a>
+                  <ul class="list-v">
+                    <li>
+                      <div class="aplayer-container">
+                        
+
+  
+    <meting-js
+      theme='#1BCDFC'
+      autoplay='false'
+      volume='0.4'
+      loop='all'
+      order='random'
+      fixed='false'
+      list-max-height='320px'
+      server='netease'
+      type='playlist'
+      id='5062959861'
+      list-folded='true'>
+    </meting-js>
+  
+
+
+                      </div>
+                    </li>
+                  </ul>
+                <li>
+              
+            
+          
+          
+				</ul>
+			</div>
+
+      <div class="m_search">
+        <form name="searchform" class="form u-search-form">
+          <i class="icon fas fa-search fa-fw"></i>
+          <input type="text" class="input u-search-input" placeholder="Search..." />
+        </form>
+      </div>
+
+			<ul class='switcher nav-list-h m-phone'>
+				
+					<li><a class="s-search fas fa-search fa-fw" target="_self" href='javascript:void(0)'></a></li>
+				
+				<li>
+          <a class="s-menu fas fa-bars fa-fw" target="_self" href='javascript:void(0)'></a>
+          <ul class="menu-phone list-v navigation white-box">
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/
+                  
+                  
+                  
+                    id="home"
+                  >
+                  <i class='fas fa-rss fa-fw'></i>博客
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/categories/
+                  
+                  
+                  
+                    id="categories"
+                  >
+                  <i class='fas fa-folder-open fa-fw'></i>分类
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/tags/
+                  
+                  
+                  
+                    id="tags"
+                  >
+                  <i class='fas fa-tags fa-fw'></i>标签
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/archives/
+                  
+                  
+                  
+                    id="archives"
+                  >
+                  <i class='fas fa-archive fa-fw'></i>归档
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/friends/
+                  
+                  
+                  
+                    id="friends"
+                  >
+                  <i class='fas fa-link fa-fw'></i>友链
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/about/
+                  
+                  
+                  
+                    id="about"
+                  >
+                  <i class='fas fa-info-circle fa-fw'></i>关于
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box header toggle-mode-btn">
+                  <i class='fas fa-moon fa-fw'></i>暗黑模式
+                </a>
+              <li>
+            
+          
+            
+              
+            
+              
+            
+          
+            
+          </ul>
+        </li>
+			</ul>
+		</div>
+	</div>
+  </div>
+</header>
+
+    <div id="l_body">
+      <div id="l_cover">
+  
+    
+        <div id="half" class='cover-wrapper post dock' style="display: ;">
+          
+            <div id='cover-backstretch'></div>
+          
+          <div class='cover-body'>
+  <div class='top'>
+    
+    
+      <p class="title">Mr.wang</p>
+    
+    
+      <p class="subtitle">Time flies and people come and go</p>
+    
+  </div>
+  <div class='bottom'>
+    <div class='menu navigation'>
+      <div class='list-h'>
+        
+          
+            <a href="/"
+              
+              
+              id="home">
+              <img src='https://cdn.jsdelivr.net/gh/twitter/twemoji@13.0/assets/svg/1f4f0.svg'><p>博客</p>
+            </a>
+          
+            <a href="/archives/"
+              
+              
+              id="archives">
+              <img src='https://cdn.jsdelivr.net/gh/twitter/twemoji@13.0/assets/svg/1f5c3.svg'><p>归档</p>
+            </a>
+          
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+          <div id="scroll-down" style="display: none;"><i class="fa fa-chevron-down scroll-down-effects"></i></div>
+        </div>
+    
+  
+  </div>
+
+      <div id="safearea">
+        <div class="body-wrapper" id="pjax-container">
+          
+
+<div class='l_main'>
+  <article class="article post white-box reveal md shadow article-type-post" id="post" itemscope itemprop="blogPost">
+  
+
+
+  
+  <div class="article-meta" id="top">
+    
+    
+    
+      <h1 class="title">
+        JavaScript的变量以及数据类型
+      </h1>
+      <div class='new-meta-box'>
+        
+          
+            
+<div class='new-meta-item author'>
+  <a class='author' target="_blank" href="https://github.com/volantis-x/" rel="nofollow noopener">
+    <img no-lazy src="https://wang-z.gitee.io/img/author.jpg">
+    <p>Mr.wang</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+  <div class='new-meta-item category'>
+    <a class='notlink'>
+      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
+      <a class="category-link" href="/categories/javascript/">javascript</a>
+    </a>
+  </div>
+
+
+          
+        
+          
+            <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：2020年1月9日</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+  <div class="new-meta-item browse leancloud">
+    <a class='notlink'>
+      
+      <div id="lc-pv" data-title="JavaScript的变量以及数据类型" data-path="/2020/01/09/js-%E5%8F%98%E9%87%8F%E5%92%8Cjs%E7%B1%BB%E5%9E%8B%E7%9A%84%E7%90%86%E8%A7%A3/">
+        <i class="fas fa-eye fa-fw" aria-hidden="true"></i>
+        <span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
+        次浏览
+      </div>
+    </a>
+  </div>
+
+
+          
+        
+      </div>
+    
+  </div>
+
+
+  
+  
+  <blockquote>
+<p>JavaScript数据类型的区别，转换，隐藏bug</p>
+</blockquote>
+<span id="more"></span>
+
+<h2 id="一、JavaScript数据类型"><a href="#一、JavaScript数据类型" class="headerlink" title="一、JavaScript数据类型"></a>一、JavaScript数据类型</h2><p>ECMAScript标准规定了<code>7</code>种数据类型，其把这<code>7</code>种数据类型又分为两种：原始类型和对象类型。</p>
+<h3 id="原始类型"><a href="#原始类型" class="headerlink" title="原始类型"></a><strong>原始类型</strong></h3><ul>
+<li><code>Null</code>：只包含一个值：<code>null</code></li>
+<li><code>Undefined</code>：只包含一个值：<code>undefined</code></li>
+<li><code>Boolean</code>：包含两个值：<code>true</code>和<code>false</code></li>
+<li><code>Number</code>：整数或浮点数，还有一些特殊值（<code>-Infinity</code>、<code>+Infinity</code>、<code>NaN</code>）</li>
+<li><code>String</code>：一串表示文本值的字符序列</li>
+<li><code>Symbol</code>：一种实例是唯一且不可改变的数据类型</li>
+</ul>
+<p>(在<code>es10</code>中加入了第七种原始类型<code>BigInt</code>，现已被最新<code>Chrome</code>支持)</p>
+<h3 id="对象类型"><a href="#对象类型" class="headerlink" title="对象类型"></a><strong>对象类型</strong></h3><ul>
+<li><p><code>Object</code>：自己分一类丝毫不过分，除了常用的<code>Object</code>，<code>Array</code>、<code>Function</code>等都属于特殊的对象</p>
+<blockquote>
+<p>区分原始类型和对象类型 - 不可变性</p>
+</blockquote>
+</li>
+</ul>
+<p>原始类型存放在栈空间中，而复杂类型存放在堆空间中</p>
+<h3 id="栈内存："><a href="#栈内存：" class="headerlink" title="栈内存："></a>栈内存：</h3><ul>
+<li>存储的值大小固定</li>
+<li>空间较小</li>
+<li>可以直接操作其保存的变量，运行效率高</li>
+<li>由系统自动分配存储空间</li>
+</ul>
+<h3 id="堆内存："><a href="#堆内存：" class="headerlink" title="堆内存："></a>堆内存：</h3><ul>
+<li>存储的值大小不定，可动态调整</li>
+<li>空间较大，运行效率低</li>
+<li>无法直接操作其内部存储，使用引用地址读取</li>
+<li>通过代码进行分配空间</li>
+</ul>
+<h4 id="字符串-具备不可变性"><a href="#字符串-具备不可变性" class="headerlink" title="字符串 具备不可变性"></a><code>字符串 具备不可变性</code></h4><p>不管是字符串的裁切splice 还是 toLowerCase 都是在原有的基础上产生新的字符串</p>
+<p><code>JavaScript</code>中的原始类型的值被直接存储在栈中，在变量定义时，栈就为其分配好了内存空间。</p>
+<p>由于栈中的内存空间的大小是固定的，那么注定了存储在栈中的变量就是不可变的</p>
+<h4 id="对象-具备可变性"><a href="#对象-具备可变性" class="headerlink" title="对象 具备可变性"></a><code>对象 具备可变性</code></h4><p>引用类型的值实际存储在堆内存中，它在栈中只存储了一个固定长度的地址，这个地址指向堆内存中的值。</p>
+<p>数组  是一个复杂（引用）类型</p>
+<h4 id="通过一些api可以改变数组"><a href="#通过一些api可以改变数组" class="headerlink" title="通过一些api可以改变数组"></a>通过一些api可以改变数组</h4><ul>
+<li><code>pop()</code> 删除数组最后一个元素，如果数组为空，则不改变数组，返回undefined，改变原数组，返回被删除的元素</li>
+<li><code>push()</code>向数组末尾添加一个或多个元素，改变原数组，返回新数组的长度</li>
+<li><code>shift()</code>把数组的第一个元素删除，若空数组，不进行任何操作，返回undefined,改变原数组，返回第一个元素的值</li>
+<li><code>unshift()</code>向数组的开头添加一个或多个元素，改变原数组，返回新数组的长度</li>
+<li><code>reverse()</code>颠倒数组中元素的顺序，改变原数组，返回该数组</li>
+<li><code>sort()</code>对数组元素进行排序，改变原数组，返回该数组</li>
+<li><code>splice()</code>从数组中添加/删除项目，改变原数组，返回被删除的元素</li>
+</ul>
+<p>当我们进行复制时两者有着本质的区别</p>
+<p>这里涉及到浅拷贝和深拷贝—本质是复制时是否改变复制的对象的数值或属性或方法</p>
+<h4 id="原始类型-1"><a href="#原始类型-1" class="headerlink" title="原始类型"></a>原始类型</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> name = <span class="string">&#x27;wang&#x27;</span>;</span><br><span class="line"><span class="keyword">var</span> newName = name;</span><br><span class="line">newName = <span class="string">&#x27;Mr.wang&#x27;</span>;</span><br><span class="line"><span class="built_in">console</span>.log(name) <span class="comment">// =&gt;wang</span></span><br><span class="line"><span class="built_in">console</span>.log(newName) <span class="comment">// =&gt;Mr.wang</span></span><br></pre></td></tr></table></figure>
+
+<p>内存中有一个变量<code>name</code>，值为<code>wang</code>。我们从变量<code>name</code>复制出一个变量<code>newName</code>，此时在内存中创建了一个块新的空间用于存储<code>wang</code>，虽然两者值是相同的，但是两者指向的内存空间完全不同，这两个变量参与任何操作都互不影响。</p>
+<h4 id="引用类型"><a href="#引用类型" class="headerlink" title="引用类型"></a>引用类型</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;<span class="attr">name</span>:<span class="string">&#x27;wang&#x27;</span>&#125;;</span><br><span class="line"><span class="keyword">var</span> newObj = obj;</span><br><span class="line">newObj.name = <span class="string">&#x27;Mr.wang&#x27;</span>;</span><br><span class="line"><span class="built_in">console</span>.log(obj.name) <span class="comment">//=&gt; Mr.wang</span></span><br><span class="line"><span class="built_in">console</span>.log(newObj.name)<span class="comment">//=&gt; Mr.wang</span></span><br></pre></td></tr></table></figure>
+
+<p>当我们复制引用类型的变量时，实际上复制的是栈中存储的地址，所以复制出来的<code>newObj</code>实际上和<code>obj</code>指向的堆中同一个对象。因此，我们改变其中任何一个变量的值，另一个变量都会受到影响，这就是为什么会有深拷贝和浅拷贝的原因。</p>
+<h3 id="原始类型和引用类型的比较"><a href="#原始类型和引用类型的比较" class="headerlink" title="原始类型和引用类型的比较"></a>原始类型和引用类型的比较</h3><p>原始类型，比较时会直接比较它们的值，如果值相等，即返回<code>true</code>。</p>
+<p>引用类型，比较时会比较它们的引用地址，虽然两个变量在堆中存储的对象具有的属性值都是相等的，但是它们被存储在了不同的存储空间，因此比较值为<code>false</code>。</p>
+<h4 id="区分null和undefined"><a href="#区分null和undefined" class="headerlink" title="区分null和undefined"></a>区分null和undefined</h4><p><strong>null</strong></p>
+<p>表示被赋值过的对象，刻意把一个对象赋值为<code>null</code>，故意表示其为空，不应有值。</p>
+<p>所以对象的某个属性值为<code>null</code>是正常的，<code>null</code>转换为数值时值为<code>0</code>。</p>
+<p><strong>undefined</strong></p>
+<p>表示“缺少值”，即此处应有一个值，但还没有定义，</p>
+<p>如果一个对象的某个属性值为<code>undefined</code>，这是不正常的，如<code>obj.name=undefined</code>，我们不应该这样写，应该直接<code>delete obj.name</code>。</p>
+<p><code>undefined</code>转为数值时为<code>NaN</code>(非数字值的特殊值)<img src="https://wang-z.gitee.io/img/null+undefined.png" class="lazyload" data-srcset="https://wang-z.gitee.io/img/null+undefined.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="nullAndundefined.png"></p>
+<p><code>JavaScript</code>是一门动态类型语言，成员除了表示存在的空值外，还有可能根本就不存在（因为存不存在只在运行期才知道），这就是<code>undefined</code>的意义所在。对于<code>JAVA</code>这种强类型语言，如果有<code>&quot;undefined&quot;</code>这种情况，就会直接编译失败，所以在它不需要一个这样的类型。</p>
+<h4 id="你想不到的0-1-0-2≠0-3"><a href="#你想不到的0-1-0-2≠0-3" class="headerlink" title="你想不到的0.1+0.2≠0.3"></a>你想不到的0.1+0.2≠0.3</h4><blockquote>
+<p>本质是：由于数字在js中的计算是先转换为二进制在进行计算的，然后以十进制输出（大部分语言都有这个问题，是cpu计算二进制的问题）</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">judgeFloat</span>(<span class="params">n, m</span>) </span>&#123;</span><br><span class="line">      <span class="keyword">const</span> binaryN = n.toString(<span class="number">2</span>);</span><br><span class="line">      <span class="keyword">const</span> binaryM = m.toString(<span class="number">2</span>);</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">`<span class="subst">$&#123;n&#125;</span>的二进制是    <span class="subst">$&#123;binaryN&#125;</span>`</span>);</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">`<span class="subst">$&#123;m&#125;</span>的二进制是    <span class="subst">$&#123;binaryM&#125;</span>`</span>);</span><br><span class="line">      <span class="keyword">const</span> MN = m + n;</span><br><span class="line">      <span class="keyword">const</span> accuracyMN = (m * <span class="number">100</span> + n * <span class="number">100</span>) / <span class="number">100</span>;</span><br><span class="line">      <span class="keyword">const</span> binaryMN = MN.toString(<span class="number">2</span>);</span><br><span class="line">      <span class="keyword">const</span> accuracyBinaryMN = accuracyMN.toString(<span class="number">2</span>);</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">`<span class="subst">$&#123;n&#125;</span>+<span class="subst">$&#123;m&#125;</span>的二进制是<span class="subst">$&#123;binaryMN&#125;</span>`</span>);</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">`<span class="subst">$&#123;accuracyMN&#125;</span>的二进制是    <span class="subst">$&#123;accuracyBinaryMN&#125;</span>`</span>);</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">`<span class="subst">$&#123;n&#125;</span>+<span class="subst">$&#123;m&#125;</span>的二进制再转成十进制是<span class="subst">$&#123;to10(binaryMN)&#125;</span>`</span>);</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">`<span class="subst">$&#123;accuracyMN&#125;</span>的二进制是再转成十进制是<span class="subst">$&#123;to10(accuracyBinaryMN)&#125;</span>`</span>);</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">`<span class="subst">$&#123;n&#125;</span>+<span class="subst">$&#123;m&#125;</span>在js中计算是<span class="subst">$&#123;(to10(binaryMN) === to10(accuracyBinaryMN)) ? <span class="string">&#x27;&#x27;</span> : <span class="string">&#x27;不&#x27;</span>&#125;</span>准确的`</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">to10</span>(<span class="params">n</span>) </span>&#123;</span><br><span class="line">      <span class="keyword">const</span> pre = (n.split(<span class="string">&#x27;.&#x27;</span>)[<span class="number">0</span>] - <span class="number">0</span>).toString(<span class="number">2</span>);</span><br><span class="line">      <span class="keyword">const</span> arr = n.split(<span class="string">&#x27;.&#x27;</span>)[<span class="number">1</span>].split(<span class="string">&#x27;&#x27;</span>);</span><br><span class="line">      <span class="keyword">let</span> i = <span class="number">0</span>;</span><br><span class="line">      <span class="keyword">let</span> result = <span class="number">0</span>;</span><br><span class="line">      <span class="keyword">while</span> (i &lt; arr.length) &#123;</span><br><span class="line">        result += arr[i] * <span class="built_in">Math</span>.pow(<span class="number">2</span>, -(i + <span class="number">1</span>));</span><br><span class="line">        i++;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line">    judgeFloat(<span class="number">0.1</span>, <span class="number">0.2</span>);</span><br><span class="line">    judgeFloat(<span class="number">0.6</span>, <span class="number">0.7</span>);</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://wang-z.gitee.io/img/0.1+0.2.jpg" class="lazyload" data-srcset="https://wang-z.gitee.io/img/0.1+0.2.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="0.1+0.2"></p>
+<p>计算机中所有的数据都是以<code>二进制</code>存储的，所以在计算时计算机要把数据先转换成<code>二进制</code>进行计算，然后在把计算结果转换成<code>十进制</code>。</p>
+<p>由上面的代码不难看出，在计算<code>0.1+0.2</code>时，<code>二进制</code>计算发生了精度丢失，导致再转换成<code>十进制</code>后和预计的结果不符。</p>
+<h4 id="隐式转换"><a href="#隐式转换" class="headerlink" title="隐式转换"></a>隐式转换</h4><p><img src="https://wang-z.gitee.io/img/Implicit-conversion.jpg" class="lazyload" data-srcset="https://wang-z.gitee.io/img/Implicit-conversion.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="隐式转换"></p>
+<h3 id="if语句和逻辑语句"><a href="#if语句和逻辑语句" class="headerlink" title="if语句和逻辑语句"></a>if语句和逻辑语句</h3><p>在<code>if</code>语句和逻辑语句中，如果只有单个变量，会先将变量转换为<code>Boolean</code>值，只有下面几种情况会转换成<code>false</code>，其余被转换成<code>true</code>：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">null</span><br><span class="line">undefined</span><br><span class="line">&#39;&#39;</span><br><span class="line">NaN</span><br><span class="line">0</span><br><span class="line">false</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="各种运数学算符"><a href="#各种运数学算符" class="headerlink" title="各种运数学算符"></a>各种运数学算符</h3><p>我们在对各种非<code>Number</code>类型运用数学运算符(<code>- * /</code>)时，会先将非<code>Number</code>类型转换为<code>Number</code>类型;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">1 - true &#x2F;&#x2F; 0</span><br><span class="line">1 - null &#x2F;&#x2F;  1</span><br><span class="line">1 * undefined &#x2F;&#x2F;  NaN</span><br><span class="line">2 * [&#39;5&#39;] &#x2F;&#x2F;  10</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>注意<code>+</code>是个例外，执行<code>+</code>操作符时：</p>
+<ul>
+<li>1.当一侧为<code>String</code>类型，被识别为字符串拼接，并会优先将另一侧转换为字符串类型。</li>
+<li>2.当一侧为<code>Number</code>类型，另一侧为原始类型，则将原始类型转换为<code>Number</code>类型。</li>
+<li>3.当一侧为<code>Number</code>类型，另一侧为引用类型，将引用类型和<code>Number</code>类型转换成字符串后拼接。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">123 + &#39;123&#39; &#x2F;&#x2F; 123123   （规则1）</span><br><span class="line">123 + null  &#x2F;&#x2F; 123    （规则2）</span><br><span class="line">123 + true &#x2F;&#x2F; 124    （规则2）</span><br><span class="line">123 + &#123;&#125;  &#x2F;&#x2F; 123[object Object]    （规则3）</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="运算符"><a href="#运算符" class="headerlink" title="== 运算符"></a>== 运算符</h3><p>使用<code>==</code>时，若两侧类型相同，则比较结果和<code>===</code>相同，否则会发生隐式转换，使用<code>==</code>时发生的转换可以分为几种不同的情况（只考虑两侧类型不同）：</p>
+<ul>
+<li><h5 id="1-NaN"><a href="#1-NaN" class="headerlink" title="1.NaN"></a><strong>1.NaN</strong></h5></li>
+</ul>
+<p><code>NaN</code>和其他任何类型比较永远返回<code>false</code>(包括和他自己)。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">NaN &#x3D;&#x3D; NaN &#x2F;&#x2F; false</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><h5 id="2-Boolean"><a href="#2-Boolean" class="headerlink" title="2.Boolean"></a><strong>2.Boolean</strong></h5></li>
+</ul>
+<p><code>Boolean</code>和其他任何类型比较，<code>Boolean</code>首先被转换为<code>Number</code>类型。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">true &#x3D;&#x3D; 1  &#x2F;&#x2F; true </span><br><span class="line">true &#x3D;&#x3D; &#39;2&#39;  &#x2F;&#x2F; false</span><br><span class="line">true &#x3D;&#x3D; [&#39;1&#39;]  &#x2F;&#x2F; true</span><br><span class="line">true &#x3D;&#x3D; [&#39;2&#39;]  &#x2F;&#x2F; false</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>这里注意一个可能会弄混的点：<code>undefined、null</code>和<code>Boolean</code>比较，虽然<code>undefined、null</code>和<code>false</code>都很容易被想象成假值，但是他们比较结果是<code>false</code>，原因是<code>false</code>首先被转换成<code>0</code>：</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">undefined &#x3D;&#x3D; false &#x2F;&#x2F; false</span><br><span class="line">null &#x3D;&#x3D; false &#x2F;&#x2F; false</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><h5 id="3-String和Number"><a href="#3-String和Number" class="headerlink" title="3.String和Number"></a><strong>3.String和Number</strong></h5></li>
+</ul>
+<p><code>String</code>和<code>Number</code>比较，先将<code>String</code>转换为<code>Number</code>类型。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">123 &#x3D;&#x3D; &#39;123&#39; &#x2F;&#x2F; true</span><br><span class="line">&#39;&#39; &#x3D;&#x3D; 0 &#x2F;&#x2F; true</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><h5 id="4-null和undefined"><a href="#4-null和undefined" class="headerlink" title="4.null和undefined"></a><strong>4.null和undefined</strong></h5></li>
+</ul>
+<p><code>null == undefined</code>比较结果是<code>true</code>，除此之外，<code>null、undefined</code>和其他任何结果的比较值都为<code>false</code>。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">null &#x3D;&#x3D; undefined &#x2F;&#x2F; true</span><br><span class="line">null &#x3D;&#x3D; &#39;&#39; &#x2F;&#x2F; false</span><br><span class="line">null &#x3D;&#x3D; 0 &#x2F;&#x2F; false</span><br><span class="line">null &#x3D;&#x3D; false &#x2F;&#x2F; false</span><br><span class="line">undefined &#x3D;&#x3D; &#39;&#39; &#x2F;&#x2F; false</span><br><span class="line">undefined &#x3D;&#x3D; 0 &#x2F;&#x2F; false</span><br><span class="line">undefined &#x3D;&#x3D; false &#x2F;&#x2F; false</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><h5 id="5-原始类型和引用类型"><a href="#5-原始类型和引用类型" class="headerlink" title="5.原始类型和引用类型"></a><strong>5.原始类型和引用类型</strong></h5></li>
+</ul>
+<p>当原始类型和引用类型做比较时，对象类型会依照<code>ToPrimitive</code>规则转换为原始类型:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#39;[object Object]&#39; &#x3D;&#x3D; &#123;&#125; &#x2F;&#x2F; true</span><br><span class="line">&#39;1,2,3&#39; &#x3D;&#x3D; [1, 2, 3] &#x2F;&#x2F; true</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>来看看下面这个比较：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[] &#x3D;&#x3D; ![] &#x2F;&#x2F; true</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><code>!</code>的优先级高于<code>==</code>，<code>![]</code>首先会被转换为<code>false</code>，然后根据上面第三点，<code>false</code>转换成<code>Number</code>类型<code>0</code>，左侧<code>[]</code>转换为<code>0</code>，两侧比较相等。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[null] &#x3D;&#x3D; false &#x2F;&#x2F; true</span><br><span class="line">[undefined] &#x3D;&#x3D; false &#x2F;&#x2F; true</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>根据数组的<code>ToPrimitive</code>规则，数组元素为<code>null</code>或<code>undefined</code>时，该元素被当做空字符串处理，所以<code>[null]、[undefined]</code>都会被转换为<code>0</code>。</p>
+<h4 id="原型链的规则"><a href="#原型链的规则" class="headerlink" title="原型链的规则"></a>原型链的规则</h4><ul>
+<li>1.所有引用类型都具有对象特性，即可以自由扩展属性</li>
+<li>2.所有引用类型都具有一个<code>proto</code>（隐式原型）属性，是一个普通对象</li>
+<li>3.所有的函数都具有<code>prototype</code>（显式原型）属性，也是一个普通对象</li>
+<li>4.所有引用类型<code>proto</code>值指向它构造函数的<code>prototype</code></li>
+<li>5.当试图得到一个对象的属性时，如果变量本身没有这个属性，则会去他的<code>proto</code>中去找</li>
+</ul>
+<h3 id="toString-NaN"><a href="#toString-NaN" class="headerlink" title="toString"></a>toString</h3><p>上面我们在拆箱操作中提到了<code>toString</code>函数，我们可以调用它实现从引用类型的转换。</p>
+<blockquote>
+<p>每一个引用类型都有<code>toString</code>方法，默认情况下，<code>toString()</code>方法被每个<code>Object</code>对象继承。如果此方法在自定义对象中未被覆盖，<code>toString()</code> 返回 <code>&quot;[object type]&quot;</code>，其中<code>type</code>是对象的类型。</p>
+</blockquote>
+<p><img src="https://wang-z.gitee.io/img/tostring.jpg" class="lazyload" data-srcset="https://wang-z.gitee.io/img/tostring.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="tostring"></p>
+<h3 id="0-11加上0-1不等于0-1"><a href="#0-11加上0-1不等于0-1" class="headerlink" title="0.11加上0.1不等于0.1"></a>0.11加上0.1不等于0.1</h3><p>解决方法</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">parseFloat</span>((prev + curr).toFixed(<span class="number">2</span>))</span><br></pre></td></tr></table></figure>
+
+<h3 id="JavaScript怎么把两个数组里的多个对象一一对应合并？"><a href="#JavaScript怎么把两个数组里的多个对象一一对应合并？" class="headerlink" title="JavaScript怎么把两个数组里的多个对象一一对应合并？"></a>JavaScript怎么把两个数组里的多个对象一一对应合并？</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj1 = [&#123;</span><br><span class="line">  <span class="string">&quot;id&quot;</span>: <span class="number">980550455852</span>,</span><br><span class="line">  <span class="string">&quot;model&quot;</span>: <span class="string">&quot;XQG70-S1208FW&quot;</span>,</span><br><span class="line">  <span class="string">&quot;color&quot;</span>: <span class="string">&quot;白&quot;</span>,</span><br><span class="line">  <span class="string">&quot;invStatusName&quot;</span>: <span class="string">&quot;正品&quot;</span>,</span><br><span class="line">  <span class="string">&quot;bactualQty&quot;</span>: <span class="number">10947</span>,</span><br><span class="line">  <span class="string">&quot;brealyQty&quot;</span>: <span class="number">11000</span>,</span><br><span class="line">  <span class="string">&quot;bavailQty&quot;</span>: <span class="number">53</span></span><br><span class="line">&#125;, &#123;</span><br><span class="line">  <span class="string">&quot;id&quot;</span>: <span class="number">980550566221</span>,</span><br><span class="line">  <span class="string">&quot;model&quot;</span>: <span class="string">&quot;XQB70-C3006&quot;</span>,</span><br><span class="line">  <span class="string">&quot;color&quot;</span>: <span class="string">&quot;灰&quot;</span>,</span><br><span class="line">  <span class="string">&quot;invStatusName&quot;</span>: <span class="string">&quot;正品&quot;</span>,</span><br><span class="line">  <span class="string">&quot;bactualQty&quot;</span>: <span class="number">11</span>,</span><br><span class="line">  <span class="string">&quot;brealyQty&quot;</span>: <span class="number">6</span>,</span><br><span class="line">  <span class="string">&quot;bavailQty&quot;</span>: -<span class="number">5</span></span><br><span class="line">&#125;];</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> obj2 = [&#123;</span><br><span class="line">  <span class="string">&quot;price&quot;</span>: <span class="string">&quot;6666&quot;</span></span><br><span class="line">&#125;, &#123;</span><br><span class="line">  <span class="string">&quot;price&quot;</span>: <span class="string">&quot;8888&quot;</span></span><br><span class="line">&#125;];</span><br><span class="line"><span class="keyword">var</span> obj = obj1.map(<span class="function">(<span class="params">item,index</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> &#123;...item, ...obj2[index]&#125;;</span><br><span class="line">&#125;);</span><br><span class="line"><span class="built_in">console</span>.log(obj);  <span class="comment">//</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+  
+  
+    
+    <div class='footer'>
+      
+      
+      
+        <div class='copyright'>
+          <blockquote>
+            
+              
+                <p>博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</p>
+
+              
+            
+              
+                <p>本文永久链接是：<a href=http://wang-z.gitee.io/2020/01/09/js-%E5%8F%98%E9%87%8F%E5%92%8Cjs%E7%B1%BB%E5%9E%8B%E7%9A%84%E7%90%86%E8%A7%A3/>http://wang-z.gitee.io/2020/01/09/js-%E5%8F%98%E9%87%8F%E5%92%8Cjs%E7%B1%BB%E5%9E%8B%E7%9A%84%E7%90%86%E8%A7%A3/</a></p>
+              
+            
+          </blockquote>
+        </div>
+      
+      
+    </div>
+  
+  
+    
+
+
+  <div class='article-meta' id="bottom">
+    <div class='new-meta-box'>
+      
+        
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-04-13T11:51:00+08:00">
+  <a class='notlink'>
+    <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
+    <p>本页文档最后更新于：2021年4月13日</p>
+  </a>
+</div>
+
+        
+      
+        
+          
+  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/javascript/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>javascript</p></a></div>
+
+
+        
+      
+        
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
+    
+      
+        <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://wang-z.gitee.io/2020/01/09/js-%E5%8F%98%E9%87%8F%E5%92%8Cjs%E7%B1%BB%E5%9E%8B%E7%9A%84%E7%90%86%E8%A7%A3/&title=JavaScript的变量以及数据类型 - Mr.wang'blog&summary=
+JavaScript数据类型的区别，转换，隐藏bug
+"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://wang-z.gitee.io/2020/01/09/js-%E5%8F%98%E9%87%8F%E5%92%8Cjs%E7%B1%BB%E5%9E%8B%E7%9A%84%E7%90%86%E8%A7%A3/&title=JavaScript的变量以及数据类型 - Mr.wang'blog&summary=
+JavaScript数据类型的区别，转换，隐藏bug
+"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="http://service.weibo.com/share/share.php?url=http://wang-z.gitee.io/2020/01/09/js-%E5%8F%98%E9%87%8F%E5%92%8Cjs%E7%B1%BB%E5%9E%8B%E7%9A%84%E7%90%86%E8%A7%A3/&title=JavaScript的变量以及数据类型 - Mr.wang'blog&summary=
+JavaScript数据类型的区别，转换，隐藏bug
+"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+          
+        </a>
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+
+
+        
+      
+    </div>
+  </div>
+
+
+  
+  
+
+  
+    <div class="prev-next">
+      
+        <a class='prev' href='/2020/01/18/node-koa2%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/'>
+          <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>node-koa2学习笔记</p>
+          <p class='content'>
+记录node-koa2服务器开发中好用的方法和技巧
+
+
+
+全局处理函数异常
+使用中间件对于抛出异常的处理
+
+123456789101112131415161718192021222324252...</p>
+        </a>
+      
+      
+        <a class='next' href='/2020/01/01/base-%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%E5%BF%85%E5%A4%87%E6%8F%92%E4%BB%B6/'>
+          <p class='title'>前端开发必备插件<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+          <p class='content'>
+前端开发vscode的必备插件配置
+
+
+
+vscode插件
+Ide中文界面
+
+1Chinese (Simplified) Language Pack for Visual Studio Cod...</p>
+        </a>
+      
+    </div>
+  
+</article>
+
+
+  
+
+  <article class="post white-box reveal shadow" id="comments">
+    <p ct><i class='fas fa-comments'></i> 评论</p>
+    
+    <div id="valine_container" class="valine_thread">
+  <i class="fas fa-cog fa-spin fa-fw fa-2x"></i>
+</div>
+
+  </article>
+
+
+
+
+
+
+</div>
+<aside class='l_side'>
+  
+  
+
+  
+    
+    
+
+
+
+  <section class="widget toc-wrapper shadow desktop mobile" id="toc-div" >
+    
+  <header>
+    
+      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
+    
+  </header>
+
+
+    <div class='content'>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E3%80%81JavaScript%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="toc-text">一、JavaScript数据类型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8E%9F%E5%A7%8B%E7%B1%BB%E5%9E%8B"><span class="toc-text">原始类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AF%B9%E8%B1%A1%E7%B1%BB%E5%9E%8B"><span class="toc-text">对象类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A0%88%E5%86%85%E5%AD%98%EF%BC%9A"><span class="toc-text">栈内存：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A0%86%E5%86%85%E5%AD%98%EF%BC%9A"><span class="toc-text">堆内存：</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2-%E5%85%B7%E5%A4%87%E4%B8%8D%E5%8F%AF%E5%8F%98%E6%80%A7"><span class="toc-text">字符串 具备不可变性</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AF%B9%E8%B1%A1-%E5%85%B7%E5%A4%87%E5%8F%AF%E5%8F%98%E6%80%A7"><span class="toc-text">对象 具备可变性</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%80%9A%E8%BF%87%E4%B8%80%E4%BA%9Bapi%E5%8F%AF%E4%BB%A5%E6%94%B9%E5%8F%98%E6%95%B0%E7%BB%84"><span class="toc-text">通过一些api可以改变数组</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8E%9F%E5%A7%8B%E7%B1%BB%E5%9E%8B-1"><span class="toc-text">原始类型</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BC%95%E7%94%A8%E7%B1%BB%E5%9E%8B"><span class="toc-text">引用类型</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8E%9F%E5%A7%8B%E7%B1%BB%E5%9E%8B%E5%92%8C%E5%BC%95%E7%94%A8%E7%B1%BB%E5%9E%8B%E7%9A%84%E6%AF%94%E8%BE%83"><span class="toc-text">原始类型和引用类型的比较</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8C%BA%E5%88%86null%E5%92%8Cundefined"><span class="toc-text">区分null和undefined</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BD%A0%E6%83%B3%E4%B8%8D%E5%88%B0%E7%9A%840-1-0-2%E2%89%A00-3"><span class="toc-text">你想不到的0.1+0.2≠0.3</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%9A%90%E5%BC%8F%E8%BD%AC%E6%8D%A2"><span class="toc-text">隐式转换</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#if%E8%AF%AD%E5%8F%A5%E5%92%8C%E9%80%BB%E8%BE%91%E8%AF%AD%E5%8F%A5"><span class="toc-text">if语句和逻辑语句</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%90%84%E7%A7%8D%E8%BF%90%E6%95%B0%E5%AD%A6%E7%AE%97%E7%AC%A6"><span class="toc-text">各种运数学算符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="toc-text">&#x3D;&#x3D; 运算符</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-NaN"><span class="toc-text">1.NaN</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-Boolean"><span class="toc-text">2.Boolean</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-String%E5%92%8CNumber"><span class="toc-text">3.String和Number</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#4-null%E5%92%8Cundefined"><span class="toc-text">4.null和undefined</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#5-%E5%8E%9F%E5%A7%8B%E7%B1%BB%E5%9E%8B%E5%92%8C%E5%BC%95%E7%94%A8%E7%B1%BB%E5%9E%8B"><span class="toc-text">5.原始类型和引用类型</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8E%9F%E5%9E%8B%E9%93%BE%E7%9A%84%E8%A7%84%E5%88%99"><span class="toc-text">原型链的规则</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#toString-NaN"><span class="toc-text">toString</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0-11%E5%8A%A0%E4%B8%8A0-1%E4%B8%8D%E7%AD%89%E4%BA%8E0-1"><span class="toc-text">0.11加上0.1不等于0.1</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#JavaScript%E6%80%8E%E4%B9%88%E6%8A%8A%E4%B8%A4%E4%B8%AA%E6%95%B0%E7%BB%84%E9%87%8C%E7%9A%84%E5%A4%9A%E4%B8%AA%E5%AF%B9%E8%B1%A1%E4%B8%80%E4%B8%80%E5%AF%B9%E5%BA%94%E5%90%88%E5%B9%B6%EF%BC%9F"><span class="toc-text">JavaScript怎么把两个数组里的多个对象一一对应合并？</span></a></li></ol></li></ol>
+    </div>
+  </section>
+
+
+  
+
+  
+
+
+</aside>
+
+
+
+		  
+		  <!--此文件用来存放一些不方便取值的变量-->
+<!--思路大概是将值藏到重加载的区域内-->
+
+<script>
+  window.pdata={}
+  pdata.ispage=true;
+  pdata.postTitle="JavaScript的变量以及数据类型";
+  pdata.commentPath="";
+  pdata.commentPlaceholder="";
+  // header 这里无论是否开启pjax都需要
+  var l_header=document.getElementById("l_header");
+  
+  l_header.classList.remove("show");
+  
+  
+    // cover
+    var cover_wrapper=document.querySelector('.cover-wrapper');
+    
+    cover_wrapper.id="half";
+    cover_wrapper.style.display="";
+    
+  
+</script>
+
+        </div>
+        
+  
+  <footer class="footer clearfix">
+    <br><br>
+    
+      
+        <div class="aplayer-container">
+          
+
+  
+    <meting-js
+      theme='#1BCDFC'
+      autoplay='false'
+      volume='0.4'
+      loop='all'
+      order='random'
+      fixed='false'
+      list-max-height='320px'
+      server='netease'
+      type='playlist'
+      id='5062959861'
+      list-folded='true'>
+    </meting-js>
+  
+
+
+        </div>
+      
+    
+      
+        <br>
+        <div class="social-wrapper">
+          
+            
+              <a href="/atom.xml"
+                class="social  flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer">
+                
+                  <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org@1.1/icon/1322024-social-media/020-rss.svg" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org@1.1/icon/1322024-social-media/020-rss.svg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="/>
+                
+              </a>
+            
+          
+            
+              <a href="https://github.com/volantis-x/"
+                class="social  flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer">
+                
+                  <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org@1.1/icon/1322024-social-media/029-github.svg" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org@1.1/icon/1322024-social-media/029-github.svg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="/>
+                
+              </a>
+            
+          
+            
+              <a href="/"
+                class="social  flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer">
+                
+                  <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org@1.1/icon/1322024-social-media/010-facebook.svg" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org@1.1/icon/1322024-social-media/010-facebook.svg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="/>
+                
+              </a>
+            
+          
+            
+              <a href="/"
+                class="social  flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer">
+                
+                  <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org@1.1/icon/1322024-social-media/018-twitter.svg" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org@1.1/icon/1322024-social-media/018-twitter.svg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="/>
+                
+              </a>
+            
+          
+            
+              <a href="/"
+                class="social  flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer">
+                
+                  <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org@1.1/icon/1322024-social-media/045-telegram.svg" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org@1.1/icon/1322024-social-media/045-telegram.svg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="/>
+                
+              </a>
+            
+          
+            
+              <a href="/"
+                class="social  flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer">
+                
+                  <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org@1.1/icon/1322024-social-media/006-youtube.svg" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org@1.1/icon/1322024-social-media/006-youtube.svg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="/>
+                
+              </a>
+            
+          
+        </div>
+      
+    
+      
+        <p>本站使用 <a target="_blank" rel="noopener" href="https://github.com/volantis-x/hexo-theme-volantis/tree/4.3.1">Volantis</a> 作为主题，您可以在 GitHub 找到<a target="_blank" rel="noopener" href="https://github.com/volantis-x/volantis-docs">本站源码</a>。</p>
+
+      
+    
+      
+        
+          <div><p><span id="lc-sv">本站总访问量为 <span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span> 次</span> <span id="lc-uv">访客数为 <span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span> 人</span></p>
+</div>
+        
+      
+    
+      
+        <div class='copyright'>
+        <p><a target="_blank" rel="noopener" href="https://github.com/volantis-x/">Copyright © 2017-2021 Volantis Team</a></p>
+
+        </div>
+      
+    
+  </footer>
+
+
+        <a id="s-top" class="fas fa-arrow-up fa-fw" href="javascript:void(0)"></a>
+      </div>
+    </div>
+    <div>
+      <script>
+/************这个文件存放不需要重载的全局变量和全局函数*********/
+window.volantis={};
+window.volantis.loadcss=document.getElementById("loadcss");
+/******************** Pjax ********************************/
+function VPjax(){
+	this.list=[] // 存放回调函数
+	this.start=()=>{
+	  for(var i=0;i<this.list.length;i++){
+		this.list[i].run();
+	  }
+	}
+	this.push=(fn,name)=>{
+		var f=new PjaxItem(fn,name);
+		this.list.push(f);
+	}
+	// 构造一个可以run的对象
+	function PjaxItem(fn,name){
+		// 函数名称
+		this.name = name || fn.name
+		// run方法
+		this.run=()=>{
+			fn()
+		}
+	}
+}
+volantis.pjax={}
+volantis.pjax.method={
+	complete: new VPjax(),
+	error: new VPjax(),
+	send: new VPjax()
+}
+volantis.pjax={
+	...volantis.pjax,
+	push: volantis.pjax.method.complete.push,
+	error: volantis.pjax.method.error.push,
+	send: volantis.pjax.method.send.push
+}
+/********************脚本懒加载函数********************************/
+// 已经加入了setTimeout
+function loadScript(src, cb) {
+	setTimeout(function() {
+		var HEAD = document.getElementsByTagName('head')[0] || document.documentElement;
+		var script = document.createElement('script');
+		script.setAttribute('type','text/javascript');
+		if (cb) script.onload = cb;
+		script.setAttribute('src', src);
+		HEAD.appendChild(script);
+	});
+}
+//https://github.com/filamentgroup/loadCSS
+var loadCSS = function( href, before, media, attributes ){
+	var doc = window.document;
+	var ss = doc.createElement( "link" );
+	var ref;
+	if( before ){
+		ref = before;
+	}
+	else {
+		var refs = ( doc.body || doc.getElementsByTagName( "head" )[ 0 ] ).childNodes;
+		ref = refs[ refs.length - 1];
+	}
+	var sheets = doc.styleSheets;
+	if( attributes ){
+		for( var attributeName in attributes ){
+			if( attributes.hasOwnProperty( attributeName ) ){
+				ss.setAttribute( attributeName, attributes[attributeName] );
+			}
+		}
+	}
+	ss.rel = "stylesheet";
+	ss.href = href;
+	ss.media = "only x";
+	function ready( cb ){
+		if( doc.body ){
+			return cb();
+		}
+		setTimeout(function(){
+			ready( cb );
+		});
+	}
+	ready( function(){
+		ref.parentNode.insertBefore( ss, ( before ? ref : ref.nextSibling ) );
+	});
+	var onloadcssdefined = function( cb ){
+		var resolvedHref = ss.href;
+		var i = sheets.length;
+		while( i-- ){
+			if( sheets[ i ].href === resolvedHref ){
+				return cb();
+			}
+		}
+		setTimeout(function() {
+			onloadcssdefined( cb );
+		});
+	};
+	function loadCB(){
+		if( ss.addEventListener ){
+			ss.removeEventListener( "load", loadCB );
+		}
+		ss.media = media || "all";
+	}
+	if( ss.addEventListener ){
+		ss.addEventListener( "load", loadCB);
+	}
+	ss.onloadcssdefined = onloadcssdefined;
+	onloadcssdefined( loadCB );
+	return ss;
+};
+</script>
+<script>
+  
+  loadCSS("https://cdn.jsdelivr.net/gh/volantis-x/cdn-fontawesome-pro@master/css/all.min.css", window.volantis.loadcss);
+  
+  
+  
+  
+  loadCSS("https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10/build/styles/solarized-light.min.css", window.volantis.loadcss);
+  
+</script>
+<!-- required -->
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5/dist/jquery.min.js"></script>
+
+<script>
+  function pjax_fancybox() {
+    $(".md .gallery").find("img").each(function () { //渲染 fancybox
+      var element = document.createElement("a"); // a 标签
+      $(element).attr("class", "fancybox");
+      $(element).attr("pjax-fancybox", "");  // 过滤 pjax
+      $(element).attr("href", $(this).attr("src"));
+      if ($(this).attr("data-original")) {
+        $(element).attr("href", $(this).attr("data-original"));
+      }
+      $(element).attr("data-fancybox", "images");
+      var caption = "";   // 描述信息
+      if ($(this).attr('alt')) {  // 判断当前页面是否存在描述信息
+        $(element).attr('data-caption', $(this).attr('alt'));
+        caption = $(this).attr('alt');
+      }
+      var div = document.createElement("div");
+      $(div).addClass("fancybox");
+      $(this).wrap(div); // 最外层套 div ，其实主要作用还是 class 样式
+      var span = document.createElement("span");
+      $(span).addClass("image-caption");
+      $(span).text(caption); // 加描述
+      $(this).after(span);  // 再套一层描述
+      $(this).wrap(element);  // 最后套 a 标签
+    })
+    $(".md .gallery").find("img").fancybox({
+      selector: '[data-fancybox="images"]',
+      hash: false,
+      loop: false,
+      closeClick: true,
+      helpers: {
+        overlay: {closeClick: true}
+      },
+      buttons: [
+        "zoom",
+        "close"
+      ]
+    });
+  };
+  function SCload_fancybox() {
+    if ($(".md .gallery").find("img").length == 0) return;
+    loadCSS("https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css", document.getElementById("loadcss"));
+    loadScript('https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js', pjax_fancybox)
+  };
+  $(function () {
+    SCload_fancybox();
+  });
+  function Pjax_SCload_fancybox(){
+	if (typeof $.fancybox == "undefined") {
+	 SCload_fancybox();
+    } else {
+	 pjax_fancybox();
+    }
+  }
+  volantis.pjax.push(Pjax_SCload_fancybox)
+  volantis.pjax.send(()=>{
+      if (typeof $.fancybox != "undefined") {
+        $.fancybox.close();    // 关闭弹窗
+      }
+  },'fancybox')
+</script>
+
+
+<!-- internal -->
+
+  
+  
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/jquery-backstretch@2.1.18/jquery.backstretch.min.js"></script>
+
+    <script type="text/javascript">
+        var imgs=["https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/001.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/002.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/003.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/004.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/005.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/006.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/012.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/016.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/019.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/025.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/033.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/034.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/035.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/038.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/039.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/042.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/046.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/051.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/052.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/054.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/056.jpg"];
+        if ('true' == 'true') {
+          function shuffle(arr){
+            /*From countercurrent-time*/
+            var n = arr.length;
+            while(n--) {
+              var index = Math.floor(Math.random() * n);
+              var temp = arr[index];
+              arr[index] = arr[n];
+              arr[n] = temp;
+            }
+          }
+          shuffle(imgs);
+        }
+	  function Pjax_backstretch(){
+        
+          $('#cover-backstretch').backstretch(
+            imgs,
+          {
+            duration: "20000",
+            fade: "1500"
+          });
+        
+	  }
+	  loadScript("https://cdn.jsdelivr.net/npm/jquery-backstretch@2.1.18/jquery.backstretch.min.js",Pjax_backstretch)
+    </script>
+  
+
+
+
+
+<script>
+  function loadIssuesJS() {
+    if ($(".md").find(".issues-api").length == 0) return;
+	
+	  loadScript('/js/issues.js');
+	
+  };
+  $(function () {
+    loadIssuesJS();
+  });
+  volantis.pjax.push(()=>{
+	if (typeof IssuesAPI == "undefined") {
+	  loadIssuesJS();
+	}
+  },"IssuesJS")
+</script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.1.0/dist/lazyload.min.js"></script>
+<script>
+  // https://www.npmjs.com/package/vanilla-lazyload
+  // Set the options globally
+  // to make LazyLoad self-initialize
+  window.lazyLoadOptions = {
+    elements_selector: ".lazyload",
+    threshold: 0
+  };
+  // Listen to the initialization event
+  // and get the instance of LazyLoad
+  window.addEventListener(
+    "LazyLoad::Initialized",
+    function (event) {
+      window.lazyLoadInstance = event.detail.instance;
+    },
+    false
+  );
+  document.addEventListener('DOMContentLoaded', function () {
+    lazyLoadInstance.update();
+  });
+  document.addEventListener('pjax:complete', function () {
+    lazyLoadInstance.update();
+  });
+</script>
+
+
+
+
+  
+
+<script>
+  window.FPConfig = {
+	delay: 0,
+	ignoreKeywords: [],
+	maxRPS: 5,
+	hoverDelay: 25
+  };
+</script>
+<script defer src="https://cdn.jsdelivr.net/gh/gijo-varghese/flying-pages@2.1.2/flying-pages.min.js"></script>
+
+
+
+
+
+  <script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+<script>
+    var clipboard = new ClipboardJS('.btn-copy', {
+        target: function (trigger) {
+            return trigger.nextElementSibling
+        }
+    });
+    function wait(callback, seconds) {
+        var timelag = null;
+        timelag = window.setTimeout(callback, seconds)
+    }
+    function pjax_initCopyCode() {
+		if($(".highlight .code pre").length+$(".article pre code").length==0)return;
+        var copyHtml = '';
+        copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+        copyHtml += '<i class="fas fa-copy"></i><span>COPY</span>';
+        copyHtml += '</button>';
+        $(".highlight .code pre").before(copyHtml);
+        $(".article pre code").before(copyHtml);
+        clipboard.off('success').on('success', function (e) {
+            let $btn = $(e.trigger);
+            $btn.addClass('copied');
+            let $icon = $($btn.find('i'));
+            $icon.removeClass('fa-copy');
+            $icon.addClass('fa-check-circle');
+            let $span = $($btn.find('span'));
+            $span[0].innerText = 'COPIED';
+            wait(function () {
+                $icon.removeClass('fa-check-circle');
+                $icon.addClass('fa-copy');
+                $span[0].innerText = 'COPY'
+            }, 2000)
+        });
+        clipboard.off('error').on('error', function (e) {
+            e.clearSelection();
+            let $btn = $(e.trigger);
+            $btn.addClass('copy-failed');
+            let $icon = $($btn.find('i'));
+            $icon.removeClass('fa-copy');
+            $icon.addClass('fa-times-circle');
+            let $span = $($btn.find('span'));
+            $span[0].innerText = 'COPY FAILED';
+            wait(function () {
+                $icon.removeClass('fa-times-circle');
+                $icon.addClass('fa-copy');
+                $span[0].innerText = 'COPY'
+            }, 2000)
+        })
+    }
+    $(function () {
+        pjax_initCopyCode()
+    });
+	volantis.pjax.push(pjax_initCopyCode)
+</script>
+
+
+
+
+
+
+  <script>
+  let APlayerController = new Object();
+  APlayerController.id = '5062959861';  // 设定全局音乐播放ID
+  APlayerController.volume = '0.4';
+  loadCSS("https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.css", window.volantis.loadcss);
+  // APlayer 需要在  MetingJS 之前加载
+  loadScript("https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.js")
+  window.volantis.APlayerLoaded=0 // APlayer加载完成状态
+  var checkAPlayer = setInterval(function () {
+    if (!window.APlayer) return // APlayer加载完成？
+	  if ($("#safearea").css("display")!="block") return // 文章内容加载完成？ see: source/css/first.styl
+    clearInterval(checkAPlayer)
+	  if (!window.volantis.APlayerLoaded&&!window.MetingJSElement){ // APlayer只能加载一次
+      window.volantis.APlayerLoaded=1 // APlayer加载完成
+      loadScript("https://cdn.jsdelivr.net/npm/meting@2.0/dist/Meting.min.js") // 加载 MetingJS
+	  }
+  }, 2500) // 按照网速调节差分2.5s
+  // rightmenu see: layout/_partial/rightmenu.ejs
+
+</script>
+
+
+
+
+  
+  
+<script src="/js/valine.js"></script>
+
+
+<script>
+  function emoji(path, idx, ext) {
+    return path + "/" + path + "-" + idx + "." + ext;
+  }
+  var emojiMaps = {};
+  for (var i = 1; i <= 54; i++) {
+    emojiMaps['tieba-' + i] = emoji('tieba', i, 'png');
+  }
+  for (var i = 1; i <= 101; i++) {
+    emojiMaps['qq-' + i] = emoji('qq', i, 'gif');
+  }
+  for (var i = 1; i <= 116; i++) {
+    emojiMaps['aru-' + i] = emoji('aru', i, 'gif');
+  }
+  for (var i = 1; i <= 125; i++) {
+    emojiMaps['twemoji-' + i] = emoji('twemoji', i, 'png');
+  }
+  for (var i = 1; i <= 4; i++) {
+    emojiMaps['weibo-' + i] = emoji('weibo', i, 'png');
+  }
+  function pjax_valine() {
+    if(!document.querySelectorAll("#valine_container")[0])return;
+    let pagePlaceholder = pdata.commentPlaceholder || "快来评论吧~";
+    let path = pdata.commentPath;
+    if (path.length == 0) {
+      let defaultPath = '';
+      path = defaultPath || decodeURI(window.location.pathname);
+    }
+    var valine = new Valine();
+    valine.init(Object.assign({"path":null,"placeholder":"快来评论吧~","appId":null,"appKey":null,"meta":["nick","mail","link"],"requiredFields":["nick","mail"],"enableQQ":true,"recordIP":false,"avatar":"robohash","pageSize":10,"lang":"zh-cn","highlight":true,"mathJax":false}, {
+      el: '#valine_container',
+      path: path,
+      placeholder: pagePlaceholder,
+      emojiCDN: 'https://cdn.jsdelivr.net/gh/volantis-x/cdn-emoji/valine/',
+      emojiMaps: emojiMaps,
+    }))
+  }
+  $(function () {
+    pjax_valine();
+  });
+  volantis.pjax.push(pjax_valine);
+</script>
+
+
+
+
+
+
+  
+<script src="/js/app.js"></script>
+
+
+
+<!-- optional -->
+
+  <script>
+const SearchServiceimagePath="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@master/img/";
+const ROOT =  ("/" || "/").endsWith('/') ? ("/" || "/") : ("//" || "/" );
+
+$('.input.u-search-input').one('focus',function(){
+	
+		loadScript('/js/search/hexo.js',setSearchService);
+	
+})
+
+function listenSearch(){
+  
+    customSearch = new HexoSearch({
+      imagePath: SearchServiceimagePath
+    });
+  
+}
+function setSearchService() {
+	listenSearch();
+	
+}
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@10/build/highlight.min.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+
+<script>
+volantis.pjax.push(()=>{
+	document.querySelectorAll('pre code').forEach((block) => {
+	  hljs.highlightBlock(block);
+	});
+},"highlightjs")
+</script>
+
+
+
+  <script defer>
+
+  const LCCounter = {
+    app_id: 'GCYDRKI6XRkyC7EuEhJv90ia-MdYXbMMI',
+    app_key: '4xKBXGBj6BgecU62vff5rJHs',
+    custom_api_server: '',
+
+    // 查询存储的记录
+    getRecord(Counter, url, title) {
+      return new Promise(function (resolve, reject) {
+        Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({url})))
+          .then(resp => resp.json())
+          .then(({results, code, error}) => {
+            if (code === 401) {
+              throw error;
+            }
+            if (results && results.length > 0) {
+              var record = results[0];
+              resolve(record);
+            } else {
+              Counter('post', '/classes/Counter', {url, title: title, times: 0})
+                .then(resp => resp.json())
+                .then((record, error) => {
+                  if (error) {
+                    throw error;
+                  }
+                  resolve(record);
+                }).catch(error => {
+                console.error('Failed to create', error);
+                reject(error);
+              });
+            }
+          }).catch((error) => {
+          console.error('LeanCloud Counter Error:', error);
+          reject(error);
+        });
+      })
+    },
+
+    // 发起自增请求
+    increment(Counter, incrArr) {
+      return new Promise(function (resolve, reject) {
+        Counter('post', '/batch', {
+          "requests": incrArr
+        }).then((res) => {
+          res = res.json();
+          if (res.error) {
+            throw res.error;
+          }
+          resolve(res);
+        }).catch((error) => {
+          console.error('Failed to save visitor count', error);
+          reject(error);
+        });
+      });
+    },
+
+    // 构建自增请求体
+    buildIncrement(objectId) {
+      return {
+        "method": "PUT",
+        "path": `/1.1/classes/Counter/${ objectId }`,
+        "body": {
+          "times": {
+            '__op': 'Increment',
+            'amount': 1
+          }
+        }
+      }
+    },
+
+    // 校验是否为有效的 UV
+    validUV() {
+      var key = 'LeanCloudUVTimestamp';
+      var flag = localStorage.getItem(key);
+      if (flag) {
+        // 距离标记小于 24 小时则不计为 UV
+        if (new Date().getTime() - parseInt(flag) <= 86400000) {
+          return false;
+        }
+      }
+      localStorage.setItem(key, new Date().getTime().toString());
+      return true;
+    },
+
+    addCount(Counter) {
+      var enableIncr = '' === 'true' && window.location.hostname !== 'localhost';
+      enableIncr = true;
+      var getterArr = [];
+      var incrArr = [];
+      // 请求 PV 并自增
+      var pvCtn = document.querySelector('#lc-sv');
+      if (pvCtn || enableIncr) {
+        var pvGetter = this.getRecord(Counter, 'http://wang-z.gitee.io' + '/#lc-sv', 'Visits').then((record) => {
+          incrArr.push(this.buildIncrement(record.objectId))
+          var eles = document.querySelectorAll('#lc-sv #number');
+          if (eles.length > 0) {
+            eles.forEach((el,index,array)=>{
+              el.innerText = record.times + 1;
+              if (pvCtn) {
+                pvCtn.style.display = 'inline';
+              }
+            })
+          }
+        });
+        getterArr.push(pvGetter);
+      }
+
+      // 请求 UV 并自增
+      var uvCtn = document.querySelector('#lc-uv');
+      if (uvCtn || enableIncr) {
+        var uvGetter = this.getRecord(Counter, 'http://wang-z.gitee.io' + '/#lc-uv', 'Visitors').then((record) => {
+          var vuv = this.validUV();
+          vuv && incrArr.push(this.buildIncrement(record.objectId))
+          var eles = document.querySelectorAll('#lc-uv #number');
+          if (eles.length > 0) {
+            eles.forEach((el,index,array)=>{
+              el.innerText = record.times + (vuv ? 1 : 0);
+              if (uvCtn) {
+                uvCtn.style.display = 'inline';
+              }
+            })
+          }
+        });
+        getterArr.push(uvGetter);
+      }
+
+      // 请求文章的浏览数，如果是当前页面就自增
+      var allPV = document.querySelectorAll('#lc-pv');
+      if (allPV.length > 0 || enableIncr) {
+        for (i = 0; i < allPV.length; i++) {
+          let pv = allPV[i];
+          let title = pv.getAttribute('data-title');
+          var url = 'http://wang-z.gitee.io' + pv.getAttribute('data-path');
+          if (url) {
+            var viewGetter = this.getRecord(Counter, url, title).then((record) => {
+              // 是当前页面就自增
+              let curPath = window.location.pathname;
+              if (curPath.includes('index.html')) {
+                curPath = curPath.substring(0, curPath.lastIndexOf('index.html'));
+              }
+              if (pv.getAttribute('data-path') == curPath) {
+                incrArr.push(this.buildIncrement(record.objectId));
+              }
+              if (pv) {
+                var ele = pv.querySelector('#lc-pv #number');
+                if (ele) {
+                  if (pv.getAttribute('data-path') == curPath) {
+                    ele.innerText = (record.times || 0) + 1;
+                  } else {
+                    ele.innerText = record.times || 0;
+                  }
+                  pv.style.display = 'inline';
+                }
+              }
+            });
+            getterArr.push(viewGetter);
+          }
+        }
+      }
+
+      // 如果启动计数自增，批量发起自增请求
+      if (enableIncr) {
+        Promise.all(getterArr).then(() => {
+          incrArr.length > 0 && this.increment(Counter, incrArr);
+        })
+      }
+
+    },
+
+
+    fetchData(api_server) {
+      var Counter = (method, url, data) => {
+        return fetch(`${ api_server }/1.1${ url }`, {
+          method,
+          headers: {
+            'X-LC-Id': this.app_id,
+            'X-LC-Key': this.app_key,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data)
+        });
+      };
+      this.addCount(Counter);
+    },
+
+    refreshCounter() {
+      var api_server = this.app_id.slice(-9) !== '-MdYXbMMI' ? this.custom_api_server : `https://${ this.app_id.slice(0, 8).toLowerCase() }.api.lncldglobal.com`;
+      if (api_server) {
+        this.fetchData(api_server);
+      } else {
+        fetch('https://app-router.leancloud.cn/2/route?appId=' + this.app_id)
+          .then(resp => resp.json())
+          .then(({api_server}) => {
+            this.fetchData('https://' + api_server);
+          });
+      }
+    }
+
+  };
+
+  LCCounter.refreshCounter();
+
+  document.addEventListener('pjax:complete', function () {
+    LCCounter.refreshCounter();
+  });
+</script>
+
+
+
+
+  <script>
+const rootElement = document.documentElement;
+const darkModeStorageKey = "user-color-scheme";
+const rootElementDarkModeAttributeName = "data-user-color-scheme";
+
+const setLS = (k, v) => {
+    localStorage.setItem(k, v);
+};
+
+const removeLS = (k) => {
+    localStorage.removeItem(k);
+};
+
+const getLS = (k) => {
+    return localStorage.getItem(k);
+};
+
+const getModeFromCSSMediaQuery = () => {
+  return window.matchMedia("(prefers-color-scheme: dark)").matches
+    ? "dark"
+    : "light";
+};
+
+const resetRootDarkModeAttributeAndLS = () => {
+  rootElement.removeAttribute(rootElementDarkModeAttributeName);
+  removeLS(darkModeStorageKey);
+};
+
+const validColorModeKeys = {
+  dark: true,
+  light: true,
+};
+
+const applyCustomDarkModeSettings = (mode) => {
+  const currentSetting = mode || getLS(darkModeStorageKey);
+
+  if (currentSetting === getModeFromCSSMediaQuery()) {
+    resetRootDarkModeAttributeAndLS();
+  } else if (validColorModeKeys[currentSetting]) {
+    rootElement.setAttribute(rootElementDarkModeAttributeName, currentSetting);
+  } else {
+    resetRootDarkModeAttributeAndLS();
+  }
+};
+
+const invertDarkModeObj = {
+  dark: "light",
+  light: "dark",
+};
+
+/**
+ * get target mode
+ */
+const toggleCustomDarkMode = () => {
+  let currentSetting = getLS(darkModeStorageKey);
+
+  if (validColorModeKeys[currentSetting]) {
+    currentSetting = invertDarkModeObj[currentSetting];
+  } else if (currentSetting === null) {
+    currentSetting = invertDarkModeObj[getModeFromCSSMediaQuery()];
+  } else {
+    return;
+  }
+  setLS(darkModeStorageKey, currentSetting);
+  return currentSetting;
+};
+
+/**
+ * bind click event for toggle button
+ */
+var btn=$("#wrapper .toggle-mode-btn,#rightmenu-wrapper .toggle-mode-btn");
+function bindToggleButton() {
+    btn.on('click',(e) => {
+      const mode = toggleCustomDarkMode();
+      applyCustomDarkModeSettings(mode);
+    });
+}
+
+applyCustomDarkModeSettings();
+document.addEventListener("DOMContentLoaded", bindToggleButton);
+volantis.pjax.push(bindToggleButton);
+volantis.pjax.send(()=>{
+	btn.unbind('click');
+},'toggle-mode-btn-unbind');
+</script>
+
+
+
+
+
+
+
+
+<script>
+function listennSidebarTOC() {
+  const navItems = document.querySelectorAll(".toc li");
+  if (!navItems.length) return;
+  const sections = [...navItems].map((element) => {
+    const link = element.querySelector(".toc-link");
+    const target = document.getElementById(
+      decodeURI(link.getAttribute("href")).replace("#", "")
+    );
+    link.addEventListener("click", (event) => {
+      event.preventDefault();
+      window.scrollTo({
+		top: target.offsetTop + 100,
+		
+		behavior: "smooth"
+		
+	  });
+    });
+    return target;
+  });
+
+  function activateNavByIndex(target) {
+    if (target.classList.contains("active-current")) return;
+
+    document.querySelectorAll(".toc .active").forEach((element) => {
+      element.classList.remove("active", "active-current");
+    });
+    target.classList.add("active", "active-current");
+    let parent = target.parentNode;
+    while (!parent.matches(".toc")) {
+      if (parent.matches("li")) parent.classList.add("active");
+      parent = parent.parentNode;
+    }
+  }
+
+  function findIndex(entries) {
+    let index = 0;
+    let entry = entries[index];
+    if (entry.boundingClientRect.top > 0) {
+      index = sections.indexOf(entry.target);
+      return index === 0 ? 0 : index - 1;
+    }
+    for (; index < entries.length; index++) {
+      if (entries[index].boundingClientRect.top <= 0) {
+        entry = entries[index];
+      } else {
+        return sections.indexOf(entry.target);
+      }
+    }
+    return sections.indexOf(entry.target);
+  }
+
+  function createIntersectionObserver(marginTop) {
+    marginTop = Math.floor(marginTop + 10000);
+    let intersectionObserver = new IntersectionObserver(
+      (entries, observe) => {
+        let scrollHeight = document.documentElement.scrollHeight + 100;
+        if (scrollHeight > marginTop) {
+          observe.disconnect();
+          createIntersectionObserver(scrollHeight);
+          return;
+        }
+        let index = findIndex(entries);
+        activateNavByIndex(navItems[index]);
+      },
+      {
+        rootMargin: marginTop + "px 0px -100% 0px",
+        threshold: 0,
+      }
+    );
+    sections.forEach((element) => {
+      element && intersectionObserver.observe(element);
+    });
+  }
+  createIntersectionObserver(document.documentElement.scrollHeight);
+}
+
+document.addEventListener("DOMContentLoaded", listennSidebarTOC);
+document.addEventListener("pjax:success", listennSidebarTOC);
+</script>
+
+<!-- more -->
+
+ 
+	   
+	    
+
+
+<script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.min.js"></script>
+
+
+<script>
+    var pjax;
+    document.addEventListener('DOMContentLoaded', function () {
+      pjax = new Pjax({
+        elements: 'a[href]:not([href^="#"]):not([href="javascript:void(0)"]):not([pjax-fancybox])',
+        selectors: [
+          "title",
+          
+          "#pjax-container",
+          "#pjax-header-nav-list"
+        ],
+        cacheBust: false,   // url 地址追加时间戳，用以避免浏览器缓存
+        timeout: 5000
+      });
+    });
+
+    document.addEventListener('pjax:send', function (e) {
+      //window.stop(); // 相当于点击了浏览器的停止按钮
+
+      try {
+        var currentUrl = window.location.pathname;
+        var targetUrl = e.triggerElement.href;
+        var banUrl = [""];
+        if (banUrl[0] != "") {
+          banUrl.forEach(item => {
+            if(currentUrl.indexOf(item) != -1 || targetUrl.indexOf(item) != -1) {
+              window.location.href = targetUrl;
+            }
+          });
+        }
+      } catch (error) {}
+
+      window.subData = null; // 移除标题（用于一二级导航栏切换处）
+
+      volantis.$switcher.removeClass('active'); // 关闭移动端激活的搜索框
+      volantis.$header.removeClass('z_search-open'); // 关闭移动端激活的搜索框
+      volantis.$wrapper.removeClass('sub'); // 跳转页面时关闭二级导航
+
+      // 解绑事件 避免重复监听
+      volantis.$topBtn.unbind('click');
+      $('.menu a').unbind('click');
+      $(window).unbind('resize');
+      $(window).unbind('scroll');
+      $(document).unbind('scroll');
+      $(document).unbind('click');
+      $('body').unbind('click');
+	  // 使用 volantis.pjax.send 方法传入pjax:send回调函数 参见layout/_partial/scripts/global.ejs
+	  volantis.pjax.method.send.start();
+    });
+
+    document.addEventListener('pjax:complete', function () {
+      $('.nav-main').find('.list-v').not('.menu-phone').removeAttr("style",""); // 移除小尾巴的移除
+      $('.menu-phone.list-v').removeAttr("style",""); // 移除小尾巴的移除
+      $('script[data-pjax], .pjax-reload script').each(function () {
+        $(this).parent().append($(this).remove());
+      });
+      try{
+		// 使用 volantis.pjax.push 方法传入重载函数 参见layout/_partial/scripts/global.ejs
+		volantis.pjax.method.complete.start();
+      } catch (e) {
+        console.log(e);
+      }
+    });
+
+    document.addEventListener('pjax:error', function (e) {
+	  // 使用 volantis.pjax.error 方法传入pjax:error回调函数 参见layout/_partial/scripts/global.ejs
+	  volantis.pjax.method.error.start();
+      window.location.href = e.triggerElement.href;
+    });
+</script>
+ 
+	  
+    </div>
+  </body>
+</html>
