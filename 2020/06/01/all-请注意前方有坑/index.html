@@ -579,7 +579,14 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <p>解决方法：数字类型转化为字符串</p>
 <h2 id="骚操作-如何一句话让你页面可编辑"><a href="#骚操作-如何一句话让你页面可编辑" class="headerlink" title="骚操作-如何一句话让你页面可编辑"></a>骚操作-如何一句话让你页面可编辑</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">document</span>.body.contentEditable=<span class="literal">true</span></span><br></pre></td></tr></table></figure>
 
-<h2 id="nuxt开发使用第三方库（less）默认最新版本8（目前），在npm-run-时报错找不到less-loader"><a href="#nuxt开发使用第三方库（less）默认最新版本8（目前），在npm-run-时报错找不到less-loader" class="headerlink" title="nuxt开发使用第三方库（less）默认最新版本8（目前），在npm run 时报错找不到less-loader"></a>nuxt开发使用第三方库（less）默认最新版本8（目前），在npm run 时报错找不到less-loader</h2>
+<h2 id="windows和mac换行符不一样的原因导致很多警告"><a href="#windows和mac换行符不一样的原因导致很多警告" class="headerlink" title="windows和mac换行符不一样的原因导致很多警告"></a>windows和mac换行符不一样的原因导致很多警告</h2><p>git的问题，默认情况下，Windows上pull的时候会自动把LF转换成CRLF，然后push 的时候CRLF会转会LF，所以要么关闭git的这个自动转换，要么prettier改一下换行符的配置</p>
+<p>执行了git config –global core.autocrlf false命令，重新clone项目</p>
+<h2 id="fetch请求本地json"><a href="#fetch请求本地json" class="headerlink" title="fetch请求本地json"></a>fetch请求本地json</h2><blockquote>
+<p>请求本地json 需要进行res.json 会返回一个promise 在then后返回就是数据</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">fetch(<span class="string">&quot;./bar.json&quot;</span>)</span><br><span class="line">        .then(<span class="function">(<span class="params">res</span>) =&gt;</span> res.json())</span><br><span class="line">        .then(<span class="function">(<span class="params">data</span>) =&gt;</span> &#123;</span><br><span class="line">          <span class="built_in">console</span>.log(data);</span><br><span class="line">        &#125;);</span><br></pre></td></tr></table></figure>
+
+
   
   
     
@@ -613,10 +620,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-04-13T11:51:00+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-09-07T15:00:12+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
-    <p>本页文档最后更新于：2021年4月13日</p>
+    <p>本页文档最后更新于：2021年9月7日</p>
   </a>
 </div>
 
@@ -727,7 +734,8 @@ class 类方法的使用
 
 
 
-技巧及有趣的方法提供 function 给外部调用123456789window.init =...</p>
+技巧及有趣的方法js判断
+instanceof运算符用来判断一个构造函数的prototype属...</p>
         </a>
       
     </div>
@@ -772,7 +780,7 @@ class 类方法的使用
 
 
     <div class='content'>
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#axios%E8%AF%B7%E6%B1%82%E6%80%BB%E6%98%AF%E8%B7%A8%E5%9F%9F%E6%80%8E%E4%B9%88%E5%8A%9E%EF%BC%9F"><span class="toc-text">axios请求总是跨域怎么办？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%98%9F%E5%8F%8B%E4%B8%8D%E9%85%8D%E5%90%88%E5%AD%98%E5%82%A8%E4%B8%8D%E4%B8%80%E8%87%B4localStorage"><span class="toc-text">队友不配合存储不一致localStorage</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Math-round%EF%BC%88%E5%9B%9B%E8%88%8D%E4%BA%94%E5%85%A5%EF%BC%89%EF%BC%88%E8%B4%9F%E6%95%B0%EF%BC%89"><span class="toc-text">Math.round（四舍五入）（负数）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%AB%E5%BF%BD%E7%95%A5parseInt%E7%9A%84%E7%AC%AC%E4%BA%8C%E4%B8%AA%E5%8F%82%E6%95%B0"><span class="toc-text">别忽略parseInt的第二个参数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%8D%E8%A6%81%E7%9B%B8%E4%BF%A1%E6%B5%8F%E8%A7%88%E5%99%A8%E7%9A%84%E6%89%93%E5%8D%B0"><span class="toc-text">不要相信浏览器的打印</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%AA%9A%E6%93%8D%E4%BD%9C-%E5%A6%82%E4%BD%95%E4%B8%80%E5%8F%A5%E8%AF%9D%E8%AE%A9%E4%BD%A0%E9%A1%B5%E9%9D%A2%E5%8F%AF%E7%BC%96%E8%BE%91"><span class="toc-text">骚操作-如何一句话让你页面可编辑</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#nuxt%E5%BC%80%E5%8F%91%E4%BD%BF%E7%94%A8%E7%AC%AC%E4%B8%89%E6%96%B9%E5%BA%93%EF%BC%88less%EF%BC%89%E9%BB%98%E8%AE%A4%E6%9C%80%E6%96%B0%E7%89%88%E6%9C%AC8%EF%BC%88%E7%9B%AE%E5%89%8D%EF%BC%89%EF%BC%8C%E5%9C%A8npm-run-%E6%97%B6%E6%8A%A5%E9%94%99%E6%89%BE%E4%B8%8D%E5%88%B0less-loader"><span class="toc-text">nuxt开发使用第三方库（less）默认最新版本8（目前），在npm run 时报错找不到less-loader</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#axios%E8%AF%B7%E6%B1%82%E6%80%BB%E6%98%AF%E8%B7%A8%E5%9F%9F%E6%80%8E%E4%B9%88%E5%8A%9E%EF%BC%9F"><span class="toc-text">axios请求总是跨域怎么办？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%98%9F%E5%8F%8B%E4%B8%8D%E9%85%8D%E5%90%88%E5%AD%98%E5%82%A8%E4%B8%8D%E4%B8%80%E8%87%B4localStorage"><span class="toc-text">队友不配合存储不一致localStorage</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Math-round%EF%BC%88%E5%9B%9B%E8%88%8D%E4%BA%94%E5%85%A5%EF%BC%89%EF%BC%88%E8%B4%9F%E6%95%B0%EF%BC%89"><span class="toc-text">Math.round（四舍五入）（负数）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%AB%E5%BF%BD%E7%95%A5parseInt%E7%9A%84%E7%AC%AC%E4%BA%8C%E4%B8%AA%E5%8F%82%E6%95%B0"><span class="toc-text">别忽略parseInt的第二个参数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%8D%E8%A6%81%E7%9B%B8%E4%BF%A1%E6%B5%8F%E8%A7%88%E5%99%A8%E7%9A%84%E6%89%93%E5%8D%B0"><span class="toc-text">不要相信浏览器的打印</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%AA%9A%E6%93%8D%E4%BD%9C-%E5%A6%82%E4%BD%95%E4%B8%80%E5%8F%A5%E8%AF%9D%E8%AE%A9%E4%BD%A0%E9%A1%B5%E9%9D%A2%E5%8F%AF%E7%BC%96%E8%BE%91"><span class="toc-text">骚操作-如何一句话让你页面可编辑</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#windows%E5%92%8Cmac%E6%8D%A2%E8%A1%8C%E7%AC%A6%E4%B8%8D%E4%B8%80%E6%A0%B7%E7%9A%84%E5%8E%9F%E5%9B%A0%E5%AF%BC%E8%87%B4%E5%BE%88%E5%A4%9A%E8%AD%A6%E5%91%8A"><span class="toc-text">windows和mac换行符不一样的原因导致很多警告</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#fetch%E8%AF%B7%E6%B1%82%E6%9C%AC%E5%9C%B0json"><span class="toc-text">fetch请求本地json</span></a></li></ol>
     </div>
   </section>
 
@@ -1890,5 +1898,5 @@ document.addEventListener("pjax:success", listennSidebarTOC);
  
 	  
     </div>
-  </body>
+  <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
 </html>
