@@ -5,8 +5,6 @@
   <!-- SEO相关 -->
   
     
-      <meta name="robots" content="noindex,follow">
-    
   
   <!-- 渲染优化 -->
   <meta http-equiv='x-dns-prefetch-control' content='on' />
@@ -24,9 +22,15 @@
 
   <!-- 页面元数据 -->
   
-  <title>标签：this - Mr.wang&#39;blog</title>
+  <title>能用代码解决的千万别复制粘贴 - Mr.wang&#39;blog</title>
+  
+    <meta name="keywords" content="javascript">
   
 
+  
+    <meta name="description" content="
+记录开发中的使用 js 减少重复操作的优良代码
+">
   
 
   <!-- feed -->
@@ -418,7 +422,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       <div id="l_cover">
   
     
-        <div id="half" class='cover-wrapper  dock' style="display: ;">
+        <div id="half" class='cover-wrapper post dock' style="display: ;">
           
             <div id='cover-backstretch'></div>
           
@@ -467,236 +471,276 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
         <div class="body-wrapper" id="pjax-container">
           
 
-
 <div class='l_main'>
+  <article class="article post white-box reveal md shadow article-type-post" id="post" itemscope itemprop="blogPost">
   
+
+
+  
+  <div class="article-meta" id="top">
     
-      
-  <section class="post-list">
     
-      
+    
+      <h1 class="title">
+        能用代码解决的千万别复制粘贴
+      </h1>
+      <div class='new-meta-box'>
         
           
+            
+<div class='new-meta-item author'>
+  <a class='author' target="_blank" href="https://github.com/volantis-x/" rel="nofollow noopener">
+    <img no-lazy src="https://wang-z.gitee.io/img/author.jpg">
+    <p>Mr.wang</p>
+  </a>
+</div>
+
+          
         
-      
-    
-    
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/2019/06/02/js-this%E6%8C%87%E5%90%91/">
-        this指向
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      <blockquote>
-<p>js函数中的this指向及call apply bind对于this的改变</p>
-</blockquote>
-    
+          
+            
+  <div class='new-meta-item category'>
+    <a class='notlink'>
+      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
+      <a class="category-link" href="/categories/javascript/">javascript</a>
+    </a>
   </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
+
+
+          
         
           
-          <a class='avatar' target="_blank" rel="noopener" href='https://github.com/volantis-x/'><img src='https://wang-z.gitee.io/img/author.jpg'></a>
+            <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：2021年9月22日</p>
+  </a>
+</div>
+
+          
         
-        <time>2019-06-02</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/javascript/">javascript</a>
+          
+            
+  <div class="new-meta-item browse leancloud">
+    <a class='notlink'>
+      
+      <div id="lc-pv" data-title="能用代码解决的千万别复制粘贴" data-path="/2021/09/22/js-%E8%83%BD%E7%94%A8%E4%BB%A3%E7%A0%81%E8%A7%A3%E5%86%B3%E7%9A%84%E5%8D%83%E4%B8%87%E5%88%AB%E5%A4%8D%E5%88%B6%E7%B2%98%E8%B4%B4/">
+        <i class="fas fa-eye fa-fw" aria-hidden="true"></i>
+        <span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
+        次浏览
+      </div>
+    </a>
+  </div>
+
+
+          
         
       </div>
+    
+  </div>
+
+
+  
+  
+  <blockquote>
+<p>记录开发中的使用 js 减少重复操作的优良代码</p>
+</blockquote>
+<span id="more"></span>
+
+<h2 id="生成有序数组"><a href="#生成有序数组" class="headerlink" title="生成有序数组"></a>生成有序数组</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">orderedArray=<span class="function">(<span class="params">n</span>)=&gt;</span>[...new <span class="built_in">Array</span>(n).keys()] </span><br><span class="line">orderedArray(<span class="number">10</span>) <span class="comment">//[0, 1, 2, 3, 4, 5, 6, 7, 8, 9</span></span><br><span class="line">orderedArray(<span class="number">6</span>).map(<span class="function"><span class="params">i</span>=&gt;</span>i+<span class="number">4</span>) <span class="comment">//[4, 5, 6, 7, 8, 9]</span></span><br><span class="line">orderedArray(<span class="number">6</span>).map(<span class="function"><span class="params">i</span>=&gt;</span>(i+<span class="number">1</span>)*<span class="number">4</span>)<span class="comment">//[4, 8, 12, 16, 20, 24]</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="计算对象-每个值得长度"><a href="#计算对象-每个值得长度" class="headerlink" title="计算对象+=每个值得长度"></a>计算对象+=每个值得长度</h2><blockquote>
+<p>中英文都计算为一个字符长度</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> test = &#123; <span class="attr">a</span>: <span class="string">&quot;hhh&quot;</span>, <span class="attr">dd</span>: <span class="string">&quot;ddd&quot;</span>, <span class="attr">e</span>: &#123; <span class="attr">f</span>: <span class="string">&quot;哈哈哈&quot;</span> &#125; &#125;;</span><br><span class="line"><span class="keyword">let</span> length = <span class="number">0</span>;</span><br><span class="line">stringLength = <span class="function">(<span class="params">val</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">const</span> key <span class="keyword">in</span> val) &#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">typeof</span> val[key] == <span class="string">&quot;object&quot;</span>) &#123;</span><br><span class="line">      stringLength(val[key]);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      length += val[key].length;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line">stringLength(test);</span><br><span class="line"><span class="built_in">console</span>.log(length);</span><br></pre></td></tr></table></figure>
+
+<h2 id="对象转为-table-显示的树状带-children-结构（可能带-bug）"><a href="#对象转为-table-显示的树状带-children-结构（可能带-bug）" class="headerlink" title="对象转为 table 显示的树状带 children 结构（可能带 bug）"></a>对象转为 table 显示的树状带 children 结构（可能带 bug）</h2><blockquote>
+<p>data 测试数据集合</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  a: <span class="number">1</span>,</span><br><span class="line">  b: &#123;</span><br><span class="line">    c: <span class="number">2</span></span><br><span class="line">  &#125;,</span><br><span class="line">  d: [&#123; <span class="attr">e</span>: <span class="number">5</span> &#125;]</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>index.js</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> data = <span class="built_in">require</span>(<span class="string">&quot;./data.js&quot;</span>);</span><br><span class="line"><span class="keyword">let</span> emun = &#123;<span class="attr">id</span>:<span class="string">&#x27;&#x27;</span>,<span class="attr">describe</span>:<span class="string">&#x27;&#x27;</span>,<span class="attr">must</span>:<span class="string">&quot;是&quot;</span>&#125;</span><br><span class="line"> <span class="keyword">let</span> keyWord = <span class="string">&#x27;filed&#x27;</span></span><br><span class="line"> <span class="keyword">let</span> strType = <span class="string">&#x27;type&#x27;</span></span><br><span class="line"> <span class="keyword">let</span> typeEmun = &#123;</span><br><span class="line">   <span class="string">&#x27;number&#x27;</span>:<span class="string">&#x27;NUMBER&#x27;</span>,</span><br><span class="line">   <span class="string">&#x27;string&#x27;</span>:<span class="string">&#x27;STRING&#x27;</span>,</span><br><span class="line">   <span class="string">&#x27;boolean&#x27;</span>:<span class="string">&#x27;BOOLEAN&#x27;</span>,</span><br><span class="line">   <span class="string">&#x27;object&#x27;</span>:<span class="string">&#x27;LIST OBJECT&#x27;</span></span><br><span class="line"> &#125;</span><br><span class="line"> <span class="keyword">let</span> count = <span class="number">0</span></span><br><span class="line"> <span class="keyword">let</span> output = []</span><br><span class="line"> <span class="function"><span class="keyword">function</span> <span class="title">coverData</span>(<span class="params">data,output</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">let</span> d <span class="keyword">in</span> data)&#123;</span><br><span class="line">        <span class="keyword">if</span>(<span class="keyword">typeof</span> data[d] !=<span class="string">&#x27;object&#x27;</span>)&#123;</span><br><span class="line">            output.push(yuansu(d,data[d]))</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="keyword">let</span> temp = yuansu(d,data[d])</span><br><span class="line">            temp.children=[]</span><br><span class="line">           <span class="keyword">let</span> index = output.push(temp)</span><br><span class="line">           <span class="keyword">if</span>(data[d] <span class="keyword">instanceof</span> <span class="built_in">Array</span> &amp;&amp;data[d].length==<span class="number">1</span>)&#123;</span><br><span class="line">            coverData(data[d][<span class="number">0</span>],output[index-<span class="number">1</span>][<span class="string">&#x27;children&#x27;</span>])</span><br><span class="line">           &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            coverData(data[d],output[index-<span class="number">1</span>][<span class="string">&#x27;children&#x27;</span>])</span><br><span class="line">           &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"> &#125;</span><br><span class="line"> <span class="function"><span class="keyword">function</span> <span class="title">yuansu</span>(<span class="params">d,data</span>)</span>&#123;</span><br><span class="line">        count++;</span><br><span class="line">        emun.id = count</span><br><span class="line">        <span class="keyword">let</span> temp = <span class="built_in">JSON</span>.parse(<span class="built_in">JSON</span>.stringify(emun))</span><br><span class="line">        temp[keyWord] = d</span><br><span class="line">        temp[strType] = typeEmun[<span class="keyword">typeof</span> data]</span><br><span class="line">        <span class="keyword">return</span> temp</span><br><span class="line"> &#125;</span><br><span class="line">coverData(data,output)</span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">JSON</span>.stringify(output))</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>输出</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">[</span><br><span class="line">  &#123; <span class="attr">id</span>: <span class="number">1</span>, <span class="attr">describe</span>: <span class="string">&quot;&quot;</span>, <span class="attr">must</span>: <span class="string">&quot;是&quot;</span>, <span class="attr">filed</span>: <span class="string">&quot;a&quot;</span>, <span class="attr">type</span>: <span class="string">&quot;NUMBER&quot;</span> &#125;,</span><br><span class="line">  &#123;</span><br><span class="line">    id: <span class="number">2</span>,</span><br><span class="line">    describe: <span class="string">&quot;&quot;</span>,</span><br><span class="line">    must: <span class="string">&quot;是&quot;</span>,</span><br><span class="line">    filed: <span class="string">&quot;b&quot;</span>,</span><br><span class="line">    type: <span class="string">&quot;LIST OBJECT&quot;</span>,</span><br><span class="line">    children: [&#123; <span class="attr">id</span>: <span class="number">3</span>, <span class="attr">describe</span>: <span class="string">&quot;&quot;</span>, <span class="attr">must</span>: <span class="string">&quot;是&quot;</span>, <span class="attr">filed</span>: <span class="string">&quot;c&quot;</span>, <span class="attr">type</span>: <span class="string">&quot;NUMBER&quot;</span> &#125;]</span><br><span class="line">  &#125;,</span><br><span class="line">  &#123;</span><br><span class="line">    id: <span class="number">4</span>,</span><br><span class="line">    describe: <span class="string">&quot;&quot;</span>,</span><br><span class="line">    must: <span class="string">&quot;是&quot;</span>,</span><br><span class="line">    filed: <span class="string">&quot;d&quot;</span>,</span><br><span class="line">    type: <span class="string">&quot;LIST OBJECT&quot;</span>,</span><br><span class="line">    children: [&#123; <span class="attr">id</span>: <span class="number">5</span>, <span class="attr">describe</span>: <span class="string">&quot;&quot;</span>, <span class="attr">must</span>: <span class="string">&quot;是&quot;</span>, <span class="attr">filed</span>: <span class="string">&quot;e&quot;</span>, <span class="attr">type</span>: <span class="string">&quot;NUMBER&quot;</span> &#125;]</span><br><span class="line">  &#125;</span><br><span class="line">];</span><br></pre></td></tr></table></figure>
+
+  
+  
+    
+    <div class='footer'>
       
-        <div>
-          <a class='readmore' href='/2019/06/02/js-this%E6%8C%87%E5%90%91/'>
-            阅读全文
-          </a>
+      
+      
+        <div class='copyright'>
+          <blockquote>
+            
+              
+                <p>博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</p>
+
+              
+            
+              
+                <p>本文永久链接是：<a href=http://wang-z.gitee.io/2021/09/22/js-%E8%83%BD%E7%94%A8%E4%BB%A3%E7%A0%81%E8%A7%A3%E5%86%B3%E7%9A%84%E5%8D%83%E4%B8%87%E5%88%AB%E5%A4%8D%E5%88%B6%E7%B2%98%E8%B4%B4/>http://wang-z.gitee.io/2021/09/22/js-%E8%83%BD%E7%94%A8%E4%BB%A3%E7%A0%81%E8%A7%A3%E5%86%B3%E7%9A%84%E5%8D%83%E4%B8%87%E5%88%AB%E5%A4%8D%E5%88%B6%E7%B2%98%E8%B4%B4/</a></p>
+              
+            
+          </blockquote>
         </div>
+      
       
     </div>
   
+  
+    
 
+
+  <div class='article-meta' id="bottom">
+    <div class='new-meta-box'>
+      
+        
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-11-12T14:53:14+08:00">
+  <a class='notlink'>
+    <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
+    <p>本页文档最后更新于：2021年11月12日</p>
+  </a>
 </div>
 
-          </div>
         
       
-    
-  </section>
+        
+          
   
-    
-  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/javascript/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>javascript</p></a></div>
 
 
+        
+      
+        
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
     
+      
+        <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://wang-z.gitee.io/2021/09/22/js-%E8%83%BD%E7%94%A8%E4%BB%A3%E7%A0%81%E8%A7%A3%E5%86%B3%E7%9A%84%E5%8D%83%E4%B8%87%E5%88%AB%E5%A4%8D%E5%88%B6%E7%B2%98%E8%B4%B4/&title=能用代码解决的千万别复制粘贴 - Mr.wang'blog&summary=
+记录开发中的使用 js 减少重复操作的优良代码
+"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://wang-z.gitee.io/2021/09/22/js-%E8%83%BD%E7%94%A8%E4%BB%A3%E7%A0%81%E8%A7%A3%E5%86%B3%E7%9A%84%E5%8D%83%E4%B8%87%E5%88%AB%E5%A4%8D%E5%88%B6%E7%B2%98%E8%B4%B4/&title=能用代码解决的千万别复制粘贴 - Mr.wang'blog&summary=
+记录开发中的使用 js 减少重复操作的优良代码
+"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="http://service.weibo.com/share/share.php?url=http://wang-z.gitee.io/2021/09/22/js-%E8%83%BD%E7%94%A8%E4%BB%A3%E7%A0%81%E8%A7%A3%E5%86%B3%E7%9A%84%E5%8D%83%E4%B8%87%E5%88%AB%E5%A4%8D%E5%88%B6%E7%B2%98%E8%B4%B4/&title=能用代码解决的千万别复制粘贴 - Mr.wang'blog&summary=
+记录开发中的使用 js 减少重复操作的优良代码
+"
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+          
+        </a>
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+
+
+        
+      
+    </div>
+  </div>
+
+
   
+  
+
+  
+    <div class="prev-next">
+      
+      
+        <a class='next' href='/2021/04/12/hexo-%E5%A6%82%E4%BD%95%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2/'>
+          <p class='title'>如何搭建博客<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+          <p class='content'>
+讲述搭建博客的一切
+Hexo 是一个快速、简洁且高效的博客框架。
+
+
+作为一位前端开发者，我了解到的静态博客其实际是一份 html，hexo 使用 Markdown（或其他渲染引擎）解析文章，...</p>
+        </a>
+      
+    </div>
+  
+</article>
+
+
+  
+
+  <article class="post white-box reveal shadow" id="comments">
+    <p ct><i class='fas fa-comments'></i> 评论</p>
+    
+    <div id="valine_container" class="valine_thread">
+  <i class="fas fa-cog fa-spin fa-fw fa-2x"></i>
+</div>
+
+  </article>
+
+
+
+
+
+
 </div>
 <aside class='l_side'>
   
   
-    
-    
-
-<section class="widget blogger shadow desktop mobile">
-  <div class='content'>
-    
-      
-        <a class='avatar flat-box rectangle' href='/about/'>
-          <img no-lazy src='https://wang-z.gitee.io/img/author.jpg'/>
-        </a>
-      
-    
-    
-      <div class='text'>
-        
-        
-        
-          <p><span id="jinrishici-sentence">Mr.wang'blog</span></p>
-          <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
-        
-      </div>
-    
-    
-  </div>
-</section>
-
-  
 
   
     
     
-  
 
-  <section class="widget category shadow desktop">
+
+
+  <section class="widget toc-wrapper shadow desktop mobile" id="toc-div" >
     
   <header>
     
-      <a href='/blog/categories/'><i class="fas fa-folder-open fa-fw" aria-hidden="true"></i><span class='name'>文章分类</span></a>
+      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
     
   </header>
 
 
     <div class='content'>
-      <ul class="entry navigation">
-        
-          <li><a class="flat-box"
-            title="/categories/Regexp/" href="/categories/Regexp/"
-            id="categoriesRegexp"
-            ><div class='name'>Regexp</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/UI/" href="/categories/UI/"
-            id="categoriesUI"
-            ><div class='name'>UI</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/ajax/" href="/categories/ajax/"
-            id="categoriesajax"
-            ><div class='name'>ajax</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/app/" href="/categories/app/"
-            id="categoriesapp"
-            ><div class='name'>app</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/base/" href="/categories/base/"
-            id="categoriesbase"
-            ><div class='name'>base</div><div class='badge'>(3)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/css/" href="/categories/css/"
-            id="categoriescss"
-            ><div class='name'>css</div><div class='badge'>(4)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/git/" href="/categories/git/"
-            id="categoriesgit"
-            ><div class='name'>git</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/hexo/" href="/categories/hexo/"
-            id="categorieshexo"
-            ><div class='name'>hexo</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/html/" href="/categories/html/"
-            id="categorieshtml"
-            ><div class='name'>html</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/https/" href="/categories/https/"
-            id="categorieshttps"
-            ><div class='name'>https</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/javascript/" href="/categories/javascript/"
-            id="categoriesjavascript"
-            ><div class='name'>javascript</div><div class='badge'>(13)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/mysql/" href="/categories/mysql/"
-            id="categoriesmysql"
-            ><div class='name'>mysql</div><div class='badge'>(2)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/node/" href="/categories/node/"
-            id="categoriesnode"
-            ><div class='name'>node</div><div class='badge'>(4)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/npm/" href="/categories/npm/"
-            id="categoriesnpm"
-            ><div class='name'>npm</div><div class='badge'>(2)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/typescript/" href="/categories/typescript/"
-            id="categoriestypescript"
-            ><div class='name'>typescript</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/vue/" href="/categories/vue/"
-            id="categoriesvue"
-            ><div class='name'>vue</div><div class='badge'>(12)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/webpack/" href="/categories/webpack/"
-            id="categorieswebpack"
-            ><div class='name'>webpack</div><div class='badge'>(1)</div></a></li>
-        
-      </ul>
-    </div>
-  </section>
-
-
-  
-
-  
-    
-    
-  
-
-  <section class="widget tagcloud shadow desktop mobile">
-    
-  <header>
-    
-      <a href='/blog/tags/'><i class="fas fa-tags fa-fw" aria-hidden="true"></i><span class='name'>热门标签</span></a>
-    
-  </header>
-
-
-    <div class='content'>
-      <a href="/tags/Es6/" style="font-size: 14px; color: #999">Es6</a> <a href="/tags/Google/" style="font-size: 16px; color: #8b8b8b">Google</a> <a href="/tags/Typora/" style="font-size: 16px; color: #8b8b8b">Typora</a> <a href="/tags/UA/" style="font-size: 14px; color: #999">UA</a> <a href="/tags/UI/" style="font-size: 14px; color: #999">UI</a> <a href="/tags/ajax/" style="font-size: 14px; color: #999">ajax</a> <a href="/tags/app/" style="font-size: 14px; color: #999">app</a> <a href="/tags/css/" style="font-size: 18px; color: #7e7e7e">css</a> <a href="/tags/elementUI/" style="font-size: 14px; color: #999">elementUI</a> <a href="/tags/function/" style="font-size: 14px; color: #999">function</a> <a href="/tags/git/" style="font-size: 14px; color: #999">git</a> <a href="/tags/hexo/" style="font-size: 14px; color: #999">hexo</a> <a href="/tags/html/" style="font-size: 14px; color: #999">html</a> <a href="/tags/http/" style="font-size: 16px; color: #8b8b8b">http</a> <a href="/tags/https/" style="font-size: 14px; color: #999">https</a> <a href="/tags/javascript/" style="font-size: 24px; color: #555">javascript</a> <a href="/tags/koa2/" style="font-size: 14px; color: #999">koa2</a> <a href="/tags/moblie/" style="font-size: 14px; color: #999">moblie</a> <a href="/tags/mysql/" style="font-size: 16px; color: #8b8b8b">mysql</a> <a href="/tags/node/" style="font-size: 20px; color: #707070">node</a> <a href="/tags/npm/" style="font-size: 16px; color: #8b8b8b">npm</a> <a href="/tags/pc/" style="font-size: 14px; color: #999">pc</a> <a href="/tags/rule/" style="font-size: 14px; color: #999">rule</a> <a href="/tags/this/" style="font-size: 14px; color: #999">this</a> <a href="/tags/typescript/" style="font-size: 14px; color: #999">typescript</a> <a href="/tags/vsc/" style="font-size: 14px; color: #999">vsc</a> <a href="/tags/vue/" style="font-size: 22px; color: #636363">vue</a> <a href="/tags/vue%EF%BC%8Cvue-cli/" style="font-size: 14px; color: #999">vue，vue-cli</a> <a href="/tags/web/" style="font-size: 14px; color: #999">web</a> <a href="/tags/webpack/" style="font-size: 14px; color: #999">webpack</a> <a href="/tags/window/" style="font-size: 14px; color: #999">window</a>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%94%9F%E6%88%90%E6%9C%89%E5%BA%8F%E6%95%B0%E7%BB%84"><span class="toc-text">生成有序数组</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%A1%E7%AE%97%E5%AF%B9%E8%B1%A1-%E6%AF%8F%E4%B8%AA%E5%80%BC%E5%BE%97%E9%95%BF%E5%BA%A6"><span class="toc-text">计算对象+&#x3D;每个值得长度</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AF%B9%E8%B1%A1%E8%BD%AC%E4%B8%BA-table-%E6%98%BE%E7%A4%BA%E7%9A%84%E6%A0%91%E7%8A%B6%E5%B8%A6-children-%E7%BB%93%E6%9E%84%EF%BC%88%E5%8F%AF%E8%83%BD%E5%B8%A6-bug%EF%BC%89"><span class="toc-text">对象转为 table 显示的树状带 children 结构（可能带 bug）</span></a></li></ol>
     </div>
   </section>
 
@@ -709,14 +753,15 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 </aside>
 
 
+
 		  
 		  <!--此文件用来存放一些不方便取值的变量-->
 <!--思路大概是将值藏到重加载的区域内-->
 
 <script>
   window.pdata={}
-  pdata.ispage=false;
-  pdata.postTitle="";
+  pdata.ispage=true;
+  pdata.postTitle="能用代码解决的千万别复制粘贴";
   pdata.commentPath="";
   pdata.commentPlaceholder="";
   // header 这里无论是否开启pjax都需要

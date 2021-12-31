@@ -29,7 +29,7 @@
 
   
     <meta name="description" content="
-AJAX的基本请求方式
+AJAX 的基本请求方式
 ">
   
 
@@ -543,19 +543,27 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
   
   <blockquote>
-<p>AJAX的基本请求方式</p>
+<p>AJAX 的基本请求方式</p>
 </blockquote>
 <span id="more"></span>
 
 <h2 id="AJAX"><a href="#AJAX" class="headerlink" title="AJAX"></a>AJAX</h2><p>一种异步数据交互技术</p>
 <p>解决的问题： 提高用户的体验</p>
-<p>现在开发里面，使用ajax实现前后端的完全分离开发</p>
-<p>ajax使用的四个步骤</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 1 创建异步对象</span></span><br><span class="line"><span class="keyword">var</span> xhr = <span class="keyword">new</span> XMLHttpRequest();</span><br><span class="line"><span class="comment">// 2 指定请求的方式和请求的地址</span></span><br><span class="line">xhr.open(请求方式,目标地址);</span><br><span class="line"><span class="comment">// 3 发送请求</span></span><br><span class="line">xhr.send();</span><br><span class="line"><span class="comment">// 4 注册状态变化的监听(事件)</span></span><br><span class="line">xhr.onreadystatechange = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="comment">// 关注最终的结果</span></span><br><span class="line">  <span class="keyword">if</span>(xhr.readyState == <span class="number">4</span> &amp;&amp; xhr.status == <span class="number">200</span>)&#123;</span><br><span class="line">    <span class="comment">//把响应体获取</span></span><br><span class="line">    <span class="built_in">console</span>.log(xhr.responseText);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>现在开发里面，使用 ajax 实现前后端的完全分离开发</p>
+<p>ajax 使用的四个步骤</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 1 创建异步对象</span></span><br><span class="line"><span class="keyword">var</span> xhr = <span class="keyword">new</span> XMLHttpRequest();</span><br><span class="line"><span class="comment">// 2 指定请求的方式和请求的地址</span></span><br><span class="line">xhr.open(请求方式, 目标地址);</span><br><span class="line"><span class="comment">// 3 发送请求</span></span><br><span class="line">xhr.send();</span><br><span class="line"><span class="comment">// 4 注册状态变化的监听(事件)</span></span><br><span class="line">xhr.onreadystatechange = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="comment">// 关注最终的结果</span></span><br><span class="line">  <span class="keyword">if</span> (xhr.readyState == <span class="number">4</span> &amp;&amp; xhr.status == <span class="number">200</span>) &#123;</span><br><span class="line">    <span class="comment">//把响应体获取</span></span><br><span class="line">    <span class="built_in">console</span>.log(xhr.responseText);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
+<p>异步对象的 readyState 属性，是一个从 0-4 不断变化的数字，每个数字代表一个状态，我们只需要大概了解一下，关心最终的结果就可以了</p>
+<h2 id="fetch"><a href="#fetch" class="headerlink" title="fetch"></a>fetch</h2><blockquote>
+<p>基本用法</p>
+</blockquote>
+<h3 id="get"><a href="#get" class="headerlink" title="get"></a>get</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fetch(url).then(<span class="function"><span class="params">res</span>=&gt;</span>res.json()).then(<span class="function"><span class="params">data</span>=&gt;</span><span class="built_in">console</span>.log(data))</span><br></pre></td></tr></table></figure>
 
+<h3 id="配置Fetch请求"><a href="#配置Fetch请求" class="headerlink" title="配置Fetch请求"></a>配置Fetch请求</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">fetch(url, &#123;</span><br><span class="line">    method: <span class="string">&#x27;POST&#x27;</span>, <span class="comment">// *GET, POST, PUT, DELETE, etc.</span></span><br><span class="line">    mode: <span class="string">&#x27;cors&#x27;</span>, <span class="comment">// no-cors, *cors, same-origin</span></span><br><span class="line">    cache: <span class="string">&#x27;no-cache&#x27;</span>, <span class="comment">// *default, no-cache, reload, force-cache, only-if-cached</span></span><br><span class="line">    credentials: <span class="string">&#x27;same-origin&#x27;</span>, <span class="comment">// include(含cookie), *same-origin, omit</span></span><br><span class="line">    headers: &#123;</span><br><span class="line">      <span class="string">&#x27;Content-Type&#x27;</span>: <span class="string">&#x27;application/json&#x27;</span></span><br><span class="line">      <span class="comment">// &#x27;Content-Type&#x27;: &#x27;application/x-www-form-urlencoded&#x27;,</span></span><br><span class="line">    &#125;,</span><br><span class="line">    redirect: <span class="string">&#x27;follow&#x27;</span>, <span class="comment">// manual, *follow, error</span></span><br><span class="line">    referrerPolicy: <span class="string">&#x27;no-referrer&#x27;</span>, <span class="comment">// no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url</span></span><br><span class="line">    body: <span class="built_in">JSON</span>.stringify(data) <span class="comment">// body data type must match &quot;Content-Type&quot; header</span></span><br><span class="line">  &#125;);</span><br></pre></td></tr></table></figure>
 
-<p>异步对象的readyState属性，是一个从0-4不断变化的数字，每个数字代表一个状态，我们只需要大概了解一下，关心最终的结果就可以了</p>
+<blockquote>
+<p>备注： 当请求使用 credentials: ‘include’ 时，响应的 Access-Control-Allow-Origin 不能使用通配符 “*”。在这种情况下，Access-Control-Allow-Origin 必须是当前请求的源，在使用 CORS Unblock 插件的情况下请求仍会失败。</p>
+</blockquote>
 
   
   
@@ -590,10 +598,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-04-13T11:51:00+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-12-07T16:44:06+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
-    <p>本页文档最后更新于：2021年4月13日</p>
+    <p>本页文档最后更新于：2021年12月7日</p>
   </a>
 </div>
 
@@ -616,7 +624,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
         <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer noopener"
           
           target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://wang-z.gitee.io/2019/01/10/ajax-ajax%E8%AF%B7%E6%B1%82/&title=ajax请求 - Mr.wang'blog&summary=
-AJAX的基本请求方式
+AJAX 的基本请求方式
 "
           
           >
@@ -630,7 +638,7 @@ AJAX的基本请求方式
         <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer noopener"
           
           target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://wang-z.gitee.io/2019/01/10/ajax-ajax%E8%AF%B7%E6%B1%82/&title=ajax请求 - Mr.wang'blog&summary=
-AJAX的基本请求方式
+AJAX 的基本请求方式
 "
           
           >
@@ -644,7 +652,7 @@ AJAX的基本请求方式
         <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer noopener"
           
           target="_blank" href="http://service.weibo.com/share/share.php?url=http://wang-z.gitee.io/2019/01/10/ajax-ajax%E8%AF%B7%E6%B1%82/&title=ajax请求 - Mr.wang'blog&summary=
-AJAX的基本请求方式
+AJAX 的基本请求方式
 "
           
           >
@@ -742,7 +750,7 @@ Box 是 CSS 布局的对象和基本单位，页面是由若干个Box组成的�
 
 
     <div class='content'>
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#AJAX"><span class="toc-text">AJAX</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#AJAX"><span class="toc-text">AJAX</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#fetch"><span class="toc-text">fetch</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#get"><span class="toc-text">get</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%85%8D%E7%BD%AEFetch%E8%AF%B7%E6%B1%82"><span class="toc-text">配置Fetch请求</span></a></li></ol></li></ol>
     </div>
   </section>
 
