@@ -546,6 +546,24 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <p>uniapp-搭建APP过程</p>
 </blockquote>
 <span id="more"></span>
+
+<p><a target="_blank" rel="noopener" href="https://uniapp.dcloud.io/">uniapp文档</a></p>
+<p><a target="_blank" rel="noopener" href="https://dev.dcloud.net.cn/">开发者中心</a></p>
+<p><img src="https://wang-z.gitee.io/img/uniapp-frame.png" class="lazyload" data-srcset="https://wang-z.gitee.io/img/uniapp-frame.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="uniapp-frame"></p>
+<h2 id="快速上手"><a href="#快速上手" class="headerlink" title="快速上手"></a>快速上手</h2><p>HBuilderX：<a target="_blank" rel="noopener" href="https://www.dcloud.io/hbuilderx.html">官方IDE下载地址</a></p>
+<h3 id="创建uni-app"><a href="#创建uni-app" class="headerlink" title="创建uni-app"></a>创建uni-app</h3><p><img src="https://bjetxgzv.cdn.bspapp.com/VKCEYUGU-uni-app-doc/b925a1c0-4f19-11eb-97b7-0dc4655d6e68.png" class="lazyload" data-srcset="https://bjetxgzv.cdn.bspapp.com/VKCEYUGU-uni-app-doc/b925a1c0-4f19-11eb-97b7-0dc4655d6e68.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="quick-creat"></p>
+<p>后续查看<a target="_blank" rel="noopener" href="https://uniapp.dcloud.io/quickstart-hx.html#%E8%BF%90%E8%A1%8Cuni-app">官方文档</a>。。。。</p>
+<h2 id="打包为原生App"><a href="#打包为原生App" class="headerlink" title="打包为原生App"></a>打包为原生App</h2><blockquote>
+<p>在HBuilderX工具栏，点击发行，选择原生app-云端打包，如下图：</p>
+</blockquote>
+<p><img src="https://bjetxgzv.cdn.bspapp.com/VKCEYUGU-uni-app-doc/b8332fd0-4f37-11eb-8ff1-d5dcf8779628.png" class="lazyload" data-srcset="https://bjetxgzv.cdn.bspapp.com/VKCEYUGU-uni-app-doc/b8332fd0-4f37-11eb-8ff1-d5dcf8779628.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" alt="build-app"></p>
+<p>云端打包支持安心打包，保护用户隐私，不会上传代码和证书，通过差量包制作方式实现安心打包。详见：<a target="_blank" rel="noopener" href="https://ask.dcloud.net.cn/article/37979">https://ask.dcloud.net.cn/article/37979</a>(opens new window)</p>
+<p>云打包也支持cli模式，通过HBuilderX的cli方式（不是uni-app的cli），可以调用命令行打包，方便持续集成。详见：<a target="_blank" rel="noopener" href="https://hx.dcloud.net.cn/cli/pack">https://hx.dcloud.net.cn/cli/pack</a>(opens new window)</p>
+<p>虽然安心打包已经满足需求，但如仍然希望自己使用 xcode 或 Android studio 进行离线打包，则在 HBuilderX 发行菜单里找到本地打包菜单，生成离线打包资源，然后参考离线打包文档操作：<a target="_blank" rel="noopener" href="https://nativesupport.dcloud.net.cn/AppDocs/README">https://nativesupport.dcloud.net.cn/AppDocs/README</a> (opens new window)。</p>
+<p>App打包时，注意如何涉及三方sdk，需进行申请并在manifest.json里配置，否则相关功能无法使用。</p>
+<p>iOS App打包需要向Apple申请证书</p>
+<h2 id="离线打包"><a href="#离线打包" class="headerlink" title="离线打包"></a>离线打包</h2><p><a target="_blank" rel="noopener" href="https://nativesupport.dcloud.net.cn/AppDocs/README">参考文档</a></p>
+
   
   
     
@@ -579,10 +597,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2022-02-24T14:42:59+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2022-03-03T10:36:33+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
-    <p>本页文档最后更新于：2022年2月24日</p>
+    <p>本页文档最后更新于：2022年3月3日</p>
   </a>
 </div>
 
@@ -664,6 +682,16 @@ uniapp-搭建APP过程
   
     <div class="prev-next">
       
+        <a class='prev' href='/2022/03/01/vue-%E5%89%8D%E7%AB%AFhash%E5%92%8Chistory%E8%B7%AF%E7%94%B1%E4%BB%A5%E5%8F%8A%E9%A2%84%E6%B8%B2%E6%9F%93/'>
+          <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>前端hash和history路由以及预渲染</p>
+          <p class='content'>
+前端hash和history路由以及预渲染使用插件prerender-spa-plugin
+
+
+
+hash模式原理: 在 url 中的 # 之后对应的是 hash 值, 其原理是通过hashC...</p>
+        </a>
+      
       
         <a class='next' href='/2022/02/24/puppeteer-%E6%97%A0%E5%A4%B4%E6%B5%8F%E8%A7%88%E5%99%A8%E4%BD%BF%E7%94%A8/'>
           <p class='title'>无头浏览器基础使用<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
@@ -710,6 +738,20 @@ uniapp-搭建APP过程
     
 
 
+
+  <section class="widget toc-wrapper shadow desktop mobile" id="toc-div" >
+    
+  <header>
+    
+      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
+    
+  </header>
+
+
+    <div class='content'>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B"><span class="toc-text">快速上手</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%9B%E5%BB%BAuni-app"><span class="toc-text">创建uni-app</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%89%93%E5%8C%85%E4%B8%BA%E5%8E%9F%E7%94%9FApp"><span class="toc-text">打包为原生App</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A6%BB%E7%BA%BF%E6%89%93%E5%8C%85"><span class="toc-text">离线打包</span></a></li></ol>
+    </div>
+  </section>
 
 
   

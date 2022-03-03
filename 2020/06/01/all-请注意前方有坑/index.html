@@ -592,6 +592,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 </blockquote>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">fetch(<span class="string">&quot;./bar.json&quot;</span>)</span><br><span class="line">        .then(<span class="function">(<span class="params">res</span>) =&gt;</span> res.json())</span><br><span class="line">        .then(<span class="function">(<span class="params">data</span>) =&gt;</span> &#123;</span><br><span class="line">          <span class="built_in">console</span>.log(data);</span><br><span class="line">        &#125;);</span><br></pre></td></tr></table></figure>
 
+<h1 id="谷歌浏览器保留页面跳转前的请求"><a href="#谷歌浏览器保留页面跳转前的请求" class="headerlink" title="谷歌浏览器保留页面跳转前的请求"></a>谷歌浏览器保留页面跳转前的请求</h1><p>开发中往往会遇到这样的情况，调试一个请求，但是请求中有报错的跳转，结果一刷新页面就自动跳转了，也看不到请求报错，这个时候只要勾选上preserver log即可</p>
 
   
   
@@ -626,10 +627,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-11-10T14:19:42+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2022-03-03T10:37:33+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
-    <p>本页文档最后更新于：2021年11月10日</p>
+    <p>本页文档最后更新于：2022年3月3日</p>
   </a>
 </div>
 
@@ -732,15 +733,14 @@ Flag
         </a>
       
       
-        <a class='next' href='/2020/05/20/js-%E5%AE%9E%E7%94%A8%E6%96%B9%E6%B3%95/'>
-          <p class='title'>js实用方法<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+        <a class='next' href='/2020/05/20/js-%E5%AE%9E%E7%94%A8%E6%96%B9%E6%B3%95-%E5%9F%BA%E6%9C%AC%E7%B1%BB%E5%9E%8B%E4%B8%8E%E6%97%A5%E6%9C%9F/'>
+          <p class='title'>js实用方法-字符串与日期<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
           <p class='content'>
-记录开发中的 js 函数对于字符串，数组，对象的转化，过滤，优化
-class 类方法的使用
+记录开发中的字符串与日期处理的方法
 
 
 
-技巧及有趣的方法操作Date检查日期是否有效12const isDateValid = (.....</p>
+技巧及有趣的方法操作Date检查日期是否有效12const isDateValid = (...val) =&gt; !Number.isNaN(ne...</p>
         </a>
       
     </div>
