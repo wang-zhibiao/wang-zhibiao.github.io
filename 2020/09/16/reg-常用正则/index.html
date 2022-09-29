@@ -547,9 +547,11 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 </blockquote>
 <span id="more"></span>
 
-<h2 id="常用正则"><a href="#常用正则" class="headerlink" title="常用正则"></a>常用正则</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">/^\d*(\.?\d&#123;<span class="number">0</span>,<span class="number">1</span>&#125;)/g <span class="comment">//匹配小数点为一位</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="常用正则"><a href="#常用正则" class="headerlink" title="常用正则"></a>常用正则</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/^\d*(\.?\d&#123;<span class="number">0</span>,<span class="number">1</span>&#125;)/g; <span class="comment">//匹配小数点为一位</span></span><br></pre></td></tr></table></figure>
 
-<h3 id="是否为外部链接"><a href="#是否为外部链接" class="headerlink" title="是否为外部链接"></a>是否为外部链接</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">isExternal</span>(<span class="params">path</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="regexp">/^(https?:|mailto:|tel:)/</span>.test(path)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="是否为外部链接"><a href="#是否为外部链接" class="headerlink" title="是否为外部链接"></a>是否为外部链接</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">isExternal</span>(<span class="params">path</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="regexp">/^(https?:|mailto:|tel:)/</span>.test(path);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="不能为空且不包含"><a href="#不能为空且不包含" class="headerlink" title="不能为空且不包含(/)"></a>不能为空且不包含(/)</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/^\S((?!\/).)*$/</span><br></pre></td></tr></table></figure>
 
 
   
@@ -585,10 +587,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2021-04-13T11:51:00+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2022-04-26T16:20:08+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
-    <p>本页文档最后更新于：2021年4月13日</p>
+    <p>本页文档最后更新于：2022年4月26日</p>
   </a>
 </div>
 
@@ -733,7 +735,7 @@ vue 自定义指令自定义指令的钩子函数（1）bind:指令第一次绑�
 
 
     <div class='content'>
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8%E6%AD%A3%E5%88%99"><span class="toc-text">常用正则</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%98%AF%E5%90%A6%E4%B8%BA%E5%A4%96%E9%83%A8%E9%93%BE%E6%8E%A5"><span class="toc-text">是否为外部链接</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8%E6%AD%A3%E5%88%99"><span class="toc-text">常用正则</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%98%AF%E5%90%A6%E4%B8%BA%E5%A4%96%E9%83%A8%E9%93%BE%E6%8E%A5"><span class="toc-text">是否为外部链接</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%8D%E8%83%BD%E4%B8%BA%E7%A9%BA%E4%B8%94%E4%B8%8D%E5%8C%85%E5%90%AB"><span class="toc-text">不能为空且不包含(&#x2F;)</span></a></li></ol>
     </div>
   </section>
 
